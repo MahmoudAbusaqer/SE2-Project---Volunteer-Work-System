@@ -10,5 +10,8 @@ package View;
  * @author Mahmoud_Abusaqer
  */
 public class CreateInitiativeScreen {
-    
+
+    public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
+
+    }
 }

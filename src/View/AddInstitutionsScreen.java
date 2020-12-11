@@ -11,4 +11,7 @@ package View;
  */
 public class AddInstitutionsScreen {
     
+    public void AddInstitutionInput(String name, String email, String distict, int phone, int district){
+        
+    }
 }

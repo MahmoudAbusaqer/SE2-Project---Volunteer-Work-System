@@ -5,27 +5,27 @@
  */
 package Controller;
 
-import Model.Report;
-import View.ReportScreen;
+import Model.StudentMailbox;
+import View.StudentMailboxScreen;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class ReportManager {
+public class StudentMailboxManager {
 
-    private Report model;
-    private ReportScreen view;
+    private StudentMailbox model;
+    private StudentMailboxScreen view;
 
-    public ReportManager(Report model) {
+    public StudentMailboxManager(StudentMailbox model) {
         this.model = model;
     }
 
-    public void setView(ReportScreen view) {
+    public void setView(StudentMailboxScreen view) {
         this.view = view;
     }
 
-    public void updateView(Report model) {
+    public void updateView(StudentMailbox model) {
 
     }
 }

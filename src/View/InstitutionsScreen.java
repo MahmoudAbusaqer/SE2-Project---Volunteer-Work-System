@@ -10,5 +10,12 @@ package View;
  * @author Mahmoud_Abusaqer
  */
 public class InstitutionsScreen {
-    
+
+    public void showInstitutions(String name, String email, String address, int phone) {
+
+    }
+
+    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
+
+    }
 }

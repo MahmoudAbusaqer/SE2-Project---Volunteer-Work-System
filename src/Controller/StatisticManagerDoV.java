@@ -5,27 +5,27 @@
  */
 package Controller;
 
-import Model.Report;
-import View.ReportScreen;
+import Model.StatisticsDoV;
+import View.StatisticsScreenDoV;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class ReportManager {
+public class StatisticManagerDoV {
 
-    private Report model;
-    private ReportScreen view;
+    private StatisticsDoV model;
+    private StatisticsScreenDoV view;
 
-    public ReportManager(Report model) {
+    public StatisticManagerDoV(StatisticsDoV model) {
         this.model = model;
     }
 
-    public void setView(ReportScreen view) {
+    public void setView(StatisticsScreenDoV view) {
         this.view = view;
     }
 
-    public void updateView(Report model) {
+    public void updateView(StatisticsDoV model) {
 
     }
 }

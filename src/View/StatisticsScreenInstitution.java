@@ -10,5 +10,8 @@ package View;
  * @author Mahmoud_Abusaqer
  */
 public class StatisticsScreenInstitution {
-    
+
+    public void showStatistics() {
+
+    }
 }

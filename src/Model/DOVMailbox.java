@@ -12,6 +12,7 @@ import java.util.Date;
  * @author Mahmoud_Abusaqer
  */
 public class DOVMailbox {
+
     private int senderId;
     private String senderName;
     private String title;
@@ -19,7 +20,52 @@ public class DOVMailbox {
     private Date date;
     private boolean approveOrDeny;
 
-    public DOVMailbox() {
+    public int getSenderId() {
+        return senderId;
     }
-    
+
+    public void setSenderId(int senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isApproveOrDeny() {
+        return approveOrDeny;
+    }
+
+    public void setApproveOrDeny(boolean approveOrDeny) {
+        this.approveOrDeny = approveOrDeny;
+    }
+
 }

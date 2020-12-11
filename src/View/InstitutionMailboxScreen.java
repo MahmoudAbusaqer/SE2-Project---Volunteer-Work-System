@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package View;
+
+import java.util.Date;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class StatisticManager {
-    
+public class InstitutionMailboxScreen {
+
+    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
+
+    }
 }

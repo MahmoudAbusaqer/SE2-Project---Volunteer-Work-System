@@ -10,6 +10,7 @@ package Model;
  * @author Mahmoud_Abusaqer
  */
 public class CreateInitiative {
+
     private int studentId;
     private String name;
     private String location;
@@ -17,7 +18,52 @@ public class CreateInitiative {
     private int phone;
     private int numberOfVolunteers;
 
-    public CreateInitiative() {
+    public int getStudentId() {
+        return studentId;
     }
-    
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public int getNumberOfVolunteers() {
+        return numberOfVolunteers;
+    }
+
+    public void setNumberOfVolunteers(int numberOfVolunteers) {
+        this.numberOfVolunteers = numberOfVolunteers;
+    }
+
 }

@@ -5,27 +5,27 @@
  */
 package Controller;
 
-import Model.Report;
-import View.ReportScreen;
+import Model.DOVMailbox;
+import View.DoVMailbox;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class ReportManager {
+public class dovMailboxManager {
 
-    private Report model;
-    private ReportScreen view;
+    private DOVMailbox model;
+    private DoVMailbox view;
 
-    public ReportManager(Report model) {
+    public dovMailboxManager(DOVMailbox model) {
         this.model = model;
     }
 
-    public void setView(ReportScreen view) {
+    public void setView(DoVMailbox view) {
         this.view = view;
     }
 
-    public void updateView(Report model) {
+    public void updateView(DOVMailbox model) {
 
     }
 }

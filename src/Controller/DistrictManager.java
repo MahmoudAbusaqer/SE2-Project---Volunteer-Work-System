@@ -5,27 +5,27 @@
  */
 package Controller;
 
-import Model.Report;
-import View.ReportScreen;
+import Model.District;
+import View.DistrictScreen;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class ReportManager {
+public class DistrictManager {
 
-    private Report model;
-    private ReportScreen view;
+    private District model;
+    private DistrictScreen view;
 
-    public ReportManager(Report model) {
+    public DistrictManager(District model) {
         this.model = model;
     }
 
-    public void setView(ReportScreen view) {
+    public void setView(DistrictScreen view) {
         this.view = view;
     }
 
-    public void updateView(Report model) {
+    public void updateView(District model) {
 
     }
 }

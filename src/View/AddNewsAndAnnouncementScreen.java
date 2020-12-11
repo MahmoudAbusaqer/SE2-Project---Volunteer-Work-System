@@ -5,10 +5,15 @@
  */
 package View;
 
+import java.util.Date;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class AddNewsAndAnnouncementScreen {
-    
+
+    public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
+
+    }
 }

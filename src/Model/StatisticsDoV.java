@@ -10,6 +10,7 @@ package Model;
  * @author Mahmoud_Abusaqer
  */
 public class StatisticsDoV {
+
     private int volunteersNumbers;
     private int institutionsNumbers;
     private int finishedVolunteersNumbers;
@@ -17,7 +18,52 @@ public class StatisticsDoV {
     private int activeVolunteers;
     private int activeInitiatives;
 
-    public StatisticsDoV() {
+    public int getVolunteersNumbers() {
+        return volunteersNumbers;
     }
-    
+
+    public void setVolunteersNumbers(int volunteersNumbers) {
+        this.volunteersNumbers = volunteersNumbers;
+    }
+
+    public int getInstitutionsNumbers() {
+        return institutionsNumbers;
+    }
+
+    public void setInstitutionsNumbers(int institutionsNumbers) {
+        this.institutionsNumbers = institutionsNumbers;
+    }
+
+    public int getFinishedVolunteersNumbers() {
+        return finishedVolunteersNumbers;
+    }
+
+    public void setFinishedVolunteersNumbers(int finishedVolunteersNumbers) {
+        this.finishedVolunteersNumbers = finishedVolunteersNumbers;
+    }
+
+    public int getInitiatives() {
+        return initiatives;
+    }
+
+    public void setInitiatives(int initiatives) {
+        this.initiatives = initiatives;
+    }
+
+    public int getActiveVolunteers() {
+        return activeVolunteers;
+    }
+
+    public void setActiveVolunteers(int activeVolunteers) {
+        this.activeVolunteers = activeVolunteers;
+    }
+
+    public int getActiveInitiatives() {
+        return activeInitiatives;
+    }
+
+    public void setActiveInitiatives(int activeInitiatives) {
+        this.activeInitiatives = activeInitiatives;
+    }
+
 }

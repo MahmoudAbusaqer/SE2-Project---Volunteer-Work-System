@@ -10,5 +10,12 @@ package View;
  * @author Mahmoud_Abusaqer
  */
 public class DistrictScreen {
-    
+
+    public void showDistrict() {
+
+    }
+
+    public void districtChose(String district) {
+
+    }
 }

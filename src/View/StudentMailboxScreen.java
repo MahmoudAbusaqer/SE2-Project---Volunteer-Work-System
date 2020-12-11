@@ -5,10 +5,15 @@
  */
 package View;
 
+import java.util.Date;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class InstitutionMailbox {
-    
+public class StudentMailboxScreen {
+
+    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
+
+    }
 }

@@ -10,5 +10,12 @@ package View;
  * @author Mahmoud_Abusaqer
  */
 public class ReportScreen {
-    
+
+    public void showReport() {
+
+    }
+
+    public void reportInput(int studentId, String studentName, String institutionName, String report) {
+
+    }
 }
