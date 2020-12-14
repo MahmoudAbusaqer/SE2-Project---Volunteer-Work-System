@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.CreateInitiative;
-import View.CreateInitiativeScreen;
 
 /**
  *
@@ -15,17 +14,12 @@ import View.CreateInitiativeScreen;
 public class CreateInitiativeManager {
 
     private CreateInitiative model;
-    private CreateInitiativeScreen view;
 
     public CreateInitiativeManager(CreateInitiative model) {
         this.model = model;
     }
 
-    public void setView(CreateInitiativeScreen view) {
-        this.view = view;
-    }
-
-    public void updateView(CreateInitiative model) {
+    public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
 
     }
 }

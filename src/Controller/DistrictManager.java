@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.District;
-import View.DistrictScreen;
 
 /**
  *
@@ -15,17 +14,16 @@ import View.DistrictScreen;
 public class DistrictManager {
 
     private District model;
-    private DistrictScreen view;
 
     public DistrictManager(District model) {
         this.model = model;
     }
 
-    public void setView(DistrictScreen view) {
-        this.view = view;
+    public void showDistrict() {
+
     }
 
-    public void updateView(District model) {
+    public void districtChose(String district) {
 
     }
 }

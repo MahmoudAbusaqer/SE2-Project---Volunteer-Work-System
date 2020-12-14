@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.StatisticsInstitution;
-import View.StatisticsScreenInstitution;
 
 /**
  *
@@ -15,17 +14,12 @@ import View.StatisticsScreenInstitution;
 public class StatisticManagerInstitution {
 
     private StatisticsInstitution model;
-    private StatisticsScreenInstitution view;
 
     public StatisticManagerInstitution(StatisticsInstitution model) {
         this.model = model;
     }
 
-    public void setView(StatisticsScreenInstitution view) {
-        this.view = view;
-    }
-
-    public void updateView(StatisticsInstitution model) {
+    public void showStatistics() {
 
     }
 }

@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.StatisticsDoV;
-import View.StatisticsScreenDoV;
 
 /**
  *
@@ -15,17 +14,12 @@ import View.StatisticsScreenDoV;
 public class StatisticManagerDoV {
 
     private StatisticsDoV model;
-    private StatisticsScreenDoV view;
 
     public StatisticManagerDoV(StatisticsDoV model) {
         this.model = model;
     }
 
-    public void setView(StatisticsScreenDoV view) {
-        this.view = view;
-    }
-
-    public void updateView(StatisticsDoV model) {
+    public void showStatistics() {
 
     }
 }

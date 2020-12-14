@@ -5,13 +5,27 @@
  */
 package View;
 
+import Controller.AddInstitutionsManager;
+import Model.AddInstitutions;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class AddInstitutionsScreen {
-    
-    public void AddInstitutionInput(String name, String email, String distict, int phone, int district){
-        
+
+    private AddInstitutions model;
+    private AddInstitutionsManager controller;
+
+    public AddInstitutionsScreen(AddInstitutions model) {
+        this.model = model;
+    }
+
+    public void setController(AddInstitutionsManager controller) {
+        this.controller = controller;
+    }
+
+    public void AddInstitutionInput(String name, String email, String distict, int phone, int district) {
+
     }
 }

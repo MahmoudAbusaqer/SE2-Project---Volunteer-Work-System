@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.InstitutionMailbox;
-import View.InstitutionMailboxScreen;
+import java.util.Date;
 
 /**
  *
@@ -15,17 +15,12 @@ import View.InstitutionMailboxScreen;
 public class InstitutionMailboxManager {
 
     private InstitutionMailbox model;
-    private InstitutionMailboxScreen view;
 
     public InstitutionMailboxManager(InstitutionMailbox model) {
         this.model = model;
     }
 
-    public void setView(InstitutionMailboxScreen view) {
-        this.view = view;
-    }
-
-    public void updateView(InstitutionMailbox model) {
+    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
 
     }
 }

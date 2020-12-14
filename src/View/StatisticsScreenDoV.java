@@ -5,11 +5,25 @@
  */
 package View;
 
+import Controller.StatisticManagerDoV;
+import Model.StatisticsDoV;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class StatisticsScreenDoV {
+
+    private StatisticsDoV model;
+    private StatisticManagerDoV controller;
+
+    public StatisticsScreenDoV(StatisticsDoV model) {
+        this.model = model;
+    }
+
+    public void setController(StatisticManagerDoV controller) {
+        this.controller = controller;
+    }
 
     public void showStatistics() {
 

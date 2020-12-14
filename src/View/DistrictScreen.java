@@ -5,11 +5,25 @@
  */
 package View;
 
+import Controller.DistrictManager;
+import Model.District;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class DistrictScreen {
+
+    private District model;
+    private DistrictManager controller;
+
+    public DistrictScreen(District model) {
+        this.model = model;
+    }
+
+    public void setController(DistrictManager controller) {
+        this.controller = controller;
+    }
 
     public void showDistrict() {
 

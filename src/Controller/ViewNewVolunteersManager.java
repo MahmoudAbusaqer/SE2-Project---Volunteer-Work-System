@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.RequestVolunteer;
-import View.ViewNewVolunteersScreen;
 
 /**
  *
@@ -15,17 +14,12 @@ import View.ViewNewVolunteersScreen;
 public class ViewNewVolunteersManager {
 
     private RequestVolunteer model;
-    private ViewNewVolunteersScreen view;
 
     public ViewNewVolunteersManager(RequestVolunteer model) {
         this.model = model;
     }
 
-    public void setView(ViewNewVolunteersScreen view) {
-        this.view = view;
-    }
-
-    public void updateView(RequestVolunteer model) {
+    public void showNewVolunteers() {
 
     }
 }

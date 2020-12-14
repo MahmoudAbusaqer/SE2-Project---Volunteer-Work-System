@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.AddInstitutions;
-import View.AddInstitutionsScreen;
 
 /**
  *
@@ -15,17 +14,12 @@ import View.AddInstitutionsScreen;
 public class AddInstitutionsManager {
 
     private AddInstitutions model;
-    private AddInstitutionsScreen view;
 
     public AddInstitutionsManager(AddInstitutions model) {
         this.model = model;
     }
 
-    public void setView(AddInstitutionsScreen view) {
-        this.view = view;
-    }
-
-    public void updateView(AddInstitutions model) {
+    public void AddInstitutionInput(String name, String email, String distict, int phone, int district) {
 
     }
 }

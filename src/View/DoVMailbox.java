@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.dovMailboxManager;
+import Model.DOVMailbox;
 import java.util.Date;
 
 /**
@@ -12,6 +14,17 @@ import java.util.Date;
  * @author Mahmoud_Abusaqer
  */
 public class DoVMailbox {
+
+    private DOVMailbox model;
+    private dovMailboxManager controller;
+
+    public DoVMailbox(DOVMailbox model) {
+        this.model = model;
+    }
+
+    public void setController(dovMailboxManager controller) {
+        this.controller = controller;
+    }
 
     public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
 

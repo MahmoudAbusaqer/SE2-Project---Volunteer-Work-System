@@ -5,11 +5,25 @@
  */
 package View;
 
+import Controller.ViewNewVolunteersManager;
+import Model.RequestVolunteer;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class ViewNewVolunteersScreen {
+
+    private RequestVolunteer model;
+    private ViewNewVolunteersManager controller;
+
+    public ViewNewVolunteersScreen(RequestVolunteer model) {
+        this.model = model;
+    }
+
+    public void setController(ViewNewVolunteersManager controller) {
+        this.controller = controller;
+    }
 
     public void showNewVolunteers() {
 

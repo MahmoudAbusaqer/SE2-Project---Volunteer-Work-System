@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.StudentMailbox;
-import View.StudentMailboxScreen;
+import java.util.Date;
 
 /**
  *
@@ -15,17 +15,12 @@ import View.StudentMailboxScreen;
 public class StudentMailboxManager {
 
     private StudentMailbox model;
-    private StudentMailboxScreen view;
 
     public StudentMailboxManager(StudentMailbox model) {
         this.model = model;
     }
 
-    public void setView(StudentMailboxScreen view) {
-        this.view = view;
-    }
-
-    public void updateView(StudentMailbox model) {
+    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
 
     }
 }

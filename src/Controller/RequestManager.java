@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.RequestVolunteer;
-import View.InstitutionsScreen;
 
 /**
  *
@@ -15,17 +14,16 @@ import View.InstitutionsScreen;
 public class RequestManager {
 
     private RequestVolunteer model;
-    private InstitutionsScreen view;
 
     public RequestManager(RequestVolunteer model) {
         this.model = model;
     }
 
-    public void setView(InstitutionsScreen view) {
-        this.view = view;
+    public void showInstitutions(String name, String email, String address, int phone) {
+
     }
 
-    public void updateView(RequestVolunteer model) {
+    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
 
     }
 }

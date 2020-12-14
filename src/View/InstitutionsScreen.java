@@ -5,11 +5,25 @@
  */
 package View;
 
+import Controller.RequestManager;
+import Model.RequestVolunteer;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class InstitutionsScreen {
+
+    private RequestVolunteer model;
+    private RequestManager controller;
+
+    public InstitutionsScreen(RequestVolunteer model) {
+        this.model = model;
+    }
+
+    public void setController(RequestManager controller) {
+        this.controller = controller;
+    }
 
     public void showInstitutions(String name, String email, String address, int phone) {
 

@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.Report;
-import View.ReportScreen;
 
 /**
  *
@@ -15,17 +14,16 @@ import View.ReportScreen;
 public class ReportManager {
 
     private Report model;
-    private ReportScreen view;
 
     public ReportManager(Report model) {
         this.model = model;
     }
 
-    public void setView(ReportScreen view) {
-        this.view = view;
+    public void showReport() {
+
     }
 
-    public void updateView(Report model) {
+    public void reportInput(int studentId, String studentName, String institutionName, String report) {
 
     }
 }
