@@ -5,7 +5,11 @@
  */
 package Controller;
 
-import Model.RequestVolunteer;
+import Model.DBConnection;
+import Model.ViewNewVolunteers;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,13 +17,44 @@ import Model.RequestVolunteer;
  */
 public class ViewNewVolunteersManager {
 
-    private RequestVolunteer model;
+    private ViewNewVolunteers model;
+    private Connection connection;
 
-    public ViewNewVolunteersManager(RequestVolunteer model) {
+    public ViewNewVolunteersManager(ViewNewVolunteers model) {
         this.model = model;
+        connection = DBConnection.getConnection();
     }
 
     public void showNewVolunteers() {
+
+    }
+
+    public void add(ViewNewVolunteers newObject) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("insert into viewnewvolunteers(studentId, name, faculty, address, email, phone) values (?, ?, ?, ?, ?, ?)");
+            statement.setInt(1, newObject.getId());
+            statement.setString(2, newObject.getName());
+            statement.setString(3, newObject.getFaculty());
+            statement.setString(4, newObject.getAddress());
+            statement.setString(5, newObject.getEmail());
+            statement.setInt(6, newObject.getPhone());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(int objectId) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("delete from viewnewvolunteers where id=?");
+            statement.setInt(1, objectId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void edit(int objectId) {
 
     }
 }
