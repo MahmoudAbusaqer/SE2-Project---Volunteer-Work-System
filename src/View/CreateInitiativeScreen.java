@@ -8,6 +8,13 @@ package View;
 import Controller.CreateInitiativeManager;
 import Model.CreateInitiative;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+
 /**
  *
  * @author Mahmoud_Abusaqer
@@ -28,4 +35,76 @@ public class CreateInitiativeScreen {
     public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
 
     }
-}
+
+        @FXML
+        private Pane rootpane;
+
+        @FXML
+        private Button ButtonMainPage;
+
+        @FXML
+        private Button ButtonApplyVolunteerPage;
+
+        @FXML
+        private Button ButtonAddInstitutionPage;
+
+        @FXML
+        private Button ButtonStudentMailBox;
+
+        @FXML
+        private Button ExitButton;
+
+        @FXML
+        private TextField TextFieldStudentId;
+
+        @FXML
+        private TextField TextFieldStudentName;
+
+        @FXML
+        private TextField TextFieldStudentPhone;
+
+        @FXML
+        private TextField TextFieldInitiativeAddress;
+
+        @FXML
+        private TextField TextFieldaNumbersOfVolunteers;
+
+        @FXML
+        private TextArea TextAreaIntitativeDescription;
+
+        @FXML
+        private Button ButtonSubmit;
+
+        @FXML
+        void ButtonExit(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonAddInstitutionPage(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonApplyVolunteerPage(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonMainPage(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonStudentMailBox(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonSubmit(ActionEvent event) {
+
+        }
+
+    }
+
+
