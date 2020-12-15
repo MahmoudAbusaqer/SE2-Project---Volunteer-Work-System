@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CurrentInventory">
+   <children>
+      <TilePane layoutX="206.0" layoutY="-1.0" prefHeight="88.0" prefWidth="1107.0" style="-fx-background-color: gray;">
+         <children>
+            <Label prefHeight="88.0" prefWidth="1108.0" style="-fx-background-color: #2969B0;" text="اقتراح مبادرة جديدة" textAlignment="CENTER" textFill="WHITE">
+               <padding>
+                  <Insets left="400.0" />
+               </padding>
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="96.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../GUI%20Wallpapers/IUGNewStudent.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </TilePane>
+      <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
+         <children>
+            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonApplyVolunteerPage" mnemonicParsing="false" onAction="#buttonApplyVolunteerPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="التقدم للعمل التطوعي" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonAddInstitutionPage" mnemonicParsing="false" onAction="#buttonAddInstitutionPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اقتراح مبادرة" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonStudentMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد الطالب" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="خروج" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="439.0" layoutY="109.0" prefHeight="308.0" prefWidth="337.0" style="-fx-border-color: #2969B0;">
+         <children>
+            <GridPane alignment="TOP_RIGHT" hgap="10.0" prefHeight="198.0" prefWidth="323.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="130.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="100.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="رقم الطالب" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="الاسم" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="رقم الهاتف" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="عنوان المبادرة" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" layoutX="145.0" layoutY="134.0" prefHeight="17.0" prefWidth="107.0" text="عدد المتطوعين" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label alignment="CENTER" layoutX="145.0" layoutY="18.0" prefHeight="17.0" prefWidth="107.0" text="تفاصيل المبادرة" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="TextFieldStudentId" prefHeight="14.0" prefWidth="145.0">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldStudentName" prefHeight="2.0" prefWidth="145.0" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldStudentPhone" prefHeight="0.0" prefWidth="145.0" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldInitiativeAddress" prefHeight="0.0" prefWidth="145.0" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="TextFieldaNumbersOfVolunteers" prefHeight="0.0" prefWidth="145.0" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextArea fx:id="TextAreaIntitativeDescription" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="51.0" prefWidth="150.0" style="-fx-cursor: text;" wrapText="true" GridPane.rowIndex="5">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextArea>
+               </children>
+            </GridPane>
+            <Line endX="233.2928924560547" endY="1.9142005443572998" startX="-100.0" stroke="#2969b0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Line>
+            <Button fx:id="ButtonSubmit" alignment="CENTER" mnemonicParsing="false" onAction="#buttonSubmit" style="-fx-font-weight: bold; -fx-font-family: Helvetica;" text="ارسال الطلب">
+               <VBox.margin>
+                  <Insets left="15.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <TextArea layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="441.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="يمكنك عزيزي/تي الطالب/ة تقديم طلب اقتراح مبادرة جديدة غير مدرجة ضمن لوائحنا.&#10;قم بتعبئة الطلب وادخال المعلومات التالية وسنقوم بالنظر في طلبك." wrapText="true">
+         <effect>
+            <ColorAdjust brightness="-0.21" contrast="0.45">
+               <input>
+                  <ColorAdjust />
+               </input>
+            </ColorAdjust>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextArea>
+   </children>
+</Pane>

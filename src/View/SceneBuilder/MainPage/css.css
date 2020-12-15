@@ -1,0 +1,32 @@
+.grad {
+-fx-background-color: linear-gradient(#413A50, #2A4166);
+}
+
+.img{
+    border-radius: 50%;
+}
+
+.button1 {
+  -fx-border: none;
+ // -fx-color: white;
+  -fx-padding: 20px;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 16px;
+  -fx-margin: 4px 2px;
+  -fx-cursor: pointer;
+  -fx-background-radius: 50%;
+}
+
+button1:focus {
+  -fx-background-color: yellow;
+}
+
+.corners {
+  -fx-background-radius: 25px;
+  -fx-background: #73AD21;
+  -fx-padding: 20px;
+  -fx-width: 200px;
+  -fx-height: 150px;
+}
