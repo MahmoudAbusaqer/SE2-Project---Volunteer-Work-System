@@ -20,7 +20,7 @@
                <graphic>
                   <ImageView fitHeight="96.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="View/SceneBuilder/DOVGUI/DOVPic/IUGNewStudent.jpg" />
+                        <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGNewStudent.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -67,7 +67,7 @@
          <children>
             <ImageView fitHeight="458.0" fitWidth="555.0" pickOnBounds="true">
                <image>
-                  <Image url="@DOV%20Pic/IUGDOV.jpg" />
+                  <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGDOV.jpg" />
                </image>
             </ImageView>
             <TableView fx:id="tableView" layoutX="557.0" layoutY="1.0" prefHeight="458.0" prefWidth="562.0" styleClass="grad" stylesheets="@css.css">
