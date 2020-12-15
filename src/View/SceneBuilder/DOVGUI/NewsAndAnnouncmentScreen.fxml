@@ -32,7 +32,7 @@
                <graphic>
                   <ImageView fitHeight="96.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../GUI%20Wallpapers/IUGNewStudent.jpg" />
+                        <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGNewStudent.jpg" />
                      </image>
                   </ImageView>
                </graphic>
