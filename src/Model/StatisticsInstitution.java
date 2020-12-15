@@ -11,11 +11,20 @@ package Model;
  */
 public class StatisticsInstitution {
 
+    private int id;
     private int institutionId;
-    private int institutionName;
+    private String institutionName;
     private int numberOfAllStudents;
     private int studentsFinishedNumbers;
     private int activeVolunteers;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getInstitutionId() {
         return institutionId;
@@ -25,11 +34,11 @@ public class StatisticsInstitution {
         this.institutionId = institutionId;
     }
 
-    public int getInstitutionName() {
+    public String getInstitutionName() {
         return institutionName;
     }
 
-    public void setInstitutionName(int institutionName) {
+    public void setInstitutionName(String institutionName) {
         this.institutionName = institutionName;
     }
 

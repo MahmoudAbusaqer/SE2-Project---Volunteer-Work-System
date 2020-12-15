@@ -11,10 +11,19 @@ package Model;
  */
 public class Report {
 
+    private int id;
     private int studentId;
     private String studentName;
     private String institutionName;
     private String report;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getStudentId() {
         return studentId;

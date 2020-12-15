@@ -11,12 +11,21 @@ package Model;
  */
 public class RequestVolunteer {
 
+    private int id;
     private int studentId;
     private String studentName;
     private int institutionId;
     private String institutionName;
     private String district;
     private String address;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getStudentId() {
         return studentId;

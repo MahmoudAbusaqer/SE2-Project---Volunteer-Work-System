@@ -5,21 +5,49 @@
  */
 package Model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
 public class DBConnection {
-    private DBConnection connection;
 
-    public DBConnection() {
+    private static Connection connection = null;
+
+    private DBConnection() {
     }
 
-    public DBConnection getConnection() {
-        return connection;
-    }
-    
-    public void showConnection(){
-        
+//    public DBConnection getConnection() {
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            connection
+//                    = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vws?serverTimezone=UTC",
+//                            "root", "123456");
+//            this.statement = connection.createStatement();
+////            connection.close();
+//        } catch (ClassNotFoundException | SQLException ex) {
+//            ex.printStackTrace();
+//        }
+////        if (connection == null) {
+////            connection = new DBConnection();
+////        }
+//        return connection;
+//    }
+    public static Connection getConnection() {
+        if (connection != null) {
+            return connection;
+        } else {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vws?serverTimezone=UTC",
+                        "root", "123456");
+            } catch (ClassNotFoundException | SQLException ex) {
+                ex.printStackTrace();
+            }
+            return connection;
+        }
     }
 }

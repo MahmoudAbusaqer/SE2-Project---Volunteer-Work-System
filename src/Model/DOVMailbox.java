@@ -13,12 +13,21 @@ import java.util.Date;
  */
 public class DOVMailbox {
 
+    private int id;
     private int senderId;
     private String senderName;
     private String title;
     private String body;
     private Date date;
     private boolean approveOrDeny;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getSenderId() {
         return senderId;

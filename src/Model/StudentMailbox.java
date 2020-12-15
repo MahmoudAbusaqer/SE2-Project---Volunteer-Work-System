@@ -13,11 +13,20 @@ import java.util.Date;
  */
 public class StudentMailbox {
 
+    private int id;
     private int senderId;
     private String senderName;
     private String title;
     private String body;
     private Date date;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getSenderId() {
         return senderId;

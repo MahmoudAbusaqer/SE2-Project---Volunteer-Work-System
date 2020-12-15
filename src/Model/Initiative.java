@@ -10,6 +10,7 @@ package Model;
  * @author Mahmoud_Abusaqer
  */
 public class Initiative {
+
     private int id;
     private String name;
     private String location;
@@ -74,6 +75,4 @@ public class Initiative {
         this.phone = phone;
     }
 
-    
-    
 }

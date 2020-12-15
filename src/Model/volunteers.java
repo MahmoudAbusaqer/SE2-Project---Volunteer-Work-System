@@ -9,14 +9,14 @@ package Model;
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddInstitutions {
+public class volunteers {
 
     private int id;
     private String name;
+    private String faculty;
     private String address;
     private String email;
     private int phone;
-    private int district;
 
     public int getId() {
         return id;
@@ -32,6 +32,14 @@ public class AddInstitutions {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
     }
 
     public String getAddress() {
@@ -56,14 +64,6 @@ public class AddInstitutions {
 
     public void setPhone(int phone) {
         this.phone = phone;
-    }
-
-    public int getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(int district) {
-        this.district = district;
     }
 
 }

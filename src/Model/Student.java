@@ -15,6 +15,7 @@ public class Student {
     private String name;
     private String faculty;
     private String address;
+    private String email;
     private int phone;
 
     public int getId() {
@@ -47,6 +48,14 @@ public class Student {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getPhone() {

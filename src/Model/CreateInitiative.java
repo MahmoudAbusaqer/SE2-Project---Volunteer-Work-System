@@ -11,12 +11,21 @@ package Model;
  */
 public class CreateInitiative {
 
+    private int id;
     private int studentId;
     private String name;
     private String location;
     private String description;
     private int phone;
     private int numberOfVolunteers;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getStudentId() {
         return studentId;

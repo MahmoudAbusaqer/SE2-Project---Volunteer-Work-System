@@ -11,12 +11,21 @@ package Model;
  */
 public class StatisticsDoV {
 
+    private int id;
     private int volunteersNumbers;
     private int institutionsNumbers;
     private int finishedVolunteersNumbers;
     private int initiatives;
     private int activeVolunteers;
     private int activeInitiatives;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getVolunteersNumbers() {
         return volunteersNumbers;
