@@ -26,7 +26,7 @@ public class StatisticManagerDoV {
     }
 
     public void showStatistics() {
-
+        //need a select to show mails
     }
 
     public void add(StatisticsDoV newObject) {

@@ -26,8 +26,8 @@ public class InstitutionMailboxManager {
         connection = DBConnection.getConnection();
     }
 
-    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
-
+    public void showMailbox() {
+        //need a select to show mails
     }
 
     public void add(InstitutionMailbox newObject) {

@@ -25,12 +25,12 @@ public class ReportManager {
         connection = DBConnection.getConnection();
     }
 
-    public void showReport() {
-
-    }
-
     public void reportInput(int studentId, String studentName, String institutionName, String report) {
-
+        model.setStudentId(studentId);
+        model.setStudentName(studentName);
+        model.setInstitutionName(institutionName);
+        model.setReport(report);
+        add(model);
     }
 
     public void add(Report newObject) {

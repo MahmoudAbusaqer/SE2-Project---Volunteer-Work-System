@@ -27,7 +27,11 @@ public class AddNewsAndAnnouncementManager {
     }
 
     public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
-
+        model.setnOrA(nOr);
+        model.setTitle(title);
+        model.setBody(body);
+        model.setDate(date);
+        add(model);
     }
 
     public void add(AddNewsAndAnnouncement newObject) {

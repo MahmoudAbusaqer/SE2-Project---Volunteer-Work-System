@@ -26,7 +26,7 @@ public class StatisticManagerInstitution {
     }
 
     public void showStatistics() {
-
+        //need a select to show mails
     }
 
     public void add(StatisticsInstitution newObject) {

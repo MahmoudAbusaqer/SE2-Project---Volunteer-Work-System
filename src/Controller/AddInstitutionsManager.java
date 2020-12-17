@@ -25,8 +25,13 @@ public class AddInstitutionsManager {
         connection = DBConnection.getConnection();
     }
 
-    public void AddInstitutionInput(String name, String email, String distict, int phone, int district) {
-
+    public void AddInstitutionInput(String name, String email, String distict, int phone, String district) {
+        model.setName(name);
+        model.setEmail(email);
+        model.setDistrict(district);
+        model.setPhone(phone);
+        model.setDistrict(district);
+        add(model);
     }
 
     public void add(AddInstitutions newObject) {
@@ -36,7 +41,7 @@ public class AddInstitutionsManager {
             statement.setString(2, newObject.getAddress());
             statement.setString(3, newObject.getEmail());
             statement.setInt(4, newObject.getPhone());
-            statement.setInt(5, newObject.getDistrict());
+            statement.setString(5, newObject.getDistrict());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

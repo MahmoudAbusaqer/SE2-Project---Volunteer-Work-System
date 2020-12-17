@@ -26,7 +26,13 @@ public class CreateInitiativeManager {
     }
 
     public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
-
+        model.setStudentId(studentId);
+        model.setName(name);
+        model.setLocation(location);
+        model.setDescription(description);
+        model.setPhone(phone);
+        model.setNumberOfVolunteers(numberOfVolunteers);
+        add(model);
     }
 
     public void add(CreateInitiative newObject) {

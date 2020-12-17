@@ -25,12 +25,20 @@ public class RequestManager {
         connection = DBConnection.getConnection();
     }
 
-    public void showInstitutions(String name, String email, String address, int phone) {
+    public void showDisticts() {
+        //need a select to show districts
+    }
 
+    public void showInstitutions() {
+        //need a select to show institutions in the chosen district
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
-
+        model.setStudentId(studentId);
+        model.setStudentName(studentName);
+        model.setInstitutionId(institutionId);
+        model.setInstitutionName(institutionName);
+        add(model);
     }
 
     public void add(RequestVolunteer newObject) {
