@@ -16,7 +16,7 @@ public class AddInstitutions {
     private String address;
     private String email;
     private int phone;
-    private int district;
+    private String district;
 
     public int getId() {
         return id;
@@ -58,11 +58,11 @@ public class AddInstitutions {
         this.phone = phone;
     }
 
-    public int getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(int district) {
+    public void setDistrict(String district) {
         this.district = district;
     }
 
