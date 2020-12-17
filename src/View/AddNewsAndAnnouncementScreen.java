@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+
 /**
  *
  * @author Mahmoud_Abusaqer
@@ -32,63 +33,62 @@ public class AddNewsAndAnnouncementScreen {
     }
 
     public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
+        controller.AddNewsAndAnnouncement(Integer.parseInt(TextFieldNOrA.getText()), TextFieldNewsTitle.getText(), TextFieldNewsDescription.getText(), new Date()/*need tp be cahnged*/);
+    }
+
+    @FXML
+    private Pane rootpane;
+
+    @FXML
+    private Button ButtonMainPage;
+
+    @FXML
+    private Button ButtonAddNewsPage;
+
+    @FXML
+    private Button ButtonDOVMailBox;
+
+    @FXML
+    private Button ExitButton;
+
+    @FXML
+    private TextField TextFieldNOrA;
+
+    @FXML
+    private TextField TextFieldNewsTitle;
+
+    @FXML
+    private TextField TextFieldNewsDescription;
+
+    @FXML
+    private TextField TextFieldNewsDate;
+
+    @FXML
+    private Button ButtonSubmit;
+
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
     }
 
-        @FXML
-        private Pane rootpane;
-
-        @FXML
-        private Button ButtonMainPage;
-
-        @FXML
-        private Button ButtonAddNewsPage;
-
-        @FXML
-        private Button ButtonDOVMailBox;
-
-        @FXML
-        private Button ExitButton;
-
-        @FXML
-        private TextField TextFieldNOrA;
-
-        @FXML
-        private TextField TextFieldNewsTitle;
-
-        @FXML
-        private TextField TextFieldNewsDescription;
-
-        @FXML
-        private TextField TextFieldNewsDate;
-
-        @FXML
-        private Button ButtonSubmit;
-
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonApplyVolunteerPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-
-        }
+    @FXML
+    void buttonApplyVolunteerPage(ActionEvent event) {
 
     }
 
+    @FXML
+    void buttonMainPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonSubmit(ActionEvent event) {
+
+    }
+
+}

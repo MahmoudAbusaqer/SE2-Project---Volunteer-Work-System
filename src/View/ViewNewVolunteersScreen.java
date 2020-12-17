@@ -26,6 +26,6 @@ public class ViewNewVolunteersScreen {
     }
 
     public void showNewVolunteers() {
-
+        controller.showNewVolunteers();
     }
 }

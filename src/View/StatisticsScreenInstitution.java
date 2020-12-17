@@ -26,6 +26,6 @@ public class StatisticsScreenInstitution {
     }
 
     public void showStatistics() {
-
+        controller.showStatistics();
     }
 }

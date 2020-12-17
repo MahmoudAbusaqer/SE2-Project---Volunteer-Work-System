@@ -26,7 +26,11 @@ public class DoVMailbox {
         this.controller = controller;
     }
 
-    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
+    public void showMailbox() {
+        controller.showMailbox();
+    }
 
+    public void mailResponse(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
+        controller.mailResponse(senderId, senderName, title, body, date, approveOrDeny);//need to be edit
     }
 }

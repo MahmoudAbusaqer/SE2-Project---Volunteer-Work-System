@@ -26,7 +26,7 @@ public class StudentMailboxScreen {
         this.controller = controller;
     }
 
-    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
-
+    public void showMailbox() {
+        controller.showMailbox();
     }
 }

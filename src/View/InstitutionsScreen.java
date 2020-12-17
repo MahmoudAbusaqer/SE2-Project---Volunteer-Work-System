@@ -34,98 +34,100 @@ public class InstitutionsScreen {
         this.controller = controller;
     }
 
-    public void showInstitutions(String name, String email, String address, int phone) {
+    public void showDisticts() {
+        controller.showDisticts();
+    }
 
+    public void showInstitutions() {
+        controller.showInstitutions();
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
+        controller.requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText());
+    }
+
+    @FXML
+    private Pane rootpane;
+
+    @FXML
+    private Button ButtonMainPage;
+
+    @FXML
+    private Button ButtonAddInstitutionPage;
+
+    @FXML
+    private Button ButtonCreateIntitivePage;
+
+    @FXML
+    private Button ButtonStudentMailBox;
+
+    @FXML
+    private Button ExitButton;
+
+    @FXML
+    private TextField TextFieldStudentId;
+
+    @FXML
+    private TextField TextFieldStudentName;
+
+    @FXML
+    private TextField TextFieldInstitutionId;
+
+    @FXML
+    private TextField TextFieldInstitutionName;
+
+    @FXML
+    private Button ButtonSubmit;
+
+    @FXML
+    private TableView<?> TableView;
+
+    @FXML
+    private TableColumn<?, ?> TableColPhone;
+
+    @FXML
+    private TableColumn<?, ?> TableColAddress;
+
+    @FXML
+    private TableColumn<?, ?> TableColDistrict;
+
+    @FXML
+    private TableColumn<?, ?> TableColEmail;
+
+    @FXML
+    private TableColumn<?, ?> TableColName;
+
+    @FXML
+    private ChoiceBox<?> ChoiceBoxDistrict;
+
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
     }
 
-        @FXML
-        private Pane rootpane;
-
-        @FXML
-        private Button ButtonMainPage;
-
-        @FXML
-        private Button ButtonAddInstitutionPage;
-
-        @FXML
-        private Button ButtonCreateIntitivePage;
-
-        @FXML
-        private Button ButtonStudentMailBox;
-
-        @FXML
-        private Button ExitButton;
-
-        @FXML
-        private TextField TextFieldStudentId;
-
-        @FXML
-        private TextField TextFieldStudentName;
-
-        @FXML
-        private TextField TextFieldInstitutionId;
-
-        @FXML
-        private TextField TextFieldInstitutionName;
-
-        @FXML
-        private Button ButtonSubmit;
-
-        @FXML
-        private TableView<?> TableView;
-
-        @FXML
-        private TableColumn<?, ?> TableColPhone;
-
-        @FXML
-        private TableColumn<?, ?> TableColAddress;
-
-        @FXML
-        private TableColumn<?, ?> TableColDistrict;
-
-        @FXML
-        private TableColumn<?, ?> TableColEmail;
-
-        @FXML
-        private TableColumn<?, ?> TableColName;
-
-        @FXML
-        private ChoiceBox<?> ChoiceBoxDistrict;
-
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonAddInstitutionPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonCreateIntitivePage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-
-        }
+    @FXML
+    void buttonAddInstitutionPage(ActionEvent event) {
 
     }
 
+    @FXML
+    void buttonCreateIntitivePage(ActionEvent event) {
 
+    }
+
+    @FXML
+    void buttonMainPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonSubmit(ActionEvent event) {
+
+    }
+
+}
