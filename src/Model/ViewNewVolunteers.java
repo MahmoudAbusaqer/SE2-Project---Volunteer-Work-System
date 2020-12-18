@@ -12,6 +12,7 @@ package Model;
 public class ViewNewVolunteers {
 
     private int id;
+    private int institutionId;
     private String name;
     private String faculty;
     private String address;
@@ -24,6 +25,14 @@ public class ViewNewVolunteers {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getInstitutionId() {
+        return institutionId;
+    }
+
+    public void setInstitutionId(int institutionId) {
+        this.institutionId = institutionId;
     }
 
     public String getName() {

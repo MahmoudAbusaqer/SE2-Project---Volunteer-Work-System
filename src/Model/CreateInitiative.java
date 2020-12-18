@@ -12,12 +12,12 @@ package Model;
 public class CreateInitiative {
 
     private int id;
-    private int studentId;
     private String name;
     private String location;
+    private int numberOfVolunteers;
+    private int studentId;
     private String description;
     private int phone;
-    private int numberOfVolunteers;
 
     public int getId() {
         return id;

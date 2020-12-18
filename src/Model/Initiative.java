@@ -15,7 +15,7 @@ public class Initiative {
     private String name;
     private String location;
     private int numberOfVolunteers;
-    private String creator;
+    private int creatorId;
     private String description;
     private int phone;
 
@@ -51,12 +51,12 @@ public class Initiative {
         this.numberOfVolunteers = numberOfVolunteers;
     }
 
-    public String getCreator() {
-        return creator;
+    public int getCreator() {
+        return creatorId;
     }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
+    public void setCreator(int creatorId) {
+        this.creatorId = creatorId;
     }
 
     public String getDescription() {
