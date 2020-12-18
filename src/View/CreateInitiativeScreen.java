@@ -33,7 +33,7 @@ public class CreateInitiativeScreen {
     }
 
     public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
-        controller.CreateInitiativeInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldStudentPhone.getText()), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()));
+        controller.CreateInitiativeInput( TextFieldStudentName.getText(), TextFieldInitiativeAddress.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentId.getText()), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldStudentPhone.getText()));
     }
 
     @FXML

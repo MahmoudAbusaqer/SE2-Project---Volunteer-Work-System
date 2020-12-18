@@ -6,7 +6,13 @@
 package View;
 
 import Controller.RequestManager;
+import Model.District;
+import Model.Institutions;
 import Model.RequestVolunteer;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.ObservableList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,27 +29,49 @@ import javafx.scene.layout.Pane;
  */
 public class InstitutionsScreen {
 
-    private RequestVolunteer model;
+    private District districtModel;
+    private Institutions institutionsModel;
+    private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
 
-    public InstitutionsScreen(RequestVolunteer model) {
-        this.model = model;
+    public InstitutionsScreen(RequestVolunteer requestVolunteerModel) {
+        this.requestVolunteerModel = requestVolunteerModel;
+        this.districtModel = new District();
+        this.institutionsModel = new Institutions();
     }
 
     public void setController(RequestManager controller) {
         this.controller = controller;
     }
 
-    public void showDisticts() {
-        controller.showDisticts();
+    public void showDistrict() throws SQLException {
+        List<District> districts = new ArrayList<>();
+        List<String> districtsNames = new ArrayList<>();
+        districts = controller.showDistrict();
+        int index = 0;
+        while (!districts.isEmpty()) {
+            districtModel = districts.get(index);
+            districtsNames.add(districtModel.getName());
+            districts.remove(index);
+            index++;
+        }
+        ChoiceBoxDistrict.setItems((ObservableList<String>) districtsNames);
     }
 
-    public void showInstitutions() {
-        controller.showInstitutions();
+    public void showInstitutions() throws SQLException {
+        List<Institutions> institutionses = new ArrayList<>();
+        institutionses = controller.showInstitutions(ChoiceBoxDistrict.getValue());
+        int index = 0;
+        while (!institutionses.isEmpty()) {
+            institutionsModel = institutionses.get(index);
+            //here need to match every GUI field with the model.get
+            institutionses.remove(index);
+            index++;
+        }
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
-        controller.requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText());
+        controller.requestVlounteer(studentId, studentName, institutionId, institutionName);
     }
 
     @FXML
@@ -98,7 +126,7 @@ public class InstitutionsScreen {
     private TableColumn<?, ?> TableColName;
 
     @FXML
-    private ChoiceBox<?> ChoiceBoxDistrict;
+    private ChoiceBox<String> ChoiceBoxDistrict;
 
     @FXML
     void ButtonExit(ActionEvent event) {
@@ -127,7 +155,7 @@ public class InstitutionsScreen {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-
+        requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText());
     }
 
 }

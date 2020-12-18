@@ -7,6 +7,9 @@ package View;
 
 import Controller.StatisticManagerDoV;
 import Model.StatisticsDoV;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,8 +35,16 @@ public class StatisticsScreenDoV {
         this.controller = controller;
     }
 
-    public void showStatistics() {
-        controller.showStatistics();
+    public void showStatistics() throws SQLException {
+        List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
+        statisticsDoVs = controller.showStatistics();
+        int index = 0;
+        while (!statisticsDoVs.isEmpty()) {
+            model = statisticsDoVs.get(index);
+            //here need to match every GUI field with the model.get
+            statisticsDoVs.remove(index);
+            index++;
+        }
     }
 
     @FXML

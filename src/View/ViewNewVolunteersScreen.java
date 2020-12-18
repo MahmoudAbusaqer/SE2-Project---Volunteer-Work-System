@@ -6,7 +6,10 @@
 package View;
 
 import Controller.ViewNewVolunteersManager;
-import Model.RequestVolunteer;
+import Model.ViewNewVolunteers;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,10 +17,10 @@ import Model.RequestVolunteer;
  */
 public class ViewNewVolunteersScreen {
 
-    private RequestVolunteer model;
+    private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
 
-    public ViewNewVolunteersScreen(RequestVolunteer model) {
+    public ViewNewVolunteersScreen(ViewNewVolunteers model) {
         this.model = model;
     }
 
@@ -25,7 +28,15 @@ public class ViewNewVolunteersScreen {
         this.controller = controller;
     }
 
-    public void showNewVolunteers() {
-        controller.showNewVolunteers();
+    public void showNewVolunteers(int institutionId) throws SQLException {
+        List<ViewNewVolunteers> newVolunteerses = new ArrayList<>();
+        newVolunteerses = controller.showNewVolunteers(institutionId);
+        int index = 0;
+        while (!newVolunteerses.isEmpty()) {
+            model = newVolunteerses.get(index);
+            //here need to match every GUI field with the model.get
+            newVolunteerses.remove(index);
+            index++;
+        }
     }
 }

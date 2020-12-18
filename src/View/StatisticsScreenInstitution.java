@@ -7,6 +7,9 @@ package View;
 
 import Controller.StatisticManagerInstitution;
 import Model.StatisticsInstitution;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,7 +28,15 @@ public class StatisticsScreenInstitution {
         this.controller = controller;
     }
 
-    public void showStatistics() {
-        controller.showStatistics();
+    public void showStatistics(int institutionId) throws SQLException {
+        List<StatisticsInstitution> statisticsInstitutions = new ArrayList<>();
+        statisticsInstitutions = controller.showStatistics(institutionId);
+        int index = 0;
+        while (!statisticsInstitutions.isEmpty()) {//I think this does not need while
+            model = statisticsInstitutions.get(index);
+            //here need to match every GUI field with the model.get
+            statisticsInstitutions.remove(index);
+            index++;
+        }
     }
 }
