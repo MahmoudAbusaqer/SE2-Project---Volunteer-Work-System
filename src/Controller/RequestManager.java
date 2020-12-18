@@ -6,10 +6,15 @@
 package Controller;
 
 import Model.DBConnection;
+import Model.District;
+import Model.Institutions;
 import Model.RequestVolunteer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,33 +22,54 @@ import java.sql.SQLException;
  */
 public class RequestManager {
 
-    private RequestVolunteer model;
+    private District districtModel;
+    private Institutions institutionsModel;
+    private RequestVolunteer requestVolunteerModel;
     private Connection connection;
 
-    public RequestManager(RequestVolunteer model) {
-        this.model = model;
+    public RequestManager(RequestVolunteer requestVolunteerModel) {
+        this.requestVolunteerModel = requestVolunteerModel;
         connection = DBConnection.getConnection();
     }
 
-    public void showDisticts() {
-        //need a select to show districts
+    public List<District> showDistrict() throws SQLException {
+        List<District> districts = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.district;");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            districtModel.setName(resultSet.getString(2));
+            districts.add(districtModel);
+        }
+        return districts;
     }
 
-    public void showInstitutions() {
-        //need a select to show institutions in the chosen district
+    public List<Institutions> showInstitutions(String district) throws SQLException {
+        List<Institutions> institutionses = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.institutions where district=?;");
+        preparedStatement.setString(1, district);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            institutionsModel.setName(resultSet.getString(2));
+            institutionsModel.setAddress(resultSet.getString(3));
+            institutionsModel.setEmail(resultSet.getString(4));
+            institutionsModel.setPhone(resultSet.getInt(5));
+            institutionsModel.setDistrict(resultSet.getString(6));
+            institutionses.add(institutionsModel);
+        }
+        return institutionses;
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
-        model.setStudentId(studentId);
-        model.setStudentName(studentName);
-        model.setInstitutionId(institutionId);
-        model.setInstitutionName(institutionName);
-        add(model);
+        requestVolunteerModel.setStudentId(studentId);
+        requestVolunteerModel.setStudentName(studentName);
+        requestVolunteerModel.setInstitutionId(institutionId);
+        requestVolunteerModel.setInstitutionName(institutionName);
+        add(requestVolunteerModel);
     }
 
     public void add(RequestVolunteer newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into volunteerrequests(studentId, studentName, institutionId, institutionName, district, address) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.volunteerrequests(studentId, studentName, institutionId, institutionName, district, address) values (?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getStudentId());
             statement.setString(2, newObject.getStudentName());
             statement.setInt(3, newObject.getInstitutionId());
@@ -58,7 +84,7 @@ public class RequestManager {
 
     public void delete(int objectId) {
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from volunteerrequests where id=?");
+            PreparedStatement statement = connection.prepareStatement("delete from vws.volunteerrequests where id=?");
             statement.setInt(1, objectId);
             statement.executeUpdate();
         } catch (SQLException e) {

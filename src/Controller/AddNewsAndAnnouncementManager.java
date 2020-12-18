@@ -36,7 +36,7 @@ public class AddNewsAndAnnouncementManager {
 
     public void add(AddNewsAndAnnouncement newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into newsandannounment(NOrA, title, body, date) values (?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.newsandannounment(NOrA, title, body, date) values (?, ?, ?, ?)");
             statement.setInt(1, newObject.getnOrA());
             statement.setString(2, newObject.getTitle());
             statement.setString(3, newObject.getBody());
@@ -49,7 +49,7 @@ public class AddNewsAndAnnouncementManager {
 
     public void delete(int objectId) {
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from newsandannounment where id=?");
+            PreparedStatement statement = connection.prepareStatement("delete from vws.newsandannounment where id=?");
             statement.setInt(1, objectId);
             statement.executeUpdate();
         } catch (SQLException e) {

@@ -11,8 +11,11 @@ import Model.InstitutionMailbox;
 import Model.StudentMailbox;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -30,8 +33,20 @@ public class dovMailboxManager {
         connection = DBConnection.getConnection();
     }
 
-    public void showMailbox() {
-        //need a select to show mails
+    public List<DOVMailbox> showMailbox() throws SQLException {
+        List<DOVMailbox> dOVMailboxs = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.dovmailbox;");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            modelDOV.setSenderId(resultSet.getInt(2));
+            modelDOV.setSenderName(resultSet.getString(3));
+            modelDOV.setTitle(resultSet.getString(4));
+            modelDOV.setBody(resultSet.getString(5));
+            modelDOV.setDate(resultSet.getDate(6));
+            modelDOV.setApproveOrDeny(resultSet.getBoolean(7));
+            dOVMailboxs.add(modelDOV);
+        }
+        return dOVMailboxs;
     }
 
     //if the sender is a student the response should go to the student otherwise to the institutions
@@ -63,7 +78,7 @@ public class dovMailboxManager {
 
     public void addToStudent(StudentMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into studentmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.studentmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
@@ -78,7 +93,7 @@ public class dovMailboxManager {
 
     public void addToInstitutions(InstitutionMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into institutionmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.institutionmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
@@ -93,7 +108,7 @@ public class dovMailboxManager {
 
     public void delete(int objectId) {
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from dovmailbox where id=?");
+            PreparedStatement statement = connection.prepareStatement("delete from vws.dovmailbox where id=?");
             statement.setInt(1, objectId);
             statement.executeUpdate();
         } catch (SQLException e) {

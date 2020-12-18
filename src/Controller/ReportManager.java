@@ -35,7 +35,7 @@ public class ReportManager {
 
     public void add(Report newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into institutionreport(studentId, studentName, institutionName, report) values (?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.institutionreport(studentId, studentName, institutionName, report) values (?, ?, ?, ?)");
             statement.setInt(1, newObject.getStudentId());
             statement.setString(2, newObject.getStudentName());
             statement.setString(3, newObject.getInstitutionName());
@@ -48,7 +48,7 @@ public class ReportManager {
 
     public void delete(int objectId) {
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from institutionreport where id=?");
+            PreparedStatement statement = connection.prepareStatement("delete from vws.institutionreport where id=?");
             statement.setInt(1, objectId);
             statement.executeUpdate();
         } catch (SQLException e) {

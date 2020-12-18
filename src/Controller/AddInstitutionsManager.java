@@ -36,7 +36,7 @@ public class AddInstitutionsManager {
 
     public void add(AddInstitutions newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into proposedinstitutions(name, address, email, phone, district) values (?,?,?,?,?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.proposedinstitutions(name, address, email, phone, district) values (?,?,?,?,?)");
             statement.setString(1, newObject.getName());
             statement.setString(2, newObject.getAddress());
             statement.setString(3, newObject.getEmail());
@@ -50,7 +50,7 @@ public class AddInstitutionsManager {
 
     public void delete(int objectId) {
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from proposedinstitutions where id=?");
+            PreparedStatement statement = connection.prepareStatement("delete from vws.proposedinstitutions where id=?");
             statement.setInt(1, objectId);
             statement.executeUpdate();
         } catch (SQLException e) {
