@@ -18,6 +18,7 @@ import java.util.List;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the Institutions to see all the new volunteers in the Institution.
 public class ViewNewVolunteersManager {
 
     private ViewNewVolunteers model;
@@ -71,7 +72,7 @@ public class ViewNewVolunteersManager {
         }
     }
 
-    public void edit(int objectId) {
-
-    }
+//    public void edit(int objectId) {
+//
+//    }
 }

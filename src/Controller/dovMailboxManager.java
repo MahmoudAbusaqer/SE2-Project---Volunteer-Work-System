@@ -21,6 +21,7 @@ import java.util.List;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the DOV to see their mailbox and if they have new mail from the Students or Institutions.
 public class dovMailboxManager {
 
     private DOVMailbox modelDOV;

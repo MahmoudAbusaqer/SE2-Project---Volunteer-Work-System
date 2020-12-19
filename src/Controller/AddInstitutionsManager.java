@@ -15,6 +15,7 @@ import java.sql.SQLException;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the student to only suggest a new Institution to the system.
 public class AddInstitutionsManager {
 
     private AddInstitutions model;
@@ -48,17 +49,17 @@ public class AddInstitutionsManager {
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.proposedinstitutions where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void edit(int objectId) {
-
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.proposedinstitutions where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void edit(int objectId) {
+//
+//    }
 }

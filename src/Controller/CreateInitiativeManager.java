@@ -15,6 +15,7 @@ import java.sql.SQLException;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the student to only suggest a new Initiative to the system.
 public class CreateInitiativeManager {
 
     private CreateInitiative model;
@@ -51,17 +52,17 @@ public class CreateInitiativeManager {
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.initiativesreqests where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void edit(int objectId) {
-
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.initiativesreqests where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void edit(int objectId) {
+//
+//    }
 }

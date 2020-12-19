@@ -18,6 +18,7 @@ import java.util.List;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the DOV to see all the statistics that they need about the volunteer work in the system.
 public class StatisticManagerDoV {
 
     private StatisticsDoV model;
@@ -59,15 +60,15 @@ public class StatisticManagerDoV {
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.statisticsdov where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.statisticsdov where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void edit(StatisticsDoV newObject) {
         try {

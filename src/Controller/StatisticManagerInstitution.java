@@ -18,6 +18,7 @@ import java.util.List;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the Institutions to see all the statistics that they need about the volunteer work in their Institution.
 public class StatisticManagerInstitution {
 
     private StatisticsInstitution model;
@@ -58,15 +59,15 @@ public class StatisticManagerInstitution {
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.statisticsinstitution where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.statisticsinstitution where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void edit(StatisticsInstitution newObject) {
         try {

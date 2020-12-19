@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.DBConnection;
+import Model.DOVMailbox;
 import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
@@ -20,15 +21,20 @@ import java.util.List;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the student to only request to volunteer, when the student chooses the institution and send the request, the request will go to the DOVMailbox.
 public class RequestManager {
 
     private District districtModel;
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
+    private DOVMailbox dOVMailboxModel;
     private Connection connection;
 
     public RequestManager(RequestVolunteer requestVolunteerModel) {
         this.requestVolunteerModel = requestVolunteerModel;
+        this.districtModel = new District();
+        this.institutionsModel = new Institutions();
+        this.dOVMailboxModel = new DOVMailbox();
         connection = DBConnection.getConnection();
     }
 
@@ -65,6 +71,12 @@ public class RequestManager {
         requestVolunteerModel.setInstitutionId(institutionId);
         requestVolunteerModel.setInstitutionName(institutionName);
         add(requestVolunteerModel);
+        dOVMailboxModel.setSenderId(studentId);
+        dOVMailboxModel.setSenderName(studentName);
+        dOVMailboxModel.setTitle("A new student request to volunteer.");
+        dOVMailboxModel.setBody("The student: "+ studentName + " with the id: " + studentId + " wants to volunteer in: " + institutionName);
+        dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        sendToDOV(dOVMailboxModel);
     }
 
     public void add(RequestVolunteer newObject) {
@@ -81,18 +93,33 @@ public class RequestManager {
             e.printStackTrace();
         }
     }
-
-    public void delete(int objectId) {
+    
+    public void sendToDOV(DOVMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.volunteerrequests where id=?");
-            statement.setInt(1, objectId);
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
+            statement.setInt(1, newObject.getSenderId());
+            statement.setString(2, newObject.getSenderName());
+            statement.setString(3, newObject.getTitle());
+            statement.setString(4, newObject.getBody());
+            statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
+            statement.setBoolean(6, newObject.isApproveOrDeny());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void edit(int objectId) {
-
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.volunteerrequests where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void edit(int objectId) {
+//
+//    }
 }
