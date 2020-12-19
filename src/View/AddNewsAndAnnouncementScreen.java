@@ -7,8 +7,9 @@ package View;
 
 import Controller.AddNewsAndAnnouncementManager;
 import Model.AddNewsAndAnnouncement;
+import Model.InstitutionMailbox;
+import Model.StudentMailbox;
 import java.util.Date;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,11 +22,13 @@ import javafx.scene.layout.Pane;
  */
 public class AddNewsAndAnnouncementScreen {
 
-    private AddNewsAndAnnouncement model;
+    private AddNewsAndAnnouncement addNewsAndAnnouncementModel;
+    private StudentMailbox studentMailboxModel;
+    private InstitutionMailbox institutionMailboxModel;
     private AddNewsAndAnnouncementManager controller;
 
     public AddNewsAndAnnouncementScreen(AddNewsAndAnnouncement model) {
-        this.model = model;
+        this.addNewsAndAnnouncementModel = model;
     }
 
     public void setController(AddNewsAndAnnouncementManager controller) {
@@ -33,7 +36,22 @@ public class AddNewsAndAnnouncementScreen {
     }
 
     public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
-        controller.AddNewsAndAnnouncement(Integer.parseInt(TextFieldNOrA.getText()), TextFieldNewsTitle.getText(), TextFieldNewsDescription.getText(), new Date()/*need tp be cahnged*/);
+        controller.AddNewsAndAnnouncement(nOr, title, body, date);
+        studentMailboxModel.setSenderId(nOr/*need to be the dov id or I can let it be a number like 123*/);
+        studentMailboxModel.setSenderName("DOV");
+        studentMailboxModel.setTitle(title);
+        studentMailboxModel.setBody(body);
+        studentMailboxModel.setDate(date);
+        studentMailboxModel.setApproveOrDeny(true);
+        controller.add(studentMailboxModel);
+        institutionMailboxModel.setSenderId(nOr/*need to be the dov id or I can let it be a number like 123*/);
+        institutionMailboxModel.setSenderName("DOV");
+        institutionMailboxModel.setTitle(title);
+        institutionMailboxModel.setBody(body);
+        institutionMailboxModel.setDate(date);
+        institutionMailboxModel.setApproveOrDeny(true);
+        controller.add(institutionMailboxModel);
+
     }
 
     @FXML
@@ -88,7 +106,7 @@ public class AddNewsAndAnnouncementScreen {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-
+        AddNewsAndAnnouncement(Integer.parseInt(TextFieldNOrA.getText()), TextFieldNewsTitle.getText(), TextFieldNewsDescription.getText(), new Date()/*need tp be cahnged*/);
     }
 
 }
