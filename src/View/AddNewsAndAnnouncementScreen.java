@@ -12,8 +12,7 @@ import Model.StudentMailbox;
 import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
 /**
@@ -54,59 +53,59 @@ public class AddNewsAndAnnouncementScreen {
 
     }
 
-    @FXML
-    private Pane rootpane;
+        @FXML
+        private Pane rootpane;
 
-    @FXML
-    private Button ButtonMainPage;
+        @FXML
+        private Button ButtonMainPage;
 
-    @FXML
-    private Button ButtonAddNewsPage;
+        @FXML
+        private Button ButtonAddNewsPage;
 
-    @FXML
-    private Button ButtonDOVMailBox;
+        @FXML
+        private Button ButtonDOVMailBox;
 
-    @FXML
-    private Button ExitButton;
+        @FXML
+        private Button ExitButton;
 
-    @FXML
-    private TextField TextFieldNOrA;
+        @FXML
+        private TextField TextFieldNewsTitle;
 
-    @FXML
-    private TextField TextFieldNewsTitle;
+        @FXML
+        private DatePicker DatePickerDate;
 
-    @FXML
-    private TextField TextFieldNewsDescription;
+        @FXML
+        private TextArea TextAreaDescription;
 
-    @FXML
-    private TextField TextFieldNewsDate;
+        @FXML
+        private ChoiceBox<?> ChoiceBoxNOrA;
 
-    @FXML
-    private Button ButtonSubmit;
+        @FXML
+        private Button ButtonSubmit;
 
-    @FXML
-    void ButtonExit(ActionEvent event) {
+        @FXML
+        void ButtonExit(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonApplyVolunteerPage(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonMainPage(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonStudentMailBox(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonSubmit(ActionEvent event) {
+            AddNewsAndAnnouncement(Integer.parseInt(ChoiceBoxNOrA.getText()), TextFieldNewsTitle.getText(), TextAreaDescription.getText(), new Date()/*need tp be cahnged*/);
+        }
 
     }
-
-    @FXML
-    void buttonApplyVolunteerPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonMainPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonStudentMailBox(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonSubmit(ActionEvent event) {
-        AddNewsAndAnnouncement(Integer.parseInt(TextFieldNOrA.getText()), TextFieldNewsTitle.getText(), TextFieldNewsDescription.getText(), new Date()/*need tp be cahnged*/);
-    }
-
-}
