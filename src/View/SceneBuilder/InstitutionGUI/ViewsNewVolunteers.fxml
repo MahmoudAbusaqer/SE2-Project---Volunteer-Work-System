@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewNewVolunteersScreen">
+   <children>
+      <TilePane layoutX="206.0" layoutY="-1.0" prefHeight="88.0" prefWidth="1107.0" style="-fx-background-color: gray;">
+         <children>
+            <Label prefHeight="88.0" prefWidth="1118.0" style="-fx-background-color: #2969B0;" text="المتطوعون الجدد" textAlignment="CENTER" textFill="WHITE">
+               <padding>
+                  <Insets left="400.0" />
+               </padding>
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="96.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGNewStudent.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </TilePane>
+      <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
+         <children>
+            <Button fx:id="ButtonStatisticsInstitution" mnemonicParsing="false" onAction="#buttonStatisticsInstitution" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonAddReportPage" mnemonicParsing="false" onAction="#buttonAddReportPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="ارسال تقارير للجامعة" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonInstitutionMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonInstitutionMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد المؤسسة" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="خروج" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="207.0" layoutY="86.0" prefHeight="458.0" prefWidth="1117.0" styleClass="grad" stylesheets="@css.css">
+         <children>
+            <TableView layoutX="243.0" layoutY="16.0" prefHeight="427.0" prefWidth="621.0" styleClass="grad">
+              <columns>
+                <TableColumn fx:id="TableColPhone" prefWidth="103.0" text="رقم التواصل" />
+                <TableColumn fx:id="TableColMail" prefWidth="118.0" text="البريد الالكتروني" />
+                  <TableColumn fx:id="TableColAddress" prefWidth="110.0" text="العنوان" />
+                  <TableColumn fx:id="TableColFaculty" prefWidth="106.0" text="الكلية" />
+                  <TableColumn fx:id="TableColStudent" prefWidth="183.0" text="اسم الطالب" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</Pane>
