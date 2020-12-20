@@ -25,11 +25,7 @@ public class ReportScreen {
         this.controller = controller;
     }
 
-    public void showReport() {
-
-    }
-
     public void reportInput(int studentId, String studentName, String institutionName, String report) {
-
+        controller.reportInput(studentId, studentName, institutionName, report);//need edit
     }
 }

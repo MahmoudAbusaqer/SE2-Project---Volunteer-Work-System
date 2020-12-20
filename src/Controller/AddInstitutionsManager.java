@@ -15,6 +15,7 @@ import java.sql.SQLException;
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the student to only suggest a new Institution to the system.
 public class AddInstitutionsManager {
 
     private AddInstitutions model;
@@ -25,35 +26,40 @@ public class AddInstitutionsManager {
         connection = DBConnection.getConnection();
     }
 
-    public void AddInstitutionInput(String name, String email, String distict, int phone, int district) {
-
+    public void AddInstitutionInput(String name, String email, String distict, int phone, String district) {
+        model.setName(name);
+        model.setEmail(email);
+        model.setDistrict(district);
+        model.setPhone(phone);
+        model.setDistrict(district);
+        add(model);
     }
 
     public void add(AddInstitutions newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into proposedinstitutions(name, address, email, phone, district) values (?,?,?,?,?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.proposedinstitutions(name, address, email, phone, district) values (?,?,?,?,?)");
             statement.setString(1, newObject.getName());
             statement.setString(2, newObject.getAddress());
             statement.setString(3, newObject.getEmail());
             statement.setInt(4, newObject.getPhone());
-            statement.setInt(5, newObject.getDistrict());
+            statement.setString(5, newObject.getDistrict());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from proposedinstitutions where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void edit(int objectId) {
-
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.proposedinstitutions where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void edit(int objectId) {
+//
+//    }
 }

@@ -7,7 +7,10 @@ package View;
 
 import Controller.StudentMailboxManager;
 import Model.StudentMailbox;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -26,7 +29,15 @@ public class StudentMailboxScreen {
         this.controller = controller;
     }
 
-    public void showMailbox(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
-
+    public void showMailbox() throws SQLException {
+        List<StudentMailbox> studentMailboxs = new ArrayList<>();
+        studentMailboxs = controller.showMailbox();
+        int index = 0;
+        while (!studentMailboxs.isEmpty()) {
+            model = studentMailboxs.get(index);
+            //here need to match every GUI field with the model.get
+            studentMailboxs.remove(index);
+            index++;
+        }
     }
 }

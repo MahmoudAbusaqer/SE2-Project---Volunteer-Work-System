@@ -15,6 +15,8 @@ import java.sql.SQLException;
  *
  * @author Mahmoud_Abusaqer
  */
+//I did merge this class with the request manager class because the designer add them to the same screen.
+//So I will delete this if I no more need it.
 public class DistrictManager {
 
     private District model;

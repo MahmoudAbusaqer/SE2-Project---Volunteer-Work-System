@@ -9,12 +9,16 @@ import Model.DBConnection;
 import Model.StatisticsDoV;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
+//This class is only for the DOV to see all the statistics that they need about the volunteer work in the system.
 public class StatisticManagerDoV {
 
     private StatisticsDoV model;
@@ -25,13 +29,25 @@ public class StatisticManagerDoV {
         connection = DBConnection.getConnection();
     }
 
-    public void showStatistics() {
-
+    public List<StatisticsDoV> showStatistics() throws SQLException {
+        List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.statisticsdov;");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            model.setVolunteersNumbers(resultSet.getInt(2));
+            model.setInstitutionsNumbers(resultSet.getInt(3));
+            model.setFinishedVolunteersNumbers(resultSet.getInt(4));
+            model.setInitiatives(resultSet.getInt(5));
+            model.setActiveVolunteers(resultSet.getInt(6));
+            model.setActiveInitiatives(resultSet.getInt(7));
+            statisticsDoVs.add(model);
+        }
+        return statisticsDoVs;
     }
 
     public void add(StatisticsDoV newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into statisticsdov(volunteersNumbers, institutionNumbers, finishedVolunteersNumbers, initiatives, activeVolunteers, activeInitiatives) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.statisticsdov(volunteersNumbers, institutionNumbers, finishedVolunteersNumbers, initiatives, activeVolunteers, activeInitiatives) values (?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getVolunteersNumbers());
             statement.setInt(2, newObject.getInstitutionsNumbers());
             statement.setInt(3, newObject.getFinishedVolunteersNumbers());
@@ -44,19 +60,19 @@ public class StatisticManagerDoV {
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from statisticsdov where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void delete(int objectId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("delete from vws.statisticsdov where id=?");
+//            statement.setInt(1, objectId);
+//            statement.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void edit(StatisticsDoV newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("update statisticsdov set volunteersNumbers=?, institutionNumbers=?, finishedVolunteersNumbers=?, initiatives=?, activeVolunteers=?, activeInitiatives=? where id=?");
+            PreparedStatement statement = connection.prepareStatement("update vws.statisticsdov set volunteersNumbers=?, institutionNumbers=?, finishedVolunteersNumbers=?, initiatives=?, activeVolunteers=?, activeInitiatives=? where id=?");
             statement.setInt(1, newObject.getVolunteersNumbers());
             statement.setInt(2, newObject.getInstitutionsNumbers());
             statement.setInt(3, newObject.getFinishedVolunteersNumbers());

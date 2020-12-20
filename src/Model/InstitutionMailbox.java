@@ -19,6 +19,7 @@ public class InstitutionMailbox {
     private String title;
     private String body;
     private Date date;
+    private boolean approveOrDeny;
 
     public int getId() {
         return id;
@@ -66,6 +67,14 @@ public class InstitutionMailbox {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public boolean isApproveOrDeny() {
+        return approveOrDeny;
+    }
+
+    public void setApproveOrDeny(boolean approveOrDeny) {
+        this.approveOrDeny = approveOrDeny;
     }
 
 }

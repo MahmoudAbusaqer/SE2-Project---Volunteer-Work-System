@@ -31,76 +31,74 @@ public class AddInstitutionsScreen {
         this.controller = controller;
     }
 
-    public void AddInstitutionInput(String name, String email, String distict, int phone, int district) {
+    public void AddInstitutionInput(String name, String email, String address, int phone, String district) {
+        controller.AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText());
+    }
+
+    @FXML
+    private Pane rootpane;
+
+    @FXML
+    private Button ButtonMainPage;
+
+    @FXML
+    private Button ButtonApplyVolunteerPage;
+
+    @FXML
+    private Button ButtonCreateIntitivePage;
+
+    @FXML
+    private Button ButtonStudentMailBox;
+
+    @FXML
+    private Button ExitButton;
+
+    @FXML
+    private TextField TextFieldInstitutionName;
+
+    @FXML
+    private TextField TextFieldInstitutionMail;
+
+    @FXML
+    private TextField TextFieldInstitutionDistrict;
+
+    @FXML
+    private TextField TextFieldInstitutionAddress;
+
+    @FXML
+    private TextField TextFieldInstitutionPhone;
+
+    @FXML
+    private Button ButtonSubmit;
+
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
     }
 
-        @FXML
-        private Pane rootpane;
-
-        @FXML
-        private Button ButtonMainPage;
-
-        @FXML
-        private Button ButtonApplyVolunteerPage;
-
-        @FXML
-        private Button ButtonCreateIntitivePage;
-
-        @FXML
-        private Button ButtonStudentMailBox;
-
-        @FXML
-        private Button ExitButton;
-
-        @FXML
-        private TextField TextFieldInstitutionName;
-
-        @FXML
-        private TextField TextFieldInstitutionMail;
-
-        @FXML
-        private TextField TextFieldInstitutionDistrict;
-
-        @FXML
-        private TextField TextFieldInstitutionAddress;
-
-        @FXML
-        private TextField TextFieldInstitutionPhone;
-
-        @FXML
-        private Button ButtonSubmit;
-
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonApplyVolunteerPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonCreateIntitivePage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-
-        }
+    @FXML
+    void buttonApplyVolunteerPage(ActionEvent event) {
 
     }
 
+    @FXML
+    void buttonCreateIntitivePage(ActionEvent event) {
 
+    }
+
+    @FXML
+    void buttonMainPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonSubmit(ActionEvent event) {
+
+    }
+
+}

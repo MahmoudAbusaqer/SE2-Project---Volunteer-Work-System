@@ -33,78 +33,76 @@ public class CreateInitiativeScreen {
     }
 
     public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
+        controller.CreateInitiativeInput( TextFieldStudentName.getText(), TextFieldInitiativeAddress.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentId.getText()), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldStudentPhone.getText()));
+    }
+
+    @FXML
+    private Pane rootpane;
+
+    @FXML
+    private Button ButtonMainPage;
+
+    @FXML
+    private Button ButtonApplyVolunteerPage;
+
+    @FXML
+    private Button ButtonAddInstitutionPage;
+
+    @FXML
+    private Button ButtonStudentMailBox;
+
+    @FXML
+    private Button ExitButton;
+
+    @FXML
+    private TextField TextFieldStudentId;
+
+    @FXML
+    private TextField TextFieldStudentName;
+
+    @FXML
+    private TextField TextFieldStudentPhone;
+
+    @FXML
+    private TextField TextFieldInitiativeAddress;
+
+    @FXML
+    private TextField TextFieldaNumbersOfVolunteers;
+
+    @FXML
+    private TextArea TextAreaIntitativeDescription;
+
+    @FXML
+    private Button ButtonSubmit;
+
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
     }
 
-        @FXML
-        private Pane rootpane;
-
-        @FXML
-        private Button ButtonMainPage;
-
-        @FXML
-        private Button ButtonApplyVolunteerPage;
-
-        @FXML
-        private Button ButtonAddInstitutionPage;
-
-        @FXML
-        private Button ButtonStudentMailBox;
-
-        @FXML
-        private Button ExitButton;
-
-        @FXML
-        private TextField TextFieldStudentId;
-
-        @FXML
-        private TextField TextFieldStudentName;
-
-        @FXML
-        private TextField TextFieldStudentPhone;
-
-        @FXML
-        private TextField TextFieldInitiativeAddress;
-
-        @FXML
-        private TextField TextFieldaNumbersOfVolunteers;
-
-        @FXML
-        private TextArea TextAreaIntitativeDescription;
-
-        @FXML
-        private Button ButtonSubmit;
-
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonAddInstitutionPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonApplyVolunteerPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-
-        }
+    @FXML
+    void buttonAddInstitutionPage(ActionEvent event) {
 
     }
 
+    @FXML
+    void buttonApplyVolunteerPage(ActionEvent event) {
 
+    }
+
+    @FXML
+    void buttonMainPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonSubmit(ActionEvent event) {
+
+    }
+
+}
