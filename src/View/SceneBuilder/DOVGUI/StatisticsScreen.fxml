@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StatisticsScreenDoV">
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StatisticsScreenInstitution">
    <children>
       <TilePane layoutX="206.0" layoutY="-1.0" prefHeight="88.0" prefWidth="1107.0" style="-fx-background-color: gray;">
          <children>
@@ -21,7 +27,7 @@
                <graphic>
                   <ImageView fitHeight="96.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@DOVPic/IUGNewStudent.jpg" />
+                        <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGNewStudent.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -30,7 +36,7 @@
       </TilePane>
       <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
          <children>
-            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
+            <Button fx:id="ButtonNewVolunteers" mnemonicParsing="false" onAction="#buttonNewVolunteers" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="المتطوعون الجدد" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -38,7 +44,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonAddNewsPage" mnemonicParsing="false" onAction="#buttonAddNewsPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اضافة اعلانات تطوع" textFill="WHITE">
+            <Button fx:id="ButtonReportPage" mnemonicParsing="false" onAction="#buttonReportPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="ارسال تقارير للجامعة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -46,7 +52,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonDOVMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonDOVMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد القسم" textFill="WHITE">
+            <Button fx:id="ButtonInstitutionMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonInstitutionMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد المؤسسة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -68,19 +74,90 @@
          <children>
             <ImageView fitHeight="458.0" fitWidth="555.0" pickOnBounds="true">
                <image>
-                  <Image url="@DOVPic/IUGDOV.jpg" />
+                  <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGDOV.jpg" />
                </image>
             </ImageView>
-            <TableView fx:id="tableView" layoutX="557.0" layoutY="1.0" prefHeight="458.0" prefWidth="562.0" styleClass="grad" stylesheets="@css.css">
-              <columns>
-                <TableColumn fx:id="tableColActiveInitiatives" minWidth="0.0" prefWidth="79.0" text="مبادرات نشطة" />
-                <TableColumn fx:id="tableColActiveVolunteers" minWidth="0.0" prefWidth="113.0" text="طلاب قيد التطوع" />
-                  <TableColumn fx:id="tableColInitiatives" prefWidth="72.0" text="المبادرات" />
-                  <TableColumn fx:id="tableColFinishedVolunteersNumbers" prefWidth="99.0" text="طلاب انهو التطوع" />
-                  <TableColumn fx:id="tableColInstitutionsNumbers" prefWidth="100.0" text="اعداد المؤسسات" />
-                  <TableColumn fx:id="tableColVolunteersNumbers" prefWidth="97.0" text="اعداد المتطوعين" />
-              </columns>
-            </TableView>
+            <Pane layoutX="625.0" layoutY="89.0" prefHeight="317.0" prefWidth="417.0" style="-fx-background-color: #2969B0;">
+               <children>
+                  <VBox layoutX="226.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="237.0" prefWidth="183.0" spacing="15.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="151.0" style="-fx-font-size: 18;" text="اعداد المتطوعين" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
+                        <Label prefHeight="27.0" prefWidth="153.0" style="-fx-font-size: 18;" text="طلاب انهو التطوع" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
+                        <Label prefHeight="27.0" prefWidth="146.0" style="-fx-font-size: 18;" text="طلاب قيد التطوع" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
+                        <Label layoutX="10.0" layoutY="102.0" prefHeight="27.0" prefWidth="153.0" style="-fx-font-size: 18;" text=" عدد المبادرات" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="211.0" prefHeight="27.0" prefWidth="153.0" style="-fx-font-size: 18;" text="المبادرات النشطة" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="243.0" prefHeight="27.0" prefWidth="153.0" style="-fx-font-size: 18;" text="عدد المؤسسات" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="136.0" spacing="15.0">
+                     <children>
+                        <Label fx:id="labelNumbersOfVolunteers" style="-fx-font-size: 18;" text="Label">
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="labelFinishedVolunteers" style="-fx-font-size: 18;" text="Label">
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="labelActiveVolunteers" style="-fx-font-size: 18;" text="Label">
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin></Label>
+                        <Label fx:id="labelInitiativesNumber" layoutX="40.0" layoutY="169.0" style="-fx-font-size: 18;" text="Label">
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="labelActiveInitiatives" layoutX="15.0" layoutY="211.0" style="-fx-font-size: 18;" text="Label">
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="labelInstitutionsNumbers" layoutX="15.0" layoutY="228.0" style="-fx-font-size: 18;" text="Label">
+                           <VBox.margin>
+                              <Insets left="25.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="149.0" layoutY="2.0" prefHeight="317.0" prefWidth="100.0">
+                     <children>
+                        <Line endX="-12.556865692138672" endY="349.66180419921875" startX="-10.435388565063477" startY="33.36891555786133" />
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <Lighting bumpInput="$null" diffuseConstant="1.88" specularConstant="0.23" specularExponent="40.0" surfaceScale="2.09">
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Pane>
          </children>
       </Pane>
    </children>

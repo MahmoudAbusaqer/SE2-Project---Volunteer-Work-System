@@ -14,8 +14,7 @@ import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 /**
@@ -47,60 +46,62 @@ public class StatisticsScreenDoV {
         }
     }
 
-    @FXML
-    private Pane rootpane;
 
-    @FXML
-    private Button ButtonMainPage;
 
-    @FXML
-    private Button ButtonAddNewsPage;
 
-    @FXML
-    private Button ButtonDOVMailBox;
 
-    @FXML
-    private Button ExitButton;
+        @FXML
+        private Pane rootpane;
 
-    @FXML
-    private TableView<?> tableView;
+        @FXML
+        private Button ButtonNewVolunteers;
 
-    @FXML
-    private TableColumn<?, ?> tableColActiveInitiatives;
+        @FXML
+        private Button ButtonReportPage;
 
-    @FXML
-    private TableColumn<?, ?> tableColActiveVolunteers;
+        @FXML
+        private Button ButtonInstitutionMailBox;
 
-    @FXML
-    private TableColumn<?, ?> tableColInitiatives;
+        @FXML
+        private Button ExitButton;
 
-    @FXML
-    private TableColumn<?, ?> tableColFinishedVolunteersNumbers;
+        @FXML
+        private Label labelNumbersOfVolunteers;
 
-    @FXML
-    private TableColumn<?, ?> tableColInstitutionsNumbers;
+        @FXML
+        private Label labelFinishedVolunteers;
 
-    @FXML
-    private TableColumn<?, ?> tableColVolunteersNumbers;
+        @FXML
+        private Label labelActiveVolunteers;
 
-    @FXML
-    void ButtonExit(ActionEvent event) {
+        @FXML
+        private Label labelInitiativesNumber;
+
+        @FXML
+        private Label labelActiveInitiatives;
+
+        @FXML
+        private Label labelInstitutionsNumbers;
+
+        @FXML
+        void ButtonExit(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonInstitutionMailBox(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonNewVolunteers(ActionEvent event) {
+
+        }
+
+        @FXML
+        void buttonReportPage(ActionEvent event) {
+
+        }
 
     }
 
-    @FXML
-    void buttonAddNewsPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonDOVMailBox(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonMainPage(ActionEvent event) {
-
-    }
-
-}
