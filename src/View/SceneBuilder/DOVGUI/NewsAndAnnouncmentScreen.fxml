@@ -125,7 +125,7 @@
             </Button>
          </children>
       </VBox>
-      <TextArea layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="162.0" prefWidth="441.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="1- قم بادخال 1 لاضافة خبر جديد للتطوع او ادخال 0 لاضافة اعلان جديد.&#10;2- قم بادخال العنوان.&#10;3- قم ادخال تفاصيل الخبر/الاعلان.&#10;4- تاريخ اليوم." wrapText="true">
+      <TextArea layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="162.0" prefWidth="441.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="1- قم بالاختيار بين الخبر او الاعلان من خلال السهم.&#10;2- قم بادخال العنوان.&#10;3- قم ادخال تفاصيل الخبر/الاعلان.&#10;4- تاريخ اليوم." wrapText="true">
          <effect>
             <ColorAdjust brightness="-0.21" contrast="0.45">
                <input>

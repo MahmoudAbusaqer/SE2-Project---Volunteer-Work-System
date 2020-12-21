@@ -103,7 +103,7 @@
                      </GridPane.margin>
                   </TextArea>
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="108.0" text="اسم المؤسسة" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="TextFieldInstitutionName" GridPane.rowIndex="2">
+                  <TextField fx:id="TextFieldInstitutionName" editable="false" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
