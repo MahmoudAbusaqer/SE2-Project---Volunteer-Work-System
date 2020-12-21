@@ -20,6 +20,7 @@ public class DOVMailbox {
     private String body;
     private Date date;
     private boolean approveOrDeny;
+    private String typeOfMail;
 
     public int getId() {
         return id;
@@ -75,6 +76,14 @@ public class DOVMailbox {
 
     public void setApproveOrDeny(boolean approveOrDeny) {
         this.approveOrDeny = approveOrDeny;
+    }
+
+    public String getTypeOfMail() {
+        return typeOfMail;
+    }
+
+    public void setTypeOfMail(String typeOfMail) {
+        this.typeOfMail = typeOfMail;
     }
 
 }
