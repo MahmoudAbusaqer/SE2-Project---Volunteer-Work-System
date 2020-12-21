@@ -10,15 +10,18 @@ import Model.AddInstitutions;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddInstitutionsScreen {
+public class AddInstitutionsScreen  {
 
     private AddInstitutions model;
     private AddInstitutionsManager controller;
@@ -72,32 +75,43 @@ public class AddInstitutionsScreen {
     private Button ButtonSubmit;
 
     @FXML
-    void ButtonExit(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonApplyVolunteerPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonCreateIntitivePage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonMainPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonStudentMailBox(ActionEvent event) {
-
-    }
-
-    @FXML
     void buttonSubmit(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void buttonMainPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+
+    }
+
+    @FXML
+    void buttonApplyVolunteerPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/InstitutionScreen.fxml"));
+        rootpane.getChildren().setAll(pane);
+
+    }
+
+    @FXML
+    void buttonCreateIntitivePage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInitiative.fxml"));
+        rootpane.getChildren().setAll(pane);
+
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailboxScreen.fxml"));
+        rootpane.getChildren().setAll(pane);
+
+    }
+
+    @FXML
+    void ButtonExit(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+        rootpane.getChildren().setAll(pane);
 
     }
 

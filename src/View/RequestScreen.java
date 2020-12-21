@@ -9,17 +9,21 @@ import Controller.RequestManager;
 import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.Pane;
 
 /**
@@ -128,33 +132,46 @@ public class RequestScreen {
     private ChoiceBox<String> ChoiceBoxDistrict;
 
     @FXML
-    void ButtonExit(ActionEvent event) {
+    void ChoiceBoxHandle(InputMethodEvent event) {
 
     }
 
-    @FXML
-    void buttonAddInstitutionPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonCreateIntitivePage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonMainPage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonStudentMailBox(ActionEvent event) {
-
-    }
 
     @FXML
     void buttonSubmit(ActionEvent event) {
         requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText());
     }
+
+    @FXML
+    void buttonMainPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+
+    @FXML
+    void buttonAddInstitutionPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInstitutionsScreen.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void buttonCreateIntitivePage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInitiative.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailBox.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void ButtonExit(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
 
 }

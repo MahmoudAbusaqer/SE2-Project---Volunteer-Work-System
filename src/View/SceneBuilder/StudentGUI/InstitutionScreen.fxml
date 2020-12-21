@@ -156,7 +156,7 @@
               </rowConstraints>
                <children>
                   <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="227.0" text="اختر المحافظة المراد التطوع داخلها" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" />
-                  <ChoiceBox fx:id="ChoiceBoxDistrict" prefHeight="25.0" prefWidth="95.0" />
+                  <ChoiceBox fx:id="ChoiceBoxDistrict" onInputMethodTextChanged="#ChoiceBoxHandle" prefHeight="25.0" prefWidth="95.0" />
                </children>
             </GridPane>
          </children>

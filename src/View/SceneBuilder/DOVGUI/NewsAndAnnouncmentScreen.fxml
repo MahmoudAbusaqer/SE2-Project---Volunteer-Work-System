@@ -51,7 +51,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonAddNewsPage" mnemonicParsing="false" onAction="#buttonApplyVolunteerPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="اضافة اعلانات تطوع" textFill="WHITE">
+            <Button fx:id="ButtonAddNewsPage" mnemonicParsing="false" onAction="#buttonAddNewsPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="اضافة اعلانات تطوع" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -59,7 +59,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonDOVMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد القسم" textFill="WHITE">
+            <Button fx:id="ButtonDOVMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonDOVMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد القسم" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>

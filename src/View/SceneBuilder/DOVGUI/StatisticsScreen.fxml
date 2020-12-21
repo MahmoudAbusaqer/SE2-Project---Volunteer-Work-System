@@ -36,7 +36,7 @@
       </TilePane>
       <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
          <children>
-            <Button fx:id="ButtonNewVolunteers" mnemonicParsing="false" onAction="#buttonNewVolunteers" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="المتطوعون الجدد" textFill="WHITE">
+            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -44,7 +44,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonReportPage" mnemonicParsing="false" onAction="#buttonReportPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="ارسال تقارير للجامعة" textFill="WHITE">
+            <Button fx:id="ButtonAddNewsPage" mnemonicParsing="false" onAction="#buttonAddNewsPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اضافة اعلانات تطوع" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -52,7 +52,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonInstitutionMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonInstitutionMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد المؤسسة" textFill="WHITE">
+            <Button fx:id="ButtonDOVMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonDOVMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد القسم" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>

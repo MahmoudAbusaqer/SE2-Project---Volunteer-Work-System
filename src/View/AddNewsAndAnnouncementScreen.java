@@ -9,9 +9,12 @@ import Controller.AddNewsAndAnnouncementManager;
 import Model.AddNewsAndAnnouncement;
 import Model.InstitutionMailbox;
 import Model.StudentMailbox;
+
+import java.io.IOException;
 import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
@@ -53,59 +56,64 @@ public class AddNewsAndAnnouncementScreen {
 
     }
 
-        @FXML
-        private Pane rootpane;
+    @FXML
+    private Pane rootpane;
 
-        @FXML
-        private Button ButtonMainPage;
+    @FXML
+    private Button ButtonMainPage;
 
-        @FXML
-        private Button ButtonAddNewsPage;
+    @FXML
+    private Button ButtonAddNewsPage;
 
-        @FXML
-        private Button ButtonDOVMailBox;
+    @FXML
+    private Button ButtonDOVMailBox;
 
-        @FXML
-        private Button ExitButton;
+    @FXML
+    private Button ExitButton;
 
-        @FXML
-        private TextField TextFieldNewsTitle;
+    @FXML
+    private TextField TextFieldNewsTitle;
 
-        @FXML
-        private DatePicker DatePickerDate;
+    @FXML
+    private DatePicker DatePickerDate;
 
-        @FXML
-        private TextArea TextAreaDescription;
+    @FXML
+    private TextArea TextAreaDescription;
 
-        @FXML
-        private ChoiceBox<?> ChoiceBoxNOrA;
+    @FXML
+    private ChoiceBox<?> ChoiceBoxNOrA;
 
-        @FXML
-        private Button ButtonSubmit;
+    @FXML
+    private Button ButtonSubmit;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonApplyVolunteerPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-            AddNewsAndAnnouncement(Integer.parseInt(ChoiceBoxNOrA.getText()), TextFieldNewsTitle.getText(), TextAreaDescription.getText(), new Date()/*need tp be cahnged*/);
-        }
+    @FXML
+    void buttonSubmit(ActionEvent event) {
 
     }
+
+    @FXML
+    void buttonMainPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/StatisticsScreen.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void buttonAddNewsPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/NewsAndAnnouncmentScreen.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void buttonDOVMailBox(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/MailBoxTest.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+
+    @FXML
+    void ButtonExit(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+}

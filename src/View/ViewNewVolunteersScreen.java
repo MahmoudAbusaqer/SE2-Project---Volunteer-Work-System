@@ -7,12 +7,15 @@ package View;
 
 import Controller.ViewNewVolunteersManager;
 import Model.ViewNewVolunteers;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.layout.Pane;
@@ -77,24 +80,29 @@ public class ViewNewVolunteersScreen {
         @FXML
         private TableColumn<?, ?> TableColStudent;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
 
+        @FXML
+        void buttonAddReportPage(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ReportScreen.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonAddReportPage(ActionEvent event) {
-
+        void buttonInstitutionMailBox(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/MailBoxTest.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonInstitutionMailBox(ActionEvent event) {
-
+        void buttonStatisticsInstitution(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonStatisticsInstitution(ActionEvent event) {
-
+        void ButtonExit(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
     }

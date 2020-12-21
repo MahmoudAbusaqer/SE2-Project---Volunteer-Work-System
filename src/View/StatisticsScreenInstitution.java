@@ -7,12 +7,15 @@ package View;
 
 import Controller.StatisticManagerInstitution;
 import Model.StatisticsInstitution;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -70,24 +73,30 @@ public class StatisticsScreenInstitution {
         @FXML
         private Label labelActiveVolunteers;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
 
+
+        @FXML
+        void buttonInstitutionMailBox(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/MailBoxTest.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonInstitutionMailBox(ActionEvent event) {
-
+        void buttonNewVolunteers(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewNewVolunteers.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonNewVolunteers(ActionEvent event) {
-
+        void buttonReportPage(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ReportScreen.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonReportPage(ActionEvent event) {
-
+        void ButtonExit(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
 }

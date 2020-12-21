@@ -10,10 +10,13 @@ import Model.Report;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
 
 /**
  *
@@ -66,29 +69,35 @@ public class ReportScreen {
         @FXML
         private Button ButtonSubmit;
 
+    @FXML
+    void buttonSubmit(ActionEvent event) {
+
+    }
+
+
         @FXML
-        void ButtonExit(ActionEvent event) {
+        void buttonInstitutionMailBox(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/MailBoxTest.fxml"));
+            rootpane.getChildren().setAll(pane);
 
         }
 
         @FXML
-        void buttonInstitutionMailBox(ActionEvent event) {
-
+        void buttonNewVolunteers(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewNewVolunteers.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonNewVolunteers(ActionEvent event) {
-
+        void buttonStatisticsInstitution(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
-        @FXML
-        void buttonStatisticsInstitution(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-
-        }
+    @FXML
+    void ButtonExit(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
 
 }

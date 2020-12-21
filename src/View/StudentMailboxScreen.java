@@ -7,6 +7,8 @@ package View;
 
 import Controller.StudentMailboxManager;
 import Model.StudentMailbox;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
@@ -64,29 +67,34 @@ public class StudentMailboxScreen {
         @FXML
         private Button ExitButton;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
+    @FXML
+    void buttonMainPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
 
+        @FXML
+        void buttonAddInstitutionPage(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInstitutionScreen.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonAddInstitutionPage(ActionEvent event) {
-
+        void buttonApplyVolunteerPage(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/InstitutionScreen.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonApplyVolunteerPage(ActionEvent event) {
-
+        void buttonCreateIntitivePage(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInitiative.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
         @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
+        void ButtonExit(ActionEvent event) throws IOException {
+            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+            rootpane.getChildren().setAll(pane);
         }
 
     }

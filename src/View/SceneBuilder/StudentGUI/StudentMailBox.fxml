@@ -53,7 +53,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonAddInstitutionPage" mnemonicParsing="false" onAction="#buttonAddInstitutionPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اقتراح مبادرة" textFill="WHITE">
+            <Button fx:id="ButtonAddInstitutionPage" mnemonicParsing="false" onAction="#buttonAddInstitutionPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اقتراح مؤسسة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -61,7 +61,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonStudentMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد الطالب" textFill="WHITE">
+            <Button fx:id="ButtonCreateIntitivePage" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonCreateIntitivePage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اقتراح مبادرة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
