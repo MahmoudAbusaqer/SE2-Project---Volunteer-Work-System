@@ -100,17 +100,17 @@
                         <Insets left="5.0" right="2.0" />
                      </GridPane.margin>
                   </TextField>
-                  <DatePicker prefWidth="182.0" GridPane.rowIndex="3">
+                  <DatePicker fx:id="DatePickerDate" prefWidth="182.0" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <TextArea prefHeight="65.0" prefWidth="195.0" GridPane.rowIndex="2">
+                  <TextArea fx:id="TextAreaDescription" prefHeight="65.0" prefWidth="195.0" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <ChoiceBox prefHeight="25.0" prefWidth="182.0">
+                  <ChoiceBox fx:id="ChoiceBoxNOrA" prefHeight="25.0" prefWidth="182.0">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
