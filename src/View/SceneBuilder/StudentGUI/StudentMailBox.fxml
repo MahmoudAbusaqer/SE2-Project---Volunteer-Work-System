@@ -121,12 +121,12 @@
                <children>
                   <Pane prefHeight="347.0" prefWidth="689.0" style="-fx-background-color: red;">
                      <children>
-                        <TextArea layoutY="-1.0" prefHeight="400.0" prefWidth="689.0" />
+                        <TextArea editable="false" layoutY="-1.0" prefHeight="400.0" prefWidth="689.0" />
                      </children>
                   </Pane>
                   <Pane prefHeight="406.0" prefWidth="721.0" style="-fx-background-color: red;">
                      <children>
-                        <TextArea layoutY="-1.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="408.0" prefWidth="689.0" />
+                        <TextArea editable="false" layoutY="-1.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="408.0" prefWidth="689.0" />
                      </children></Pane>
                </children>
             </StackPane>
