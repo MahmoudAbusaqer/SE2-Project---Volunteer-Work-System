@@ -12,6 +12,7 @@ import Model.RequestVolunteer;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,10 +29,69 @@ import javafx.scene.layout.Pane;
  */
 public class RequestScreen {
 
+    @FXML
+    private Pane rootpane;
+
+    @FXML
+    private Button ButtonMainPage;
+
+    @FXML
+    private Button ButtonAddInstitutionPage;
+
+    @FXML
+    private Button ButtonCreateIntitivePage;
+
+    @FXML
+    private Button ButtonStudentMailBox;
+
+    @FXML
+    private Button ExitButton;
+
+    @FXML
+    private TextField TextFieldStudentId;
+
+    @FXML
+    private TextField TextFieldStudentName;
+
+    @FXML
+    private TextField TextFieldInstitutionId;
+
+    @FXML
+    private TextField TextFieldInstitutionName;
+
+    @FXML
+    private Button ButtonSubmit;
+
+    @FXML
+    private TableView<Institutions> TableView;
+
+    @FXML
+    private TableColumn<Institutions, String> TableColName;
+
+    @FXML
+    private TableColumn<Institutions, String> TableColAddress;
+
+    @FXML
+    private TableColumn<Institutions, String> TableColEmail;
+
+    @FXML
+    private TableColumn<Institutions, Integer> TableColPhone;
+
+    @FXML
+    private TableColumn<Institutions, String> TableColDistrict;
+
+    @FXML
+    private ChoiceBox<String> ChoiceBoxDistrict;
+
     private District districtModel;
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
+
+    @FXML
+    private void initialize() throws SQLException {
+        showDistrict();
+    }
 
     public RequestScreen(RequestVolunteer requestVolunteerModel) {
         this.requestVolunteerModel = requestVolunteerModel;
@@ -69,63 +129,9 @@ public class RequestScreen {
         }
     }
 
-    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
-        controller.requestVlounteer(studentId, studentName, institutionId, institutionName);
+    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {
+        controller.requestVlounteer(studentId, studentName, institutionId, institutionName, district, address);
     }
-
-    @FXML
-    private Pane rootpane;
-
-    @FXML
-    private Button ButtonMainPage;
-
-    @FXML
-    private Button ButtonAddInstitutionPage;
-
-    @FXML
-    private Button ButtonCreateIntitivePage;
-
-    @FXML
-    private Button ButtonStudentMailBox;
-
-    @FXML
-    private Button ExitButton;
-
-    @FXML
-    private TextField TextFieldStudentId;
-
-    @FXML
-    private TextField TextFieldStudentName;
-
-    @FXML
-    private TextField TextFieldInstitutionId;
-
-    @FXML
-    private TextField TextFieldInstitutionName;
-
-    @FXML
-    private Button ButtonSubmit;
-
-    @FXML
-    private TableView<?> TableView;
-
-    @FXML
-    private TableColumn<?, ?> TableColPhone;
-
-    @FXML
-    private TableColumn<?, ?> TableColAddress;
-
-    @FXML
-    private TableColumn<?, ?> TableColDistrict;
-
-    @FXML
-    private TableColumn<?, ?> TableColEmail;
-
-    @FXML
-    private TableColumn<?, ?> TableColName;
-
-    @FXML
-    private ChoiceBox<String> ChoiceBoxDistrict;
 
     @FXML
     void ButtonExit(ActionEvent event) {
@@ -154,7 +160,9 @@ public class RequestScreen {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText());
+        requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(),
+                Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText(),
+                ChoiceBoxDistrict.getValue(), /*student address from student id*/ "");//need edit
     }
 
 }

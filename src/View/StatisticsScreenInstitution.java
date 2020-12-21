@@ -10,7 +10,6 @@ import Model.StatisticsInstitution;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,48 +45,48 @@ public class StatisticsScreenInstitution {
         }
     }
 
-        @FXML
-        private Pane rootpane;
+    @FXML
+    private Pane rootpane;
 
-        @FXML
-        private Button ButtonNewVolunteers;
+    @FXML
+    private Button ButtonNewVolunteers;
 
-        @FXML
-        private Button ButtonReportPage;
+    @FXML
+    private Button ButtonReportPage;
 
-        @FXML
-        private Button ButtonInstitutionMailBox;
+    @FXML
+    private Button ButtonInstitutionMailBox;
 
-        @FXML
-        private Button ExitButton;
+    @FXML
+    private Button ExitButton;
 
-        @FXML
-        private Label labelNumbersOfVolunteers;
+    @FXML
+    private Label labelNumbersOfVolunteers;
 
-        @FXML
-        private Label labelFinishedVolunteers;
+    @FXML
+    private Label labelFinishedVolunteers;
 
-        @FXML
-        private Label labelActiveVolunteers;
+    @FXML
+    private Label labelActiveVolunteers;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonInstitutionMailBox(ActionEvent event) {
+    @FXML
+    void buttonInstitutionMailBox(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonNewVolunteers(ActionEvent event) {
+    @FXML
+    void buttonNewVolunteers(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonReportPage(ActionEvent event) {
+    @FXML
+    void buttonReportPage(ActionEvent event) {
 
-        }
+    }
 
 }

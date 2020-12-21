@@ -7,7 +7,6 @@ package View;
 
 import Controller.ReportManager;
 import Model.Report;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,59 +35,59 @@ public class ReportScreen {
         controller.reportInput(studentId, studentName, institutionName, report);//need edit
     }
 
-        @FXML
-        private Pane rootpane;
+    @FXML
+    private Pane rootpane;
 
-        @FXML
-        private Button ButtonStatisticsInstitution;
+    @FXML
+    private Button ButtonStatisticsInstitution;
 
-        @FXML
-        private Button ButtonNewVolunteers;
+    @FXML
+    private Button ButtonNewVolunteers;
 
-        @FXML
-        private Button ButtonInstitutionMailBox;
+    @FXML
+    private Button ButtonInstitutionMailBox;
 
-        @FXML
-        private Button ExitButton;
+    @FXML
+    private Button ExitButton;
 
-        @FXML
-        private TextField TextFieldStudentName;
+    @FXML
+    private TextField TextFieldStudentName;
 
-        @FXML
-        private TextArea TextFieldReport;
+    @FXML
+    private TextArea TextFieldReport;
 
-        @FXML
-        private TextField TextFieldInstitutionName;
+    @FXML
+    private TextField TextFieldInstitutionName;
 
-        @FXML
-        private TextField TextFieldStudentId;
+    @FXML
+    private TextField TextFieldStudentId;
 
-        @FXML
-        private Button ButtonSubmit;
+    @FXML
+    private Button ButtonSubmit;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonInstitutionMailBox(ActionEvent event) {
+    @FXML
+    void buttonInstitutionMailBox(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonNewVolunteers(ActionEvent event) {
+    @FXML
+    void buttonNewVolunteers(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonStatisticsInstitution(ActionEvent event) {
+    @FXML
+    void buttonStatisticsInstitution(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        void buttonSubmit(ActionEvent event) {
-
-        }
+    @FXML
+    void buttonSubmit(ActionEvent event) {
+        reportInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), TextFieldInstitutionName.getText(), TextFieldReport.getText());
+    }
 
 }

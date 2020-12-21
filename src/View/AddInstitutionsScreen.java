@@ -7,7 +7,6 @@ package View;
 
 import Controller.AddInstitutionsManager;
 import Model.AddInstitutions;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,8 +30,8 @@ public class AddInstitutionsScreen {
         this.controller = controller;
     }
 
-    public void AddInstitutionInput(String name, String email, String address, int phone, String district) {
-        controller.AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText());
+    public void AddInstitutionInput(String name, String address, String email, int phone, String district) {
+        controller.AddInstitutionInput(name, address, email, phone, district);
     }
 
     @FXML
@@ -98,7 +97,7 @@ public class AddInstitutionsScreen {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-
+        AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText());
     }
 
 }

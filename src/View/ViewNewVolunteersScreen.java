@@ -10,7 +10,6 @@ import Model.ViewNewVolunteers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,56 +45,54 @@ public class ViewNewVolunteersScreen {
         }
     }
 
+    @FXML
+    private Pane rootpane;
 
-        @FXML
-        private Pane rootpane;
+    @FXML
+    private Button ButtonStatisticsInstitution;
 
-        @FXML
-        private Button ButtonStatisticsInstitution;
+    @FXML
+    private Button ButtonAddReportPage;
 
-        @FXML
-        private Button ButtonAddReportPage;
+    @FXML
+    private Button ButtonInstitutionMailBox;
 
-        @FXML
-        private Button ButtonInstitutionMailBox;
+    @FXML
+    private Button ExitButton;
 
-        @FXML
-        private Button ExitButton;
+    @FXML
+    private TableColumn<?, ?> TableColPhone;
 
-        @FXML
-        private TableColumn<?, ?> TableColPhone;
+    @FXML
+    private TableColumn<?, ?> TableColMail;
 
-        @FXML
-        private TableColumn<?, ?> TableColMail;
+    @FXML
+    private TableColumn<?, ?> TableColAddress;
 
-        @FXML
-        private TableColumn<?, ?> TableColAddress;
+    @FXML
+    private TableColumn<?, ?> TableColFaculty;
 
-        @FXML
-        private TableColumn<?, ?> TableColFaculty;
+    @FXML
+    private TableColumn<?, ?> TableColStudent;
 
-        @FXML
-        private TableColumn<?, ?> TableColStudent;
-
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonAddReportPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonInstitutionMailBox(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStatisticsInstitution(ActionEvent event) {
-
-        }
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
     }
 
+    @FXML
+    void buttonAddReportPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonInstitutionMailBox(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonStatisticsInstitution(ActionEvent event) {
+
+    }
+
+}

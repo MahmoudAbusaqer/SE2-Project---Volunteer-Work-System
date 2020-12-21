@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,49 +45,47 @@ public class StudentMailboxScreen {
         }
     }
 
-        @FXML
-        private Pane rootpane;
+    @FXML
+    private Pane rootpane;
 
-        @FXML
-        private Button ButtonMainPage;
+    @FXML
+    private Button ButtonMainPage;
 
-        @FXML
-        private Button ButtonApplyVolunteerPage;
+    @FXML
+    private Button ButtonApplyVolunteerPage;
 
-        @FXML
-        private Button ButtonAddInstitutionPage;
+    @FXML
+    private Button ButtonAddInstitutionPage;
 
-        @FXML
-        private Button ButtonStudentMailBox;
+    @FXML
+    private Button ButtonStudentMailBox;
 
-        @FXML
-        private Button ExitButton;
+    @FXML
+    private Button ExitButton;
 
-        @FXML
-        void ButtonExit(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonAddInstitutionPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonApplyVolunteerPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonMainPage(ActionEvent event) {
-
-        }
-
-        @FXML
-        void buttonStudentMailBox(ActionEvent event) {
-
-        }
+    @FXML
+    void ButtonExit(ActionEvent event) {
 
     }
 
+    @FXML
+    void buttonAddInstitutionPage(ActionEvent event) {
 
+    }
+
+    @FXML
+    void buttonApplyVolunteerPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonMainPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonStudentMailBox(ActionEvent event) {
+
+    }
+
+}
