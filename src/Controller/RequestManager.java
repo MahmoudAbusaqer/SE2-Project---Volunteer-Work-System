@@ -65,17 +65,20 @@ public class RequestManager {
         return institutionses;
     }
 
-    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
+    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {
         requestVolunteerModel.setStudentId(studentId);
         requestVolunteerModel.setStudentName(studentName);
         requestVolunteerModel.setInstitutionId(institutionId);
         requestVolunteerModel.setInstitutionName(institutionName);
+        requestVolunteerModel.setDistrict(district);
+        requestVolunteerModel.setAddress(address);
         add(requestVolunteerModel);
         dOVMailboxModel.setSenderId(studentId);
         dOVMailboxModel.setSenderName(studentName);
         dOVMailboxModel.setTitle("A new student request to volunteer.");
-        dOVMailboxModel.setBody("The student: "+ studentName + " with the id: " + studentId + " wants to volunteer in: " + institutionName);
+        dOVMailboxModel.setBody("The student: " + studentName + " with the id: " + studentId + " wants to volunteer in: " + institutionName);
         dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dOVMailboxModel.setTypeOfMail("request vlounteer");
         sendToDOV(dOVMailboxModel);
     }
 
@@ -87,22 +90,23 @@ public class RequestManager {
             statement.setInt(3, newObject.getInstitutionId());
             statement.setString(4, newObject.getStudentName());
             statement.setString(5, newObject.getDistrict());
-            statement.setString(6, newObject.getStudentName());
+            statement.setString(6, newObject.getAddress());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
+
     public void sendToDOV(DOVMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
             statement.setString(4, newObject.getBody());
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
             statement.setBoolean(6, newObject.isApproveOrDeny());
+            statement.setString(7, newObject.getTypeOfMail());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

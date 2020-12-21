@@ -7,6 +7,7 @@ package Controller;
 
 import Model.CreateInitiative;
 import Model.DBConnection;
+import Model.DOVMailbox;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -18,22 +19,32 @@ import java.sql.SQLException;
 //This class is only for the student to only suggest a new Initiative to the system.
 public class CreateInitiativeManager {
 
-    private CreateInitiative model;
+    private CreateInitiative createInitiativeModel;
+    private DOVMailbox dOVMailboxModel;
     private Connection connection;
 
-    public CreateInitiativeManager(CreateInitiative model) {
-        this.model = model;
+    public CreateInitiativeManager(CreateInitiative createInitiativeModel) {
+        this.createInitiativeModel = createInitiativeModel;
+        this.dOVMailboxModel = new DOVMailbox();
         connection = DBConnection.getConnection();
     }
 
-    public void CreateInitiativeInput(String name, String location, int numberOfVolunteers, int studentId, String description, int phone) {
-        model.setStudentId(studentId);
-        model.setName(name);
-        model.setLocation(location);
-        model.setDescription(description);
-        model.setPhone(phone);
-        model.setNumberOfVolunteers(numberOfVolunteers);
-        add(model);
+    public void CreateInitiativeInput(int studentId, String name, String location, String description, int numberOfVolunteers, int phone) {
+        createInitiativeModel.setStudentId(studentId);
+        createInitiativeModel.setName(name);
+        createInitiativeModel.setLocation(location);
+        createInitiativeModel.setDescription(description);
+        createInitiativeModel.setPhone(phone);
+        createInitiativeModel.setNumberOfVolunteers(numberOfVolunteers);
+        add(createInitiativeModel);
+        dOVMailboxModel.setSenderId(0000000/*need edit we shoulg get this when the studen log in*/);
+        dOVMailboxModel.setSenderName("studentName"/*need edit we shoulg get this when the studen log in*/);
+        dOVMailboxModel.setTitle("A new institution suggest from a student.");
+        dOVMailboxModel.setBody("The student: " + /*need edit we shoulg get this when the studen log in*/ "" + " with the id: " + studentId
+                + " has suggested to create a new Initiative with the name: " + name + " in the location: " + location + " with student phone number: " + phone + " and the initiative description: " + description);
+        dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dOVMailboxModel.setTypeOfMail("create initiative");
+        sendToDOV(dOVMailboxModel);
     }
 
     public void add(CreateInitiative newObject) {
@@ -52,6 +63,21 @@ public class CreateInitiativeManager {
         }
     }
 
+    public void sendToDOV(DOVMailbox newObject) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
+            statement.setInt(1, newObject.getSenderId());
+            statement.setString(2, newObject.getSenderName());
+            statement.setString(3, newObject.getTitle());
+            statement.setString(4, newObject.getBody());
+            statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
+            statement.setBoolean(6, newObject.isApproveOrDeny());
+            statement.setString(7, newObject.getTypeOfMail());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 //    public void delete(int objectId) {
 //        try {
 //            PreparedStatement statement = connection.prepareStatement("delete from vws.initiativesreqests where id=?");

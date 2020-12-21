@@ -40,6 +40,7 @@ public class ReportManager {
         dOVMailboxModel.setTitle("A new institution report to a student who finished the volunteer work.");
         dOVMailboxModel.setBody("The student: " + studentName + " with the id: " + studentId + " who volunteered in: " + institutionName + " has successfully finished all the hours required.");
         dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dOVMailboxModel.setTypeOfMail("finish report");
         sendToDOV(dOVMailboxModel);
     }
 
@@ -58,13 +59,14 @@ public class ReportManager {
 
     public void sendToDOV(DOVMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
             statement.setString(4, newObject.getBody());
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
             statement.setBoolean(6, newObject.isApproveOrDeny());
+            statement.setString(7, newObject.getTypeOfMail());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
