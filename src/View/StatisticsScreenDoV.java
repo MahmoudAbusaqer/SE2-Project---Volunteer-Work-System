@@ -7,12 +7,10 @@ package View;
 
 import Controller.StatisticManagerDoV;
 import Model.StatisticsDoV;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +27,11 @@ public class StatisticsScreenDoV {
     private StatisticsDoV model;
     private StatisticManagerDoV controller;
 
+    @FXML
+    private void initialize() throws SQLException {
+        showStatistics();
+    }
+
     public StatisticsScreenDoV(StatisticsDoV model) {
         this.model = model;
     }
@@ -41,14 +44,18 @@ public class StatisticsScreenDoV {
         List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
         statisticsDoVs = controller.showStatistics();
         int index = 0;
-        while (!statisticsDoVs.isEmpty()) {
+        while (!statisticsDoVs.isEmpty()) {//I think this does not need while
             model = statisticsDoVs.get(index);
-            //here need to match every GUI field with the model.get
+            labelActiveInitiatives.setText(String.valueOf(model.getActiveInitiatives()));
+            labelActiveVolunteers.setText(String.valueOf(model.getActiveVolunteers()));
+            labelFinishedVolunteers.setText(String.valueOf(model.getFinishedVolunteersNumbers()));
+            labelInitiativesNumber.setText(String.valueOf(model.getInitiatives()));
+            labelInstitutionsNumbers.setText(String.valueOf(model.getInstitutionsNumbers()));
+            labelNumbersOfVolunteers.setText(String.valueOf(model.getVolunteersNumbers()));
             statisticsDoVs.remove(index);
             index++;
         }
     }
-
 
     @FXML
     private Pane rootpane;
@@ -83,7 +90,6 @@ public class StatisticsScreenDoV {
     @FXML
     private Label labelInstitutionsNumbers;
 
-
     @FXML
     void buttonMainPage(ActionEvent event) throws IOException {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/StatisticsScreen.fxml"));
@@ -108,5 +114,4 @@ public class StatisticsScreenDoV {
         rootpane.getChildren().setAll(pane);
     }
 
-    }
-
+}

@@ -41,7 +41,7 @@ public class DoVMailbox {
         }
     }
 
-    public void mailResponse(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny) {
-        controller.mailResponse(senderId, senderName, title, body, date, approveOrDeny);//need to be edit
+    public void mailResponse(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny, String dovmailbox) {
+        controller.mailResponse(senderId/*need to be the dov id or I can let it be a number like 123*/, "DOV", "Respond to your email", body, new java.sql.Timestamp(System.currentTimeMillis()), approveOrDeny, dovmailbox);//need to be edit
     }
 }

@@ -7,17 +7,17 @@ package View;
 
 import Controller.ViewNewVolunteersManager;
 import Model.ViewNewVolunteers;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
 /**
@@ -28,6 +28,16 @@ public class ViewNewVolunteersScreen {
 
     private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
+
+    @FXML
+    private void initialize() throws SQLException {
+        TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
+        TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
+        TableColMail.setCellValueFactory(new PropertyValueFactory("email"));
+        TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
+        TableColStudent.setCellValueFactory(new PropertyValueFactory("name"));
+        showNewVolunteers(model.getInstitutionId()/*Institution id from login*/);
+    }
 
     public ViewNewVolunteersScreen(ViewNewVolunteers model) {
         this.model = model;
@@ -43,67 +53,67 @@ public class ViewNewVolunteersScreen {
         int index = 0;
         while (!newVolunteerses.isEmpty()) {
             model = newVolunteerses.get(index);
-            //here need to match every GUI field with the model.get
+            TableView.getItems().setAll(newVolunteerses);
             newVolunteerses.remove(index);
             index++;
         }
     }
 
+    @FXML
+    private Pane rootpane;
 
-        @FXML
-        private Pane rootpane;
+    @FXML
+    private Button ButtonStatisticsInstitution;
 
-        @FXML
-        private Button ButtonStatisticsInstitution;
+    @FXML
+    private Button ButtonAddReportPage;
 
-        @FXML
-        private Button ButtonAddReportPage;
+    @FXML
+    private Button ButtonInstitutionMailBox;
 
-        @FXML
-        private Button ButtonInstitutionMailBox;
+    @FXML
+    private Button ExitButton;
 
-        @FXML
-        private Button ExitButton;
+    @FXML
+    private TableView<ViewNewVolunteers> TableView;
 
-        @FXML
-        private TableColumn<?, ?> TableColPhone;
+    @FXML
+    private TableColumn<ViewNewVolunteers, Integer> TableColPhone;
 
-        @FXML
-        private TableColumn<?, ?> TableColMail;
+    @FXML
+    private TableColumn<ViewNewVolunteers, String> TableColMail;
 
-        @FXML
-        private TableColumn<?, ?> TableColAddress;
+    @FXML
+    private TableColumn<ViewNewVolunteers, String> TableColAddress;
 
-        @FXML
-        private TableColumn<?, ?> TableColFaculty;
+    @FXML
+    private TableColumn<ViewNewVolunteers, String> TableColFaculty;
 
-        @FXML
-        private TableColumn<?, ?> TableColStudent;
+    @FXML
+    private TableColumn<ViewNewVolunteers, String> TableColStudent;
 
-
-        @FXML
-        void buttonAddReportPage(ActionEvent event) throws IOException {
-            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ReportScreen.fxml"));
-            rootpane.getChildren().setAll(pane);
-        }
-
-        @FXML
-        void buttonInstitutionMailBox(ActionEvent event) throws IOException {
-            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/MailBoxTest.fxml"));
-            rootpane.getChildren().setAll(pane);
-        }
-
-        @FXML
-        void buttonStatisticsInstitution(ActionEvent event) throws IOException {
-            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
-            rootpane.getChildren().setAll(pane);
-        }
-
-        @FXML
-        void ButtonExit(ActionEvent event) throws IOException {
-            Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
-            rootpane.getChildren().setAll(pane);
-        }
-
+    @FXML
+    void buttonAddReportPage(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ReportScreen.fxml"));
+        rootpane.getChildren().setAll(pane);
     }
 
+    @FXML
+    void buttonInstitutionMailBox(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/MailBoxTest.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void buttonStatisticsInstitution(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    void ButtonExit(ActionEvent event) throws IOException {
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
+        rootpane.getChildren().setAll(pane);
+    }
+
+}

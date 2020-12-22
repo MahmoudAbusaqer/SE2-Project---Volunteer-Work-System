@@ -9,7 +9,6 @@ import Controller.RequestManager;
 import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -36,6 +35,12 @@ public class RequestScreen {
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
+
+    @FXML
+    private void initialize() throws SQLException {
+        showDistrict();
+//        TableView.getSelectionModel().selectedItemProperty().addListener(listener -> ());
+    }
 
     public RequestScreen(RequestVolunteer requestVolunteerModel) {
         this.requestVolunteerModel = requestVolunteerModel;
@@ -73,8 +78,8 @@ public class RequestScreen {
         }
     }
 
-    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName) {
-        controller.requestVlounteer(studentId, studentName, institutionId, institutionName);
+    public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {
+        controller.requestVlounteer(studentId, studentName, institutionId, institutionName, district, address);
     }
 
     @FXML
@@ -111,35 +116,36 @@ public class RequestScreen {
     private Button ButtonSubmit;
 
     @FXML
-    private TableView<?> TableView;
+    private TableView<Institutions> TableView;
 
     @FXML
-    private TableColumn<?, ?> TableColPhone;
+    private TableColumn<Institutions, String> TableColName;
 
     @FXML
-    private TableColumn<?, ?> TableColAddress;
+    private TableColumn<Institutions, String> TableColAddress;
 
     @FXML
-    private TableColumn<?, ?> TableColDistrict;
+    private TableColumn<Institutions, String> TableColEmail;
 
     @FXML
-    private TableColumn<?, ?> TableColEmail;
+    private TableColumn<Institutions, Integer> TableColPhone;
 
     @FXML
-    private TableColumn<?, ?> TableColName;
+    private TableColumn<Institutions, String> TableColDistrict;
 
     @FXML
     private ChoiceBox<String> ChoiceBoxDistrict;
 
     @FXML
-    void ChoiceBoxHandle(InputMethodEvent event) {
-
+    void ChoiceBoxHandle(InputMethodEvent event) throws SQLException {
+        controller.showInstitutions(ChoiceBoxDistrict.getValue());
     }
-
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText());
+        requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(),
+                Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText(),
+                ChoiceBoxDistrict.getValue(), /*student address from student id*/ "");//need edit
     }
 
     @FXML
@@ -147,7 +153,6 @@ public class RequestScreen {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
         rootpane.getChildren().setAll(pane);
     }
-
 
     @FXML
     void buttonAddInstitutionPage(ActionEvent event) throws IOException {
@@ -172,6 +177,5 @@ public class RequestScreen {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
         rootpane.getChildren().setAll(pane);
     }
-
 
 }

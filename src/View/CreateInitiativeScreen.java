@@ -7,7 +7,6 @@ package View;
 
 import Controller.CreateInitiativeManager;
 import Model.CreateInitiative;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +35,7 @@ public class CreateInitiativeScreen {
     }
 
     public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
-        controller.CreateInitiativeInput( TextFieldStudentName.getText(), TextFieldInitiativeAddress.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentId.getText()), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldStudentPhone.getText()));
+        controller.CreateInitiativeInput(studentId, name, location, description, phone, numberOfVolunteers);
     }
 
     @FXML
@@ -80,7 +79,7 @@ public class CreateInitiativeScreen {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-
+        CreateInitiativeInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentPhone.getText()));
     }
 
     @FXML
@@ -88,7 +87,6 @@ public class CreateInitiativeScreen {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
         rootpane.getChildren().setAll(pane);
     }
-
 
     @FXML
     void buttonAddInstitutionPage(ActionEvent event) throws IOException {

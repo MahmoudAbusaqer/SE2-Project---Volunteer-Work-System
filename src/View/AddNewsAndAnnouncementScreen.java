@@ -9,9 +9,10 @@ import Controller.AddNewsAndAnnouncementManager;
 import Model.AddNewsAndAnnouncement;
 import Model.InstitutionMailbox;
 import Model.StudentMailbox;
-
 import java.io.IOException;
 import java.util.Date;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,12 +26,17 @@ import javafx.scene.layout.Pane;
 public class AddNewsAndAnnouncementScreen {
 
     private AddNewsAndAnnouncement addNewsAndAnnouncementModel;
-    private StudentMailbox studentMailboxModel;
-    private InstitutionMailbox institutionMailboxModel;
     private AddNewsAndAnnouncementManager controller;
+    ObservableList<String> ChoiceBoxItems = FXCollections.observableArrayList("News", "Announcements");
+
+    @FXML
+    private void initialize() {
+        ChoiceBoxNOrA.setItems(ChoiceBoxItems);
+    }
 
     public AddNewsAndAnnouncementScreen(AddNewsAndAnnouncement model) {
         this.addNewsAndAnnouncementModel = model;
+        this.controller = new AddNewsAndAnnouncementManager(model);
     }
 
     public void setController(AddNewsAndAnnouncementManager controller) {
@@ -39,20 +45,6 @@ public class AddNewsAndAnnouncementScreen {
 
     public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
         controller.AddNewsAndAnnouncement(nOr, title, body, date);
-        studentMailboxModel.setSenderId(nOr/*need to be the dov id or I can let it be a number like 123*/);
-        studentMailboxModel.setSenderName("DOV");
-        studentMailboxModel.setTitle(title);
-        studentMailboxModel.setBody(body);
-        studentMailboxModel.setDate(date);
-        studentMailboxModel.setApproveOrDeny(true);
-        controller.add(studentMailboxModel);
-        institutionMailboxModel.setSenderId(nOr/*need to be the dov id or I can let it be a number like 123*/);
-        institutionMailboxModel.setSenderName("DOV");
-        institutionMailboxModel.setTitle(title);
-        institutionMailboxModel.setBody(body);
-        institutionMailboxModel.setDate(date);
-        institutionMailboxModel.setApproveOrDeny(true);
-        controller.add(institutionMailboxModel);
 
     }
 
@@ -81,14 +73,14 @@ public class AddNewsAndAnnouncementScreen {
     private TextArea TextAreaDescription;
 
     @FXML
-    private ChoiceBox<?> ChoiceBoxNOrA;
+    private ChoiceBox<String> ChoiceBoxNOrA;
 
     @FXML
     private Button ButtonSubmit;
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-
+        AddNewsAndAnnouncement(Integer.parseInt(ChoiceBoxNOrA.getValue()), TextFieldNewsTitle.getText(), TextAreaDescription.getText(), new java.sql.Timestamp(System.currentTimeMillis()));
     }
 
     @FXML
@@ -108,7 +100,6 @@ public class AddNewsAndAnnouncementScreen {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/MailBoxTest.fxml"));
         rootpane.getChildren().setAll(pane);
     }
-
 
     @FXML
     void ButtonExit(ActionEvent event) throws IOException {
