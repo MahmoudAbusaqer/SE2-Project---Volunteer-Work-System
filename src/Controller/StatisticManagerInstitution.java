@@ -68,7 +68,6 @@ public class StatisticManagerInstitution {
 //            e.printStackTrace();
 //        }
 //    }
-
     public void edit(StatisticsInstitution newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("update vws.statisticsinstitution set institutionId=?, institutionName=?, numberOfAllStudents=?, studentsFinishedNumbers=?, activeVolunteers=? where id=?");

@@ -78,7 +78,7 @@ public class RequestManager {
         dOVMailboxModel.setTitle("A new student request to volunteer.");
         dOVMailboxModel.setBody("The student: " + studentName + " with the id: " + studentId + " wants to volunteer in: " + institutionName);
         dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dOVMailboxModel.setTypeOfMail("request vlounteer");
+        dOVMailboxModel.setTypeOfMail("vlounteer");
         sendToDOV(dOVMailboxModel);
     }
 

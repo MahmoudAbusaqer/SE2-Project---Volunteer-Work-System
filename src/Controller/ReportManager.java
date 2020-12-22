@@ -40,7 +40,7 @@ public class ReportManager {
         dOVMailboxModel.setTitle("A new institution report to a student who finished the volunteer work.");
         dOVMailboxModel.setBody("The student: " + studentName + " with the id: " + studentId + " who volunteered in: " + institutionName + " has successfully finished all the hours required.");
         dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dOVMailboxModel.setTypeOfMail("finish report");
+        dOVMailboxModel.setTypeOfMail("finish vlounteer");
         sendToDOV(dOVMailboxModel);
     }
 

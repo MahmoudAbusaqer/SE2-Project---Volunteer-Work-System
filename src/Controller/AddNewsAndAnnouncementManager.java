@@ -74,7 +74,7 @@ public class AddNewsAndAnnouncementManager {
             statement.setString(3, newObject.getTitle());
             statement.setString(4, newObject.getBody());
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
-            statement.setString(6, newObject.getTypeOfMail());
+            statement.setString(6, "NewsAndAnnouncement");
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

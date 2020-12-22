@@ -69,7 +69,6 @@ public class StatisticManagerDoV {
 //            e.printStackTrace();
 //        }
 //    }
-
     public void edit(StatisticsDoV newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("update vws.statisticsdov set volunteersNumbers=?, institutionNumbers=?, finishedVolunteersNumbers=?, initiatives=?, activeVolunteers=?, activeInitiatives=? where id=?");
