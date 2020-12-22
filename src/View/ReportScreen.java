@@ -10,9 +10,7 @@ import Model.Report;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -37,6 +35,24 @@ public class ReportScreen {
     public void reportInput(int studentId, String studentName, String institutionName, String report) {
         controller.reportInput(studentId, studentName, institutionName, report);
     }
+
+    @FXML
+    private TableView<?> tableView;
+
+    @FXML
+    private TableColumn<?, ?> TableColStudentPhone;
+
+    @FXML
+    private TableColumn<?, ?> TableColStudentEmail;
+
+    @FXML
+    private TableColumn<?, ?> TableColStudentAddress;
+
+    @FXML
+    private TableColumn<?, ?> TableColStudentName;
+
+    @FXML
+    private TableColumn<?, ?> TableColStudentId;
 
     @FXML
     private Pane rootpane;

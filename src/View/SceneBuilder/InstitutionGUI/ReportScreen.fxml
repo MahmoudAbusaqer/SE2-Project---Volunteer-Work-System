@@ -41,7 +41,7 @@
       </TilePane>
       <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
          <children>
-            <Button fx:id="ButtonStatisticsInstitution" mnemonicParsing="false" onAction="#buttonStatisticsInstitution" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
+            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="الصفحة الرئيسية" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -49,7 +49,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonNewVolunteers" mnemonicParsing="false" onAction="#buttonNewVolunteers" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="المتطوعون الجدد" textFill="WHITE">
+            <Button fx:id="ButtonNewVolunteers" mnemonicParsing="false" onAction="#buttonNewVolunteers" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" styleClass="button1" text="المتطوعون الجدد" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -57,7 +57,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonInstitutionMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonInstitutionMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد المؤسسة" textFill="WHITE">
+            <Button fx:id="ButtonInstitutionMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonInstitutionMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="بريد المؤسسة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -65,7 +65,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="خروج" textFill="WHITE">
+            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="خروج" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -126,13 +126,13 @@
             </Button>
          </children>
       </VBox>
-      <TableView layoutX="665.0" layoutY="117.0" prefHeight="360.0" prefWidth="626.0">
+      <TableView fx:id="tableView" layoutX="665.0" layoutY="117.0" prefHeight="360.0" prefWidth="626.0" styleClass="grad">
         <columns>
-          <TableColumn prefWidth="84.0" text="رقم التواصل" />
-          <TableColumn prefWidth="134.0" text="البريد الالكتروني" />
-            <TableColumn prefWidth="102.0" text="العنوان" />
-            <TableColumn prefWidth="171.0" text="اسم الطالب" />
-            <TableColumn prefWidth="134.0" text="رقم الطالب" />
+          <TableColumn fx:id="TableColStudentPhone" prefWidth="84.0" text="رقم التواصل" />
+          <TableColumn fx:id="TableColStudentEmail" prefWidth="134.0" text="البريد الالكتروني" />
+            <TableColumn fx:id="TableColStudentAddress" prefWidth="102.0" text="العنوان" />
+            <TableColumn fx:id="TableColStudentName" prefWidth="171.0" text="اسم الطالب" />
+            <TableColumn fx:id="TableColStudentId" prefWidth="134.0" text="رقم الطالب" />
         </columns>
       </TableView>
    </children>

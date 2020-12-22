@@ -41,7 +41,7 @@
       </TilePane>
       <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
          <children>
-            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
+            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="الصفحة الرئيسية" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -49,7 +49,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonApplyVolunteerPage" mnemonicParsing="false" onAction="#buttonApplyVolunteerPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="التقدم للعمل التطوعي" textFill="WHITE">
+            <Button fx:id="ButtonApplyVolunteerPage" mnemonicParsing="false" onAction="#buttonApplyVolunteerPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" styleClass="button1" text="التقدم للعمل التطوعي" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -57,7 +57,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonCreateIntitivePage" mnemonicParsing="false" onAction="#buttonCreateIntitivePage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اقتراح مبادرة" textFill="WHITE">
+            <Button fx:id="ButtonCreateIntitivePage" mnemonicParsing="false" onAction="#buttonCreateIntitivePage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="اقتراح مبادرة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -65,7 +65,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonStudentMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد الطالب" textFill="WHITE">
+            <Button fx:id="ButtonStudentMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="بريد الطالب" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -73,7 +73,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="خروج" textFill="WHITE">
+            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="خروج" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -141,7 +141,7 @@
             </Button>
          </children>
       </VBox>
-      <TextArea layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="441.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="يمكنك عزيزي الطالب تقديم طلب اقتراح لمؤسسة جديدة غير مدرجة ضمن لوائحنا.&#10;قم بتعبئة الطلب وادخال المعلومات التالية وسنقوم بالنظر في طلبك." wrapText="true">
+      <TextArea editable="false" layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="441.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="يمكنك عزيزي الطالب تقديم طلب اقتراح لمؤسسة جديدة غير مدرجة ضمن لوائحنا.&#10;قم بتعبئة الطلب وادخال المعلومات التالية وسنقوم بالنظر في طلبك." wrapText="true">
          <effect>
             <ColorAdjust brightness="-0.21" contrast="0.45">
                <input>

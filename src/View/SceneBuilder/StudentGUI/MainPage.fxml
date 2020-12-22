@@ -36,7 +36,7 @@
       </TilePane>
       <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
          <children>
-            <Button fx:id="ButtonApplyVolunteerPage" mnemonicParsing="false" onAction="#buttonApplyVolunteerPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="التقدم للعمل التطوعي" textFill="WHITE">
+            <Button fx:id="ButtonApplyVolunteerPage" mnemonicParsing="false" onAction="#buttonApplyVolunteerPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="التقدم للعمل التطوعي" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -44,7 +44,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonAddInstitutionPage" mnemonicParsing="false" onAction="#buttonAddInstitutionPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="اقتراح مؤسسة" textFill="WHITE">
+            <Button fx:id="ButtonAddInstitutionPage" mnemonicParsing="false" onAction="#buttonAddInstitutionPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" styleClass="button1" text="اقتراح مؤسسة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -52,7 +52,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonCreateIntitivePage" mnemonicParsing="false" onAction="#buttonCreateIntitivePage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="اقتراح مبادرة" textFill="WHITE">
+            <Button fx:id="ButtonCreateIntitivePage" mnemonicParsing="false" onAction="#buttonCreateIntitivePage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="اقتراح مبادرة" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -60,7 +60,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonStudentMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد الطالب" textFill="WHITE">
+            <Button fx:id="ButtonStudentMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonStudentMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="بريد الطالب" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -68,7 +68,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="خروج" textFill="WHITE">
+            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="خروج" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>

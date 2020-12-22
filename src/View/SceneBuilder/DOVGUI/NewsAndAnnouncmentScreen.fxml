@@ -43,7 +43,7 @@
       </TilePane>
       <VBox layoutX="-3.0" prefHeight="544.0" prefWidth="210.0" style="-fx-background-color: #2A4166;">
          <children>
-            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="الصفحة الرئيسية" textFill="WHITE">
+            <Button fx:id="ButtonMainPage" mnemonicParsing="false" onAction="#buttonMainPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="الصفحة الرئيسية" textFill="WHITE">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -51,7 +51,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonAddNewsPage" mnemonicParsing="false" onAction="#buttonAddNewsPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" text="اضافة اعلانات تطوع" textFill="WHITE">
+            <Button fx:id="ButtonAddNewsPage" mnemonicParsing="false" onAction="#buttonAddNewsPage" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52; -fx-font-style: Bold;" styleClass="button1" text="اضافة اعلانات تطوع" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -59,7 +59,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ButtonDOVMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonDOVMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="بريد القسم" textFill="WHITE">
+            <Button fx:id="ButtonDOVMailBox" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#buttonDOVMailBox" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="بريد القسم" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -67,7 +67,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" text="خروج" textFill="WHITE">
+            <Button fx:id="ExitButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="262.0" style="-fx-background-color: #3F3B52;" styleClass="button1" text="خروج" textFill="WHITE">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
@@ -125,7 +125,7 @@
             </Button>
          </children>
       </VBox>
-      <TextArea layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="162.0" prefWidth="441.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="1- قم بالاختيار بين الخبر او الاعلان من خلال السهم.&#10;2- قم بادخال العنوان.&#10;3- قم ادخال تفاصيل الخبر/الاعلان.&#10;4- تاريخ اليوم." wrapText="true">
+      <TextArea editable="false" layoutX="852.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="142.0" prefWidth="437.0" style="-fx-font-family: Droid Arabic Kufi; -fx-font-size: 18px; -fx-background-color: #323B59;" styleClass="textArea" stylesheets="@css.css" text="1- قم بالاختيار بين الخبر او الاعلان من خلال السهم.&#10;2- قم بادخال العنوان.&#10;3- قم ادخال تفاصيل الخبر/الاعلان.&#10;4- تاريخ اليوم." wrapText="true">
          <effect>
             <ColorAdjust brightness="-0.21" contrast="0.45">
                <input>
