@@ -8,9 +8,13 @@ package Controller;
 import Model.DBConnection;
 import Model.DOVMailbox;
 import Model.Report;
+import Model.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,13 +24,31 @@ import java.sql.SQLException;
 public class ReportManager {
 
     private Report reportModel;
+    private Student studentModel;
     private DOVMailbox dOVMailboxModel;
     private Connection connection;
 
     public ReportManager(Report reportModel) {
         this.reportModel = reportModel;
+        this.studentModel = new Student();
         this.dOVMailboxModel = new DOVMailbox();
         connection = DBConnection.getConnection();
+    }
+
+    public List<Student> showStudent(int institutionId) throws SQLException {
+        List<Student> students = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.volunteers where institutionId=?;");
+        preparedStatement.setInt(1, institutionId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            studentModel.setId(resultSet.getInt(2));
+            studentModel.setName(resultSet.getString(3));
+            studentModel.setAddress(resultSet.getString(4));
+            studentModel.setEmail(resultSet.getString(5));
+            studentModel.setPhone(resultSet.getInt(6));
+            students.add(studentModel);
+        }
+        return students;
     }
 
     public void reportInput(int studentId, String studentName, String institutionName, String report) {
