@@ -100,7 +100,7 @@ public class ViewNewVolunteersScreen {
 
     @FXML
     void buttonInstitutionMailBox(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/MailBoxTest.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/InstitutionMailBox.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 

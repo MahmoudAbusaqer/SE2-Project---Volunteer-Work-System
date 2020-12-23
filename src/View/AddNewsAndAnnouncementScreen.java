@@ -97,7 +97,7 @@ public class AddNewsAndAnnouncementScreen {
 
     @FXML
     void buttonDOVMailBox(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/MailBoxTest.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/DOVMailBox.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 
