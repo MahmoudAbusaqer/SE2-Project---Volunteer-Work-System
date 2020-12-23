@@ -22,6 +22,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.Pane;
 
@@ -38,8 +39,13 @@ public class RequestScreen {
 
     @FXML
     private void initialize() throws SQLException {
+        TableColName.setCellValueFactory(new PropertyValueFactory("name"));
+        TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
+        TableColEmail.setCellValueFactory(new PropertyValueFactory("email"));
+        TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
+        TableColDistrict.setCellValueFactory(new PropertyValueFactory("district"));
+        TableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectInstitution());
         showDistrict();
-//        TableView.getSelectionModel().selectedItemProperty().addListener(listener -> ());
     }
 
     public RequestScreen(RequestVolunteer requestVolunteerModel) {
@@ -72,7 +78,7 @@ public class RequestScreen {
         int index = 0;
         while (!institutionses.isEmpty()) {
             institutionsModel = institutionses.get(index);
-            //here need to match every GUI field with the model.get
+            TableView.getItems().setAll(institutionses);
             institutionses.remove(index);
             index++;
         }
@@ -80,6 +86,12 @@ public class RequestScreen {
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {
         controller.requestVlounteer(studentId, studentName, institutionId, institutionName, district, address);
+    }
+
+    public void selectInstitution() {
+        Institutions institution = TableView.getSelectionModel().getSelectedItem();
+        TextFieldInstitutionId.setText(String.valueOf(institution.getId()));
+        TextFieldInstitutionName.setText(institution.getName());
     }
 
     @FXML

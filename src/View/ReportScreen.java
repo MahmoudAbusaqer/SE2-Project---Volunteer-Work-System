@@ -7,13 +7,17 @@ package View;
 
 import Controller.ReportManager;
 import Model.Report;
+import Model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
@@ -21,11 +25,24 @@ import java.io.IOException;
  */
 public class ReportScreen {
 
-    private Report model;
+    private Report reportModel;
+    private Student studentModel;
     private ReportManager controller;
 
-    public ReportScreen(Report model) {
-        this.model = model;
+    @FXML
+    private void initialize() throws SQLException {
+        TableColStudentId.setCellValueFactory(new PropertyValueFactory("id"));
+        TableColStudentAddress.setCellValueFactory(new PropertyValueFactory("address"));
+        TableColStudentEmail.setCellValueFactory(new PropertyValueFactory("email"));
+        TableColStudentPhone.setCellValueFactory(new PropertyValueFactory("phone"));
+        TableColStudentName.setCellValueFactory(new PropertyValueFactory("name"));
+        tableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectStudent());
+        showStudent(000/*institutionId*/);
+    }
+
+    public ReportScreen(Report reportModel) {
+        this.reportModel = reportModel;
+        this.studentModel = new Student();
     }
 
     public void setController(ReportManager controller) {
@@ -36,23 +53,41 @@ public class ReportScreen {
         controller.reportInput(studentId, studentName, institutionName, report);
     }
 
-    @FXML
-    private TableView<?> tableView;
+    public void showStudent(int institutionId) throws SQLException {
+        List<Student> students = new ArrayList<>();
+        students = controller.showStudent(institutionId);
+        int index = 0;
+        while (!students.isEmpty()) {
+            students.get(index);
+            tableView.getItems().setAll(students);
+            students.remove(index);
+            index++;
+        }
+    }
+
+    public void selectStudent() {
+        Student student = tableView.getSelectionModel().getSelectedItem();
+        TextFieldStudentId.setText(String.valueOf(student.getId()));
+        TextFieldStudentName.setText(student.getName());
+    }
 
     @FXML
-    private TableColumn<?, ?> TableColStudentPhone;
+    private TableView<Student> tableView;
 
     @FXML
-    private TableColumn<?, ?> TableColStudentEmail;
+    private TableColumn<Student, Integer> TableColStudentPhone;
 
     @FXML
-    private TableColumn<?, ?> TableColStudentAddress;
+    private TableColumn<Student, String> TableColStudentEmail;
 
     @FXML
-    private TableColumn<?, ?> TableColStudentName;
+    private TableColumn<Student, String> TableColStudentAddress;
 
     @FXML
-    private TableColumn<?, ?> TableColStudentId;
+    private TableColumn<Student, String> TableColStudentName;
+
+    @FXML
+    private TableColumn<Student, Integer> TableColStudentId;
 
     @FXML
     private Pane rootpane;
