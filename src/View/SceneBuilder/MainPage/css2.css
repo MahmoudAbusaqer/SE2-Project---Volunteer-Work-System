@@ -1,0 +1,12 @@
+.textArea {
+-fx-control-inner-background: #2969B0;
+-fx-border-radius: 50%;
+-fx-text-fill: white;
+}
+
+.label {
+-fx-background-color: linear-gradient(#413A50, #2A4166);
+-fx-border-radius: 50%;
+-fx-text-fill: white;
+
+}

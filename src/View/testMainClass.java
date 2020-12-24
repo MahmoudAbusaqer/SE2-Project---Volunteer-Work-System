@@ -24,8 +24,7 @@ public class testMainClass extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-//        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/NewsAndAnnouncmentScreen.fxml"));
-        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInstitutionScreen.fxml"));
+        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailBox.fxml"));
         Scene scene = new Scene(paneStudentTableView);
         primaryStage.setTitle("test");
         primaryStage.setScene(scene);

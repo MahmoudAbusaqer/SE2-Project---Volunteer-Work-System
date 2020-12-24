@@ -14,47 +14,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class ReportScreen implements Initializable {
+public class ReportScreen {
 
     private Report reportModel;
     private Student studentModel;
     private ReportManager controller;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        this.reportModel = new Report();
-        this.studentModel = new Student();
+    @FXML
+    private void initialize() throws SQLException {
         TableColStudentId.setCellValueFactory(new PropertyValueFactory("id"));
         TableColStudentAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColStudentEmail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColStudentPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColStudentName.setCellValueFactory(new PropertyValueFactory("name"));
         tableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectStudent());
-        try {
-            showStudent(000/*institutionId*/);
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        showStudent(000/*institutionId*/);
     }
 
-//    public ReportScreen(Report reportModel) {
-//        this.reportModel = reportModel;
-//        this.studentModel = new Student();
-//    }
+    public ReportScreen(Report reportModel) {
+        this.reportModel = reportModel;
+        this.studentModel = new Student();
+    }
+
     public void setController(ReportManager controller) {
         this.controller = controller;
     }

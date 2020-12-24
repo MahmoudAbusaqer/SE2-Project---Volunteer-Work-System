@@ -10,18 +10,13 @@ import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
@@ -35,37 +30,30 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class RequestScreen implements Initializable {
+public class RequestScreen {
 
     private District districtModel;
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        this.controller = new RequestManager();
-        this.requestVolunteerModel = new RequestVolunteer();
-        this.districtModel = new District();
-        this.institutionsModel = new Institutions();
+    @FXML
+    private void initialize() throws SQLException {
         TableColName.setCellValueFactory(new PropertyValueFactory("name"));
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColEmail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColDistrict.setCellValueFactory(new PropertyValueFactory("district"));
         TableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectInstitution());
-        try {
-            showDistrict();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        showDistrict();
     }
 
-//    public RequestScreen(RequestVolunteer requestVolunteerModel) {
-//        this.requestVolunteerModel = requestVolunteerModel;
-//        this.districtModel = new District();
-//        this.institutionsModel = new Institutions();
-//    }
+    public RequestScreen(RequestVolunteer requestVolunteerModel) {
+        this.requestVolunteerModel = requestVolunteerModel;
+        this.districtModel = new District();
+        this.institutionsModel = new Institutions();
+    }
+
     public void setController(RequestManager controller) {
         this.controller = controller;
     }
@@ -73,14 +61,13 @@ public class RequestScreen implements Initializable {
     public void showDistrict() throws SQLException {
         List<District> districts = new ArrayList<>();
         List<String> districtsNames = new ArrayList<>();
-//        System.out.println(districts = controller.showDistrict());
         districts = controller.showDistrict();
-        int index = districts.size();
-        while (!districts.isEmpty() || index > districts.size()) {
+        int index = 0;
+        while (!districts.isEmpty()) {
             districtModel = districts.get(index);
             districtsNames.add(districtModel.getName());
             districts.remove(index);
-            index--;
+            index++;
         }
         ChoiceBoxDistrict.setItems((ObservableList<String>) districtsNames);
     }

@@ -8,17 +8,12 @@ package View;
 import Controller.ViewNewVolunteersManager;
 import Model.ViewNewVolunteers;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,29 +24,25 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class ViewNewVolunteersScreen implements Initializable {
+public class ViewNewVolunteersScreen {
 
     private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        this.model = new ViewNewVolunteers();
+    @FXML
+    private void initialize() throws SQLException {
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
         TableColMail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColStudent.setCellValueFactory(new PropertyValueFactory("name"));
-        try {
-            showNewVolunteers(model.getInstitutionId()/*Institution id from login*/);
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewNewVolunteersScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        showNewVolunteers(model.getInstitutionId()/*Institution id from login*/);
     }
 
-//    public ViewNewVolunteersScreen(ViewNewVolunteers model) {
-//        this.model = model;
-//    }
+    public ViewNewVolunteersScreen(ViewNewVolunteers model) {
+        this.model = model;
+    }
+
     public void setController(ViewNewVolunteersManager controller) {
         this.controller = controller;
     }
