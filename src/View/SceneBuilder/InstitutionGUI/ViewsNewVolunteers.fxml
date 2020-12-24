@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewNewVolunteersScreen">
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewNewVolunteersScreen">
    <children>
       <TilePane layoutX="206.0" layoutY="-1.0" prefHeight="88.0" prefWidth="1107.0" style="-fx-background-color: gray;">
          <children>
@@ -26,7 +32,7 @@
                <graphic>
                   <ImageView fitHeight="96.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="https://github.com/MahmoudAbusaqer/SE2-Project-VolunteerWorkSystem/blob/master/src/View/SceneBuilder/DOVGUI/DOVPic/IUGNewStudent.jpg" />
+                        <Image url="@../DOVGUI/DOVPic/IUGNewStudent.jpg" />
                      </image>
                   </ImageView>
                </graphic>
