@@ -10,12 +10,15 @@ import Model.AddNewsAndAnnouncement;
 import Model.InstitutionMailbox;
 import Model.StudentMailbox;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Date;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
@@ -23,21 +26,22 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddNewsAndAnnouncementScreen {
+public class AddNewsAndAnnouncementScreen implements Initializable{
 
     private AddNewsAndAnnouncement addNewsAndAnnouncementModel;
     private AddNewsAndAnnouncementManager controller;
     ObservableList<String> ChoiceBoxItems = FXCollections.observableArrayList("News", "Announcements");
 
-    @FXML
-    private void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+         this.addNewsAndAnnouncementModel = new AddNewsAndAnnouncement();
         ChoiceBoxNOrA.setItems(ChoiceBoxItems);
     }
 
-    public AddNewsAndAnnouncementScreen(AddNewsAndAnnouncement model) {
-        this.addNewsAndAnnouncementModel = model;
-        this.controller = new AddNewsAndAnnouncementManager(model);
-    }
+//    public AddNewsAndAnnouncementScreen(AddNewsAndAnnouncement model) {
+//        this.addNewsAndAnnouncementModel = model;
+//        this.controller = new AddNewsAndAnnouncementManager(model);
+//    }
 
     public void setController(AddNewsAndAnnouncementManager controller) {
         this.controller = controller;

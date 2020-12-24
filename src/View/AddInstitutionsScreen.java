@@ -13,22 +13,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddInstitutionsScreen {
+public class AddInstitutionsScreen implements Initializable {
 
     private AddInstitutions model;
     private AddInstitutionsManager controller;
 
-    public AddInstitutionsScreen(AddInstitutions model) {
-        this.model = model;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.model = new AddInstitutions();
     }
 
+//    public AddInstitutionsScreen(AddInstitutions model) {
+//        this.model = model;
+//    }
     public void setController(AddInstitutionsManager controller) {
         this.controller = controller;
     }

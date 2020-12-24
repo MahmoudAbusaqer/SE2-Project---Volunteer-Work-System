@@ -14,21 +14,27 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class CreateInitiativeScreen {
+public class CreateInitiativeScreen implements Initializable {
 
     private CreateInitiative model;
     private CreateInitiativeManager controller;
 
-    public CreateInitiativeScreen(CreateInitiative model) {
-        this.model = model;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.model = new CreateInitiative();
     }
+//    public CreateInitiativeScreen(CreateInitiative model) {
+//        this.model = model;
+//    }
 
     public void setController(CreateInitiativeManager controller) {
         this.controller = controller;

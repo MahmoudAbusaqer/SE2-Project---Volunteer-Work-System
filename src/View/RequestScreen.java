@@ -10,13 +10,18 @@ import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
@@ -30,30 +35,36 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class RequestScreen {
+public class RequestScreen implements Initializable {
 
     private District districtModel;
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
 
-    @FXML
-    private void initialize() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.requestVolunteerModel = new RequestVolunteer();
+        this.districtModel = new District();
+        this.institutionsModel = new Institutions();
         TableColName.setCellValueFactory(new PropertyValueFactory("name"));
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColEmail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColDistrict.setCellValueFactory(new PropertyValueFactory("district"));
         TableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectInstitution());
-        showDistrict();
+        try {
+            showDistrict();
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public RequestScreen(RequestVolunteer requestVolunteerModel) {
-        this.requestVolunteerModel = requestVolunteerModel;
-        this.districtModel = new District();
-        this.institutionsModel = new Institutions();
-    }
-
+//    public RequestScreen(RequestVolunteer requestVolunteerModel) {
+//        this.requestVolunteerModel = requestVolunteerModel;
+//        this.districtModel = new District();
+//        this.institutionsModel = new Institutions();
+//    }
     public void setController(RequestManager controller) {
         this.controller = controller;
     }
