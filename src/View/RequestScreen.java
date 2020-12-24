@@ -44,6 +44,7 @@ public class RequestScreen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.controller = new RequestManager();
         this.requestVolunteerModel = new RequestVolunteer();
         this.districtModel = new District();
         this.institutionsModel = new Institutions();
@@ -56,7 +57,7 @@ public class RequestScreen implements Initializable {
         try {
             showDistrict();
         } catch (SQLException ex) {
-            Logger.getLogger(RequestScreen.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 
@@ -72,13 +73,14 @@ public class RequestScreen implements Initializable {
     public void showDistrict() throws SQLException {
         List<District> districts = new ArrayList<>();
         List<String> districtsNames = new ArrayList<>();
+//        System.out.println(districts = controller.showDistrict());
         districts = controller.showDistrict();
-        int index = 0;
-        while (!districts.isEmpty()) {
+        int index = districts.size();
+        while (!districts.isEmpty() || index > districts.size()) {
             districtModel = districts.get(index);
             districtsNames.add(districtModel.getName());
             districts.remove(index);
-            index++;
+            index--;
         }
         ChoiceBoxDistrict.setItems((ObservableList<String>) districtsNames);
     }

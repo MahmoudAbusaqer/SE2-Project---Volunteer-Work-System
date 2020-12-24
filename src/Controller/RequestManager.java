@@ -30,12 +30,16 @@ public class RequestManager {
     private DOVMailbox dOVMailboxModel;
     private Connection connection;
 
+    public RequestManager() {
+        connection = DBConnection.getConnection();
+    }
+
     public RequestManager(RequestVolunteer requestVolunteerModel) {
         this.requestVolunteerModel = requestVolunteerModel;
         this.districtModel = new District();
         this.institutionsModel = new Institutions();
         this.dOVMailboxModel = new DOVMailbox();
-        connection = DBConnection.getConnection();
+
     }
 
     public List<District> showDistrict() throws SQLException {
@@ -43,8 +47,11 @@ public class RequestManager {
         PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.district;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            districtModel.setName(resultSet.getString(2));
-            districts.add(districtModel);
+            District district = new District();
+            district.setId(resultSet.getInt(1));
+            district.setName(resultSet.getString(2));
+            district.setInstitutionsNumbers(resultSet.getInt(3));
+            districts.add(district);
         }
         return districts;
     }
