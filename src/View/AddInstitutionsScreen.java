@@ -13,26 +13,32 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddInstitutionsScreen {
+public class AddInstitutionsScreen implements Initializable {
 
     private AddInstitutions model;
     private AddInstitutionsManager controller;
 
-    public AddInstitutionsScreen(AddInstitutions model) {
-        this.model = model;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.controller = new AddInstitutionsManager(model);
+        this.model = new AddInstitutions();
     }
 
-    public void setController(AddInstitutionsManager controller) {
-        this.controller = controller;
-    }
-
+//    public AddInstitutionsScreen(AddInstitutions model) {
+//        this.model = model;
+//    }
+//    public void setController(AddInstitutionsManager controller) {
+//        this.controller = controller;
+//    }
     public void AddInstitutionInput(String name, String email, String address, int phone, String district) {
         controller.AddInstitutionInput(name, address, email, phone, district);
     }
@@ -101,7 +107,7 @@ public class AddInstitutionsScreen {
 
     @FXML
     void buttonStudentMailBox(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailboxScreen.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailBox.fxml"));
         rootpane.getChildren().setAll(pane);
 
     }

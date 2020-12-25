@@ -10,13 +10,19 @@ import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
@@ -24,57 +30,84 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.Pane;
 
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class RequestScreen {
+public class RequestScreen implements Initializable {
 
     private District districtModel;
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
 
-    @FXML
-    private void initialize() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.controller = new RequestManager(requestVolunteerModel);
+        this.requestVolunteerModel = new RequestVolunteer();
+        this.districtModel = new District();
+        this.institutionsModel = new Institutions();
         TableColName.setCellValueFactory(new PropertyValueFactory("name"));
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColEmail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColDistrict.setCellValueFactory(new PropertyValueFactory("district"));
         TableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectInstitution());
-        showDistrict();
+        try {
+            showDistrict();
+//            System.out.println(ChoiceBoxDistrict.getValue());
+//            showInstitutions(ChoiceBoxDistrict.getValue());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
-    public RequestScreen(RequestVolunteer requestVolunteerModel) {
-        this.requestVolunteerModel = requestVolunteerModel;
-        this.districtModel = new District();
-        this.institutionsModel = new Institutions();
-    }
-
-    public void setController(RequestManager controller) {
-        this.controller = controller;
-    }
-
+//    public RequestScreen(RequestVolunteer requestVolunteerModel) {
+//        this.requestVolunteerModel = requestVolunteerModel;
+//        this.districtModel = new District();
+//        this.institutionsModel = new Institutions();
+//    }
+//    public void setController(RequestManager controller) {
+//        this.controller = controller;
+//    }
     public void showDistrict() throws SQLException {
         List<District> districts = new ArrayList<>();
         List<String> districtsNames = new ArrayList<>();
+//        System.out.println(districts = controller.showDistrict());
         districts = controller.showDistrict();
-        int index = 0;
-        while (!districts.isEmpty()) {
-            districtModel = districts.get(index);
-            districtsNames.add(districtModel.getName());
-            districts.remove(index);
-            index++;
+        for (int i = 0; i < districts.size(); i++) {
+            District districtObject = new District();
+            districtObject = districts.get(i);
+            districtsNames.add(districtObject.getName());
+//            ChoiceBoxDistrict.setItems(districtObject.getName());
+//            districts.remove(i);
         }
-        ChoiceBoxDistrict.setItems((ObservableList<String>) districtsNames);
+//        int index = districts.size();
+//        while (!districts.isEmpty() || index > districts.size()) {
+//            districtModel = districts.get(index);
+//            districtsNames.add(districtModel.getName());
+//            districts.remove(index);
+//            index--;
+//        }
+        ObservableList<String> observableList = FXCollections.observableArrayList(districtsNames);
+//        ChoiceBoxDistrict.setItems((ObservableList<String>) districtsNames);
+        ChoiceBoxDistrict.setItems(observableList);
     }
 
-    public void showInstitutions() throws SQLException {
+    public void showInstitutions(String district) throws SQLException {
         List<Institutions> institutionses = new ArrayList<>();
-        institutionses = controller.showInstitutions(ChoiceBoxDistrict.getValue());
+        institutionses = controller.showInstitutions(district);
+//        for (int i = 0; i < institutionses.size(); i++) {
+//            Institutions institutions = new Institutions();
+//            institutions = institutionses.get(i);
+//            TableView.getItems().setAll(institutions);
+//        }
         int index = 0;
         while (!institutionses.isEmpty()) {
             institutionsModel = institutionses.get(index);
@@ -149,11 +182,6 @@ public class RequestScreen {
     private ChoiceBox<String> ChoiceBoxDistrict;
 
     @FXML
-    void ChoiceBoxHandle(InputMethodEvent event) throws SQLException {
-        controller.showInstitutions(ChoiceBoxDistrict.getValue());
-    }
-
-    @FXML
     void buttonSubmit(ActionEvent event) {
         requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(),
                 Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText(),
@@ -168,7 +196,7 @@ public class RequestScreen {
 
     @FXML
     void buttonAddInstitutionPage(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInstitutionsScreen.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/AddInstitutionScreen.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 
@@ -188,6 +216,12 @@ public class RequestScreen {
     void ButtonExit(ActionEvent event) throws IOException {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
         rootpane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void ChoiceBoxHandle(KeyEvent event) throws SQLException {
+        System.out.println(ChoiceBoxDistrict.getValue());
+        showInstitutions(ChoiceBoxDistrict.getValue());
     }
 
 }

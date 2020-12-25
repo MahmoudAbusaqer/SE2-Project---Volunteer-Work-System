@@ -8,12 +8,17 @@ package View;
 import Controller.ViewNewVolunteersManager;
 import Model.ViewNewVolunteers;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,29 +29,33 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class ViewNewVolunteersScreen {
+public class ViewNewVolunteersScreen implements Initializable {
 
     private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
 
-    @FXML
-    private void initialize() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.controller = new ViewNewVolunteersManager(model);
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
         TableColMail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColStudent.setCellValueFactory(new PropertyValueFactory("name"));
-        showNewVolunteers(model.getInstitutionId()/*Institution id from login*/);
+        try {
+            showNewVolunteers(1/*model.getInstitutionId()*//*Institution id from login*/);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewNewVolunteersScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public ViewNewVolunteersScreen(ViewNewVolunteers model) {
-        this.model = model;
-    }
-
-    public void setController(ViewNewVolunteersManager controller) {
-        this.controller = controller;
-    }
-
+//    public ViewNewVolunteersScreen(ViewNewVolunteers model) {
+//        this.model = model;
+//    }
+//
+//    public void setController(ViewNewVolunteersManager controller) {
+//        this.controller = controller;
+//    }
     public void showNewVolunteers(int institutionId) throws SQLException {
         List<ViewNewVolunteers> newVolunteerses = new ArrayList<>();
         newVolunteerses = controller.showNewVolunteers(institutionId);

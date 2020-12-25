@@ -35,13 +35,14 @@ public class ViewNewVolunteersManager {
         preparedStatement.setInt(1, institutionId);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            model.setId(resultSet.getInt(2));
-            model.setName(resultSet.getString(3));
-            model.setFaculty(resultSet.getString(4));
-            model.setAddress(resultSet.getString(5));
-            model.setEmail(resultSet.getString(6));
-            model.setPhone(resultSet.getInt(7));
-            newVolunteerses.add(model);
+            ViewNewVolunteers viewNewVolunteers = new ViewNewVolunteers();
+            viewNewVolunteers.setId(resultSet.getInt(2));
+            viewNewVolunteers.setName(resultSet.getString(3));
+            viewNewVolunteers.setFaculty(resultSet.getString(4));
+            viewNewVolunteers.setAddress(resultSet.getString(5));
+            viewNewVolunteers.setEmail(resultSet.getString(6));
+            viewNewVolunteers.setPhone(resultSet.getInt(7));
+            newVolunteerses.add(viewNewVolunteers);
         }
         return newVolunteerses;
     }

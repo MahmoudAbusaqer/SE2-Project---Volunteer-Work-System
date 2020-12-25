@@ -8,12 +8,17 @@ package View;
 import Controller.StatisticManagerDoV;
 import Model.StatisticsDoV;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -22,24 +27,28 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class StatisticsScreenDoV {
+public class StatisticsScreenDoV implements Initializable {
 
     private StatisticsDoV model;
     private StatisticManagerDoV controller;
 
-    @FXML
-    private void initialize() throws SQLException {
-        showStatistics();
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.controller = new StatisticManagerDoV(model);
+        try {
+            showStatistics();
+        } catch (SQLException ex) {
+            Logger.getLogger(StatisticsScreenDoV.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public StatisticsScreenDoV(StatisticsDoV model) {
-        this.model = model;
-    }
-
-    public void setController(StatisticManagerDoV controller) {
-        this.controller = controller;
-    }
-
+//    public StatisticsScreenDoV(StatisticsDoV model) {
+//        this.model = model;
+//    }
+//
+//    public void setController(StatisticManagerDoV controller) {
+//        this.controller = controller;
+//    }
     public void showStatistics() throws SQLException {
         List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
         statisticsDoVs = controller.showStatistics();

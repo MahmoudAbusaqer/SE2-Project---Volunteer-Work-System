@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,16 +31,18 @@ public class RequestManager {
     private DOVMailbox dOVMailboxModel;
     private Connection connection;
 
-    public RequestManager() {
-        connection = DBConnection.getConnection();
-    }
-
+//    public RequestManager() {
+//        connection = DBConnection.getConnection();
+//        this.districtModel = new District();
+//        this.institutionsModel = new Institutions();
+//        this.dOVMailboxModel = new DOVMailbox();
+//    }
     public RequestManager(RequestVolunteer requestVolunteerModel) {
         this.requestVolunteerModel = requestVolunteerModel;
+        connection = DBConnection.getConnection();
         this.districtModel = new District();
         this.institutionsModel = new Institutions();
         this.dOVMailboxModel = new DOVMailbox();
-
     }
 
     public List<District> showDistrict() throws SQLException {
@@ -62,12 +65,13 @@ public class RequestManager {
         preparedStatement.setString(1, district);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            institutionsModel.setName(resultSet.getString(2));
-            institutionsModel.setAddress(resultSet.getString(3));
-            institutionsModel.setEmail(resultSet.getString(4));
-            institutionsModel.setPhone(resultSet.getInt(5));
-            institutionsModel.setDistrict(resultSet.getString(6));
-            institutionses.add(institutionsModel);
+            Institutions institutions = new Institutions();
+            institutions.setName(resultSet.getString(2));
+            institutions.setAddress(resultSet.getString(3));
+            institutions.setEmail(resultSet.getString(4));
+            institutions.setPhone(resultSet.getInt(5));
+            institutions.setDistrict(resultSet.getString(6));
+            institutionses.add(institutions);
         }
         return institutionses;
     }
