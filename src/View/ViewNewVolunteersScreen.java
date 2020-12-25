@@ -59,13 +59,14 @@ public class ViewNewVolunteersScreen implements Initializable {
     public void showNewVolunteers(int institutionId) throws SQLException {
         List<ViewNewVolunteers> newVolunteerses = new ArrayList<>();
         newVolunteerses = controller.showNewVolunteers(institutionId);
-        int index = 0;
-        while (!newVolunteerses.isEmpty()) {
-            model = newVolunteerses.get(index);
-            TableView.getItems().setAll(newVolunteerses);
-            newVolunteerses.remove(index);
-            index++;
-        }
+        TableView.getItems().setAll(newVolunteerses);
+//        int index = 0;
+//        while (!newVolunteerses.isEmpty()) {
+//            model = newVolunteerses.get(index);
+//            TableView.getItems().setAll(newVolunteerses);
+//            newVolunteerses.remove(index);
+//            index++;
+//        }
     }
 
     @FXML

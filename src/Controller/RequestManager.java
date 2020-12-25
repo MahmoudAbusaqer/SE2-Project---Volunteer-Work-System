@@ -45,16 +45,31 @@ public class RequestManager {
         this.dOVMailboxModel = new DOVMailbox();
     }
 
-    public List<District> showDistrict() throws SQLException {
-        List<District> districts = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.district;");
+//    public List<District> showDistrict() throws SQLException {
+//        List<District> districts = new ArrayList<>();
+//        PreparedStatement preparedStatement = connection.prepareStatement("select name from vws.district;");
+//        ResultSet resultSet = preparedStatement.executeQuery();
+//        while (resultSet.next()) {
+//            District district = new District();
+////            district.setId(resultSet.getInt(1));
+//            district.setName(resultSet.getString(2));
+////            district.setInstitutionsNumbers(resultSet.getInt(3));
+//            districts.add(district);
+//        }
+//        return districts;
+//    }
+    public List<String> showDistrict() throws SQLException {
+        List<String> districts = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement("select name from vws.district;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            District district = new District();
-            district.setId(resultSet.getInt(1));
-            district.setName(resultSet.getString(2));
-            district.setInstitutionsNumbers(resultSet.getInt(3));
-            districts.add(district);
+//            District district = new District();
+            String districtName = new String();
+//            district.setId(resultSet.getInt(1));
+//            district.setName(resultSet.getString(2));
+            districtName = resultSet.getString(1);
+//            district.setInstitutionsNumbers(resultSet.getInt(3));
+            districts.add(districtName);
         }
         return districts;
     }

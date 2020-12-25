@@ -46,7 +46,7 @@ public class ReportScreen implements Initializable {
         TableColStudentName.setCellValueFactory(new PropertyValueFactory("name"));
         tableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectStudent());
         try {
-            showStudent(000/*institutionId*/);
+            showStudent(1/*institutionId*/);
         } catch (SQLException ex) {
             Logger.getLogger(ReportScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,13 +66,14 @@ public class ReportScreen implements Initializable {
     public void showStudent(int institutionId) throws SQLException {
         List<Student> students = new ArrayList<>();
         students = controller.showStudent(institutionId);
-        int index = 0;
-        while (!students.isEmpty()) {
-            students.get(index);
-            tableView.getItems().setAll(students);
-            students.remove(index);
-            index++;
-        }
+        tableView.getItems().setAll(students);
+//        int index = 0;
+//        while (!students.isEmpty()) {
+//            students.get(index);
+//            tableView.getItems().setAll(students);
+//            students.remove(index);
+//            index++;
+//        }
     }
 
     public void selectStudent() {

@@ -77,17 +77,18 @@ public class RequestScreen implements Initializable {
 //        this.controller = controller;
 //    }
     public void showDistrict() throws SQLException {
-        List<District> districts = new ArrayList<>();
+//        List<District> districts = new ArrayList<>();
         List<String> districtsNames = new ArrayList<>();
 //        System.out.println(districts = controller.showDistrict());
-        districts = controller.showDistrict();
-        for (int i = 0; i < districts.size(); i++) {
-            District districtObject = new District();
-            districtObject = districts.get(i);
-            districtsNames.add(districtObject.getName());
+        districtsNames = controller.showDistrict();
+//        ChoiceBoxDistrict.setItems(districtsNames);
+//        for (int i = 0; i < districtsNames.size(); i++) {
+//            District districtObject = new District();
+//            districtObject = districts.get(i);
+//            districtsNames.add(districtObject.getName());
 //            ChoiceBoxDistrict.setItems(districtObject.getName());
 //            districts.remove(i);
-        }
+//        }
 //        int index = districts.size();
 //        while (!districts.isEmpty() || index > districts.size()) {
 //            districtModel = districts.get(index);
@@ -103,18 +104,20 @@ public class RequestScreen implements Initializable {
     public void showInstitutions(String district) throws SQLException {
         List<Institutions> institutionses = new ArrayList<>();
         institutionses = controller.showInstitutions(district);
+        System.out.println(institutionses.size());
 //        for (int i = 0; i < institutionses.size(); i++) {
+//            System.out.println(institutionses.get(i) + " i: " + i);
 //            Institutions institutions = new Institutions();
 //            institutions = institutionses.get(i);
-//            TableView.getItems().setAll(institutions);
+        TableView.getItems().setAll(institutionses);
 //        }
-        int index = 0;
-        while (!institutionses.isEmpty()) {
-            institutionsModel = institutionses.get(index);
-            TableView.getItems().setAll(institutionses);
-            institutionses.remove(index);
-            index++;
-        }
+//        int index = 0;
+//        while (!institutionses.isEmpty()) {
+//            institutionsModel = institutionses.get(index);
+//            TableView.getItems().setAll(institutionses);
+////            institutionses.remove(index);
+//            index++;
+//        }
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {

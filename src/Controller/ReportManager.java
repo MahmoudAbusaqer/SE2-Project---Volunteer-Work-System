@@ -43,9 +43,10 @@ public class ReportManager {
         while (resultSet.next()) {
             studentModel.setId(resultSet.getInt(2));
             studentModel.setName(resultSet.getString(3));
-            studentModel.setAddress(resultSet.getString(4));
-            studentModel.setEmail(resultSet.getString(5));
-            studentModel.setPhone(resultSet.getInt(6));
+            studentModel.setFaculty(resultSet.getString(4));
+            studentModel.setAddress(resultSet.getString(5));
+            studentModel.setEmail(resultSet.getString(6));
+            studentModel.setPhone(resultSet.getInt(7));
             students.add(studentModel);
         }
         return students;
