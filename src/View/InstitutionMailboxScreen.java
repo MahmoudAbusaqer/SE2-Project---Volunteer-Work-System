@@ -21,7 +21,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -52,13 +54,25 @@ public class InstitutionMailboxScreen implements Initializable {
     public void showMailbox() throws SQLException {
         List<InstitutionMailbox> institutionMailboxs = new ArrayList<>();
         institutionMailboxs = controller.showMailbox();
-        int index = 0;
-        while (!institutionMailboxs.isEmpty()) {
-            model = institutionMailboxs.get(index);
-            //here need to match every GUI field with the model.get
-            institutionMailboxs.remove(index);
-            index++;
+        for (int i = 0; i < institutionMailboxs.size(); i++) {
+            InstitutionMailbox mailbox = new InstitutionMailbox();
+            mailbox = institutionMailboxs.get(i);
+            final String body = mailbox.getBody();
+            Button mailButton = new Button(mailbox.getTitle());
+            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+            mailButton.setStyle("-fx-background-color: #2A4166;");
+            mailButton.setOnAction((e) -> {
+                mailboxTextArea.setText(body);
+            });
+            MailboxPane.getChildren().add(mailButton);
         }
+//        int index = 0;
+//        while (!institutionMailboxs.isEmpty()) {
+//            model = institutionMailboxs.get(index);
+//            //here need to match every GUI field with the model.get
+//            institutionMailboxs.remove(index);
+//            index++;
+//        }
     }
 
     @FXML
@@ -77,6 +91,12 @@ public class InstitutionMailboxScreen implements Initializable {
     private Button ExitButton;
 
     @FXML
+    private VBox MailboxPane;
+
+    @FXML
+    private TextArea mailboxTextArea;
+
+    @FXML
     void buttonMainPage(ActionEvent event) throws IOException {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
         rootpane.getChildren().setAll(pane);
@@ -84,7 +104,7 @@ public class InstitutionMailboxScreen implements Initializable {
 
     @FXML
     void buttonNewVolunteersPage(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewNewVolunteers.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewsNewVolunteers.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 

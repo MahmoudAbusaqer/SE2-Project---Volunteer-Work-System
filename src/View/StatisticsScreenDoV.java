@@ -52,18 +52,29 @@ public class StatisticsScreenDoV implements Initializable {
     public void showStatistics() throws SQLException {
         List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
         statisticsDoVs = controller.showStatistics();
-        int index = 0;
-        while (!statisticsDoVs.isEmpty()) {//I think this does not need while
-            model = statisticsDoVs.get(index);
-            labelActiveInitiatives.setText(String.valueOf(model.getActiveInitiatives()));
-            labelActiveVolunteers.setText(String.valueOf(model.getActiveVolunteers()));
-            labelFinishedVolunteers.setText(String.valueOf(model.getFinishedVolunteersNumbers()));
-            labelInitiativesNumber.setText(String.valueOf(model.getInitiatives()));
-            labelInstitutionsNumbers.setText(String.valueOf(model.getInstitutionsNumbers()));
-            labelNumbersOfVolunteers.setText(String.valueOf(model.getVolunteersNumbers()));
-            statisticsDoVs.remove(index);
-            index++;
+        for (int i = 0; i < statisticsDoVs.size(); i++) {
+            StatisticsDoV statisticsDoV = new StatisticsDoV();
+            statisticsDoV = statisticsDoVs.get(i);
+            labelActiveInitiatives.setText(String.valueOf(statisticsDoV.getActiveInitiatives()));
+            labelActiveVolunteers.setText(String.valueOf(statisticsDoV.getActiveVolunteers()));
+            labelFinishedVolunteers.setText(String.valueOf(statisticsDoV.getFinishedVolunteersNumbers()));
+            labelInitiativesNumber.setText(String.valueOf(statisticsDoV.getInitiatives()));
+            labelInstitutionsNumbers.setText(String.valueOf(statisticsDoV.getInstitutionsNumbers()));
+            labelNumbersOfVolunteers.setText(String.valueOf(statisticsDoV.getVolunteersNumbers()));
         }
+
+//        int index = 0;
+//        while (!statisticsDoVs.isEmpty()) {//I think this does not need while
+//            model = statisticsDoVs.get(index);
+//            labelActiveInitiatives.setText(String.valueOf(model.getActiveInitiatives()));
+//            labelActiveVolunteers.setText(String.valueOf(model.getActiveVolunteers()));
+//            labelFinishedVolunteers.setText(String.valueOf(model.getFinishedVolunteersNumbers()));
+//            labelInitiativesNumber.setText(String.valueOf(model.getInitiatives()));
+//            labelInstitutionsNumbers.setText(String.valueOf(model.getInstitutionsNumbers()));
+//            labelNumbersOfVolunteers.setText(String.valueOf(model.getVolunteersNumbers()));
+//            statisticsDoVs.remove(index);
+//            index++;
+//        }
     }
 
     @FXML

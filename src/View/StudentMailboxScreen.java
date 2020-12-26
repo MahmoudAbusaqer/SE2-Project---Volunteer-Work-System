@@ -14,12 +14,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -34,6 +39,12 @@ public class StudentMailboxScreen implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new StudentMailboxManager(model);
         this.model = new StudentMailbox();
+        MailboxPane.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+        try {
+            showMailbox();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentMailboxScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 //    public StudentMailboxScreen(StudentMailbox model) {
@@ -45,13 +56,30 @@ public class StudentMailboxScreen implements Initializable {
     public void showMailbox() throws SQLException {
         List<StudentMailbox> studentMailboxs = new ArrayList<>();
         studentMailboxs = controller.showMailbox();
-        int index = 0;
-        while (!studentMailboxs.isEmpty()) {
-            model = studentMailboxs.get(index);
-            //here need to match every GUI field with the model.get
-            studentMailboxs.remove(index);
-            index++;
+        for (int i = 0; i < studentMailboxs.size(); i++) {
+            StudentMailbox mailbox = new StudentMailbox();
+            mailbox = studentMailboxs.get(i);
+            final String body = mailbox.getBody();
+            Button mailButton = new Button(mailbox.getTitle());
+            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+            mailButton.setStyle("-fx-background-color: #2A4166;");
+            mailButton.setOnAction((e) -> {
+                mailboxTextArea.setText(body);
+            });
+            MailboxPane.getChildren().add(mailButton);
         }
+//        int index = studentMailboxs.size();
+//        while (!studentMailboxs.isEmpty()) {
+//            StudentMailbox mailbox = new StudentMailbox();
+//            mailbox = studentMailboxs.get(index);
+//            Button mailButton = new Button(mailbox.getTitle());
+//            mailButton.setStyle("-fx-background-color: #2A4166;");
+//            mailboxTextArea.setText(mailbox.getBody());
+//            MailboxPane.getChildren().add(mailButton);
+//            //here need to match every GUI field with the model.get
+//            studentMailboxs.remove(index);
+//            index--;
+//        }
     }
 
     @FXML
@@ -67,10 +95,16 @@ public class StudentMailboxScreen implements Initializable {
     private Button ButtonAddInstitutionPage;
 
     @FXML
-    private Button ButtonStudentMailBox;
+    private Button ButtonCreateIntitivePage;
+
+    @FXML
+    private VBox MailboxPane;
 
     @FXML
     private Button ExitButton;
+
+    @FXML
+    private TextArea mailboxTextArea;
 
     @FXML
     void buttonMainPage(ActionEvent event) throws IOException {

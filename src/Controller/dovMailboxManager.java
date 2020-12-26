@@ -41,13 +41,14 @@ public class dovMailboxManager {
         PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.dovmailbox;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            modelDOV.setSenderId(resultSet.getInt(2));
-            modelDOV.setSenderName(resultSet.getString(3));
-            modelDOV.setTitle(resultSet.getString(4));
-            modelDOV.setBody(resultSet.getString(5));
-            modelDOV.setDate(resultSet.getDate(6));
-            modelDOV.setApproveOrDeny(resultSet.getBoolean(7));
-            dOVMailboxs.add(modelDOV);
+            DOVMailbox dOVMailbox = new DOVMailbox();
+            dOVMailbox.setSenderId(resultSet.getInt(2));
+            dOVMailbox.setSenderName(resultSet.getString(3));
+            dOVMailbox.setTitle(resultSet.getString(4));
+            dOVMailbox.setBody(resultSet.getString(5));
+            dOVMailbox.setDate(resultSet.getDate(6));
+            dOVMailbox.setApproveOrDeny(resultSet.getBoolean(7));
+            dOVMailboxs.add(dOVMailbox);
         }
         return dOVMailboxs;
     }

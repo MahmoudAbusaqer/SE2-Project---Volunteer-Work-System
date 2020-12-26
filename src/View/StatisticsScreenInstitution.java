@@ -31,12 +31,18 @@ public class StatisticsScreenInstitution implements Initializable {
 
     private StatisticsInstitution model;
     private StatisticManagerInstitution controller;
+    @FXML
+    private Button ButtonNewVolunteers;
+    @FXML
+    private Button ButtonReportPage;
+    @FXML
+    private Button ButtonInstitutionMailBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new StatisticManagerInstitution(model);
         try {
-            showStatistics(model.getInstitutionId()/*Institution id from login*/);
+            showStatistics(2);
         } catch (SQLException ex) {
             Logger.getLogger(StatisticsScreenInstitution.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,6 +58,10 @@ public class StatisticsScreenInstitution implements Initializable {
     public void showStatistics(int institutionId) throws SQLException {
         List<StatisticsInstitution> statisticsInstitutions = new ArrayList<>();
         statisticsInstitutions = controller.showStatistics(institutionId);
+        for (int i = 0; i < statisticsInstitutions.size(); i++) {
+            
+        }
+
         int index = 0;
         while (!statisticsInstitutions.isEmpty()) {//I think this does not need while
             model = statisticsInstitutions.get(index);
@@ -65,15 +75,6 @@ public class StatisticsScreenInstitution implements Initializable {
 
     @FXML
     private Pane rootpane;
-
-    @FXML
-    private Button ButtonNewVolunteers;
-
-    @FXML
-    private Button ButtonReportPage;
-
-    @FXML
-    private Button ButtonInstitutionMailBox;
 
     @FXML
     private Button ExitButton;
@@ -95,7 +96,7 @@ public class StatisticsScreenInstitution implements Initializable {
 
     @FXML
     void buttonNewVolunteers(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewNewVolunteers.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewsNewVolunteers.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 
@@ -110,5 +111,6 @@ public class StatisticsScreenInstitution implements Initializable {
         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
         rootpane.getChildren().setAll(pane);
     }
+
 
 }

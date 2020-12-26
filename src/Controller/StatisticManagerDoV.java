@@ -34,13 +34,14 @@ public class StatisticManagerDoV {
         PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.statisticsdov;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            model.setVolunteersNumbers(resultSet.getInt(2));
-            model.setInstitutionsNumbers(resultSet.getInt(3));
-            model.setFinishedVolunteersNumbers(resultSet.getInt(4));
-            model.setInitiatives(resultSet.getInt(5));
-            model.setActiveVolunteers(resultSet.getInt(6));
-            model.setActiveInitiatives(resultSet.getInt(7));
-            statisticsDoVs.add(model);
+            StatisticsDoV statisticsDoV = new StatisticsDoV();
+            statisticsDoV.setVolunteersNumbers(resultSet.getInt(2));
+            statisticsDoV.setInstitutionsNumbers(resultSet.getInt(3));
+            statisticsDoV.setFinishedVolunteersNumbers(resultSet.getInt(4));
+            statisticsDoV.setInitiatives(resultSet.getInt(5));
+            statisticsDoV.setActiveVolunteers(resultSet.getInt(6));
+            statisticsDoV.setActiveInitiatives(resultSet.getInt(7));
+            statisticsDoVs.add(statisticsDoV);
         }
         return statisticsDoVs;
     }

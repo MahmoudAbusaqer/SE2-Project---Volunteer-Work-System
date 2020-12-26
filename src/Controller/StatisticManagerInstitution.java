@@ -35,12 +35,13 @@ public class StatisticManagerInstitution {
         preparedStatement.setInt(1, institutionId);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            model.setInstitutionId(resultSet.getInt(2));
-            model.setInstitutionName(resultSet.getString(3));
-            model.setNumberOfAllStudents(resultSet.getInt(4));
-            model.setStudentsFinishedNumbers(resultSet.getInt(5));
-            model.setActiveVolunteers(resultSet.getInt(6));
-            statisticsInstitutions.add(model);
+            StatisticsInstitution statisticsInstitution = new StatisticsInstitution();
+            statisticsInstitution.setInstitutionId(resultSet.getInt(2));
+            statisticsInstitution.setInstitutionName(resultSet.getString(3));
+            statisticsInstitution.setNumberOfAllStudents(resultSet.getInt(4));
+            statisticsInstitution.setStudentsFinishedNumbers(resultSet.getInt(5));
+            statisticsInstitution.setActiveVolunteers(resultSet.getInt(6));
+            statisticsInstitutions.add(statisticsInstitution);
         }
         return statisticsInstitutions;
     }

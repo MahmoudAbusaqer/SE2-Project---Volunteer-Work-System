@@ -35,13 +35,14 @@ public class InstitutionMailboxManager {
         PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.institutionmailbox;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            model.setSenderId(resultSet.getInt(2));
-            model.setSenderName(resultSet.getString(3));
-            model.setTitle(resultSet.getString(4));
-            model.setBody(resultSet.getString(5));
-            model.setDate(resultSet.getDate(6));
-            model.setApproveOrDeny(resultSet.getBoolean(7));
-            institutionMailboxs.add(model);
+            InstitutionMailbox institutionMailbox = new InstitutionMailbox();
+            institutionMailbox.setSenderId(resultSet.getInt(2));
+            institutionMailbox.setSenderName(resultSet.getString(3));
+            institutionMailbox.setTitle(resultSet.getString(4));
+            institutionMailbox.setBody(resultSet.getString(5));
+            institutionMailbox.setDate(resultSet.getDate(6));
+            institutionMailbox.setApproveOrDeny(resultSet.getBoolean(7));
+            institutionMailboxs.add(institutionMailbox);
         }
         return institutionMailboxs;
     }

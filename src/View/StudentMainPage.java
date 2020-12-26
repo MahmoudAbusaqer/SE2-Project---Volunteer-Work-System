@@ -54,7 +54,7 @@ public class StudentMainPage implements Initializable {
 
     @FXML
     void buttonStudentMailBox(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailboxScreen.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailBox.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 

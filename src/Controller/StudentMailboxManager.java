@@ -35,13 +35,14 @@ public class StudentMailboxManager {
         PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.studentmailbox;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            model.setSenderId(resultSet.getInt(2));
-            model.setSenderName(resultSet.getString(3));
-            model.setTitle(resultSet.getString(4));
-            model.setBody(resultSet.getString(5));
-            model.setDate(resultSet.getDate(6));
-            model.setApproveOrDeny(resultSet.getBoolean(7));
-            studentMailboxs.add(model);
+            StudentMailbox mailbox = new StudentMailbox();
+            mailbox.setSenderId(resultSet.getInt(2));
+            mailbox.setSenderName(resultSet.getString(3));
+            mailbox.setTitle(resultSet.getString(4));
+            mailbox.setBody(resultSet.getString(5));
+            mailbox.setDate(resultSet.getDate(6));
+            mailbox.setApproveOrDeny(resultSet.getBoolean(7));
+            studentMailboxs.add(mailbox);
         }
         return studentMailboxs;
     }

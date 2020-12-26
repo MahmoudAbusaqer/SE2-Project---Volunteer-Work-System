@@ -25,11 +25,14 @@ public class testMainClass extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/NewsAndAnnouncmentScreen.fxml"));
-        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/StatisticsScreen.fxml"));
+//        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/StatisticsScreen.fxml"));
+//        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/DOVGUI/DOVMailBox.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/StudentMailBox.fxml"));
+//        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/InstitutionMailBox.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ReportScreen.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewsNewVolunteers.fxml"));
+        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/LoginPage.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
         Scene scene = new Scene(paneStudentTableView);
