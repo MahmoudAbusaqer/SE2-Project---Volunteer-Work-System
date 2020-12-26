@@ -1,5 +1,5 @@
 .button {
--fx-background-color: 
+    -fx-background-color: 
         #090a0c,
         linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
         linear-gradient(#20262b, #191d22),
@@ -12,5 +12,8 @@
     -fx-text-fill: linear-gradient(white, #d0d0d0);
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
-
+    /*I add this css you can change it as you need*/
+    -fx-margin: 10 0 0 5;
+    -fx-pref-width: 170;
+    -fx-pref-height: 35;
 }
