@@ -39,7 +39,8 @@ public class StudentMailboxScreen implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new StudentMailboxManager(model);
         this.model = new StudentMailbox();
-        MailboxPane.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+        MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
+      //MailboxPane.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
         try {
             showMailbox();
         } catch (SQLException ex) {
@@ -61,7 +62,8 @@ public class StudentMailboxScreen implements Initializable {
             mailbox = studentMailboxs.get(i);
             final String body = mailbox.getBody();
             Button mailButton = new Button(mailbox.getTitle());
-            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+            MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
+    //        mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
             mailButton.setStyle("-fx-background-color: #2A4166;");
             mailButton.setOnAction((e) -> {
                 mailboxTextArea.setText(body);

@@ -59,7 +59,8 @@ public class DoVMailbox implements Initializable {
             mailbox = dOVMailboxs.get(i);
             final String body = mailbox.getBody();
             Button mailButton = new Button(mailbox.getTitle());
-            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+            MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
+//            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
             mailButton.setStyle("-fx-background-color: #2A4166;");
             mailButton.setOnAction((e) -> {
                 mailboxTextArea.setText(body);
