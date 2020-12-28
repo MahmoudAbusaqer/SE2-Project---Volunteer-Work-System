@@ -32,8 +32,8 @@ public class testMainClass extends Application {
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/InstitutionMailBox.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ReportScreen.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewsNewVolunteers.fxml"));
-        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
-//        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/LoginPage.fxml"));
+//        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
+        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/LoginPage.fxml"));
 //        Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
         Scene scene = new Scene(paneStudentTableView);
         primaryStage.setTitle("test");

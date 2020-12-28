@@ -33,12 +33,14 @@ public class ReportScreen implements Initializable {
     private Report reportModel;
     private Student studentModel;
     private ReportManager controller;
+    private LoginPage loginPage;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new ReportManager(reportModel);
         this.reportModel = new Report();
         this.studentModel = new Student();
+        this.loginPage = new LoginPage();
         TableColStudentId.setCellValueFactory(new PropertyValueFactory("id"));
         TableColStudentAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColStudentEmail.setCellValueFactory(new PropertyValueFactory("email"));
@@ -46,7 +48,7 @@ public class ReportScreen implements Initializable {
         TableColStudentName.setCellValueFactory(new PropertyValueFactory("name"));
         tableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectStudent());
         try {
-            showStudent(1/*institutionId*/);
+            showStudent(loginPage.getInstitutionId()/*institutionId*/);
         } catch (SQLException ex) {
             Logger.getLogger(ReportScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
