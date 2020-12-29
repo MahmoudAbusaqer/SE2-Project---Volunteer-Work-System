@@ -9,6 +9,7 @@ import Controller.RequestManager;
 import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
+import Model.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -45,6 +46,9 @@ public class RequestScreen implements Initializable {
     private Institutions institutionsModel;
     private RequestVolunteer requestVolunteerModel;
     private RequestManager controller;
+    private StartPagePanes startPagePanes = new StartPagePanes();
+//    private int studentId;
+    static Student student;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,6 +56,11 @@ public class RequestScreen implements Initializable {
         this.requestVolunteerModel = new RequestVolunteer();
         this.districtModel = new District();
         this.institutionsModel = new Institutions();
+//        student =;
+//        studentId = startPagePanes.getStudentId();
+//        System.out.println(student.getName());
+//        student = startPagePanes.getStudent();
+//        System.out.println(student.getName());
         TableColName.setCellValueFactory(new PropertyValueFactory("name"));
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColEmail.setCellValueFactory(new PropertyValueFactory("email"));
@@ -60,6 +69,8 @@ public class RequestScreen implements Initializable {
         TableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectInstitution());
         try {
             showDistrict();
+//            showStudent(student);
+            fillFields();
 //            System.out.println(ChoiceBoxDistrict.getValue());
 //            showInstitutions(ChoiceBoxDistrict.getValue());
         } catch (SQLException ex) {
@@ -68,6 +79,9 @@ public class RequestScreen implements Initializable {
 
     }
 
+//    public RequestScreen(Student student) {
+//        this.student = student;
+//    }
 //    public RequestScreen(RequestVolunteer requestVolunteerModel) {
 //        this.requestVolunteerModel = requestVolunteerModel;
 //        this.districtModel = new District();
@@ -118,6 +132,26 @@ public class RequestScreen implements Initializable {
 ////            institutionses.remove(index);
 //            index++;
 //        }
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        RequestScreen.student = student;
+    }
+
+//    public void showStudent(Student newstudent) {
+////        newstudent = getStudent();
+//        setStudent(newstudent);
+//        System.out.println(newstudent.getName());
+//    }
+
+    public void fillFields() {
+        TextFieldStudentId.setText(String.valueOf(student.getId()));
+        TextFieldStudentName.setText(student.getName());
+        System.out.println(Integer.parseInt(TextFieldStudentId.getText()));
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {
@@ -186,9 +220,9 @@ public class RequestScreen implements Initializable {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        requestVlounteer(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(),
+        requestVlounteer(student.getId(), student.getName(),
                 Integer.parseInt(TextFieldInstitutionId.getText()), TextFieldInstitutionName.getText(),
-                ChoiceBoxDistrict.getValue(), /*student address from student id*/ "");//need edit
+                ChoiceBoxDistrict.getValue(), /*student address from student id*/ student.getAddress());//need edit
     }
 
     @FXML
@@ -223,7 +257,7 @@ public class RequestScreen implements Initializable {
 
     @FXML
     private void ChoiceBoxHandle(KeyEvent event) throws SQLException {
-        System.out.println(ChoiceBoxDistrict.getValue());
+//        System.out.println(ChoiceBoxDistrict.getValue());
         showInstitutions(ChoiceBoxDistrict.getValue());
     }
 

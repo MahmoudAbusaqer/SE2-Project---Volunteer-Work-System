@@ -7,6 +7,7 @@ package View;
 
 import Controller.CreateInitiativeManager;
 import Model.CreateInitiative;
+import Model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,11 +28,13 @@ public class CreateInitiativeScreen implements Initializable {
 
     private CreateInitiative model;
     private CreateInitiativeManager controller;
+    static Student student;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new CreateInitiativeManager(model);
         this.model = new CreateInitiative();
+        fillFields();
     }
 //    public CreateInitiativeScreen(CreateInitiative model) {
 //        this.model = model;
@@ -44,6 +47,21 @@ public class CreateInitiativeScreen implements Initializable {
         controller.CreateInitiativeInput(studentId, name, location, description, phone, numberOfVolunteers);
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        CreateInitiativeScreen.student = student;
+    }
+
+    public void fillFields() {
+        TextFieldStudentId.setText(String.valueOf(student.getId()));
+        TextFieldStudentName.setText(student.getName());
+        TextFieldStudentPhone.setText(String.valueOf(student.getPhone()));
+//        System.out.println(Integer.parseInt(TextFieldStudentId.getText()));
+    }
+    
     @FXML
     private Pane rootpane;
 
@@ -85,7 +103,7 @@ public class CreateInitiativeScreen implements Initializable {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        CreateInitiativeInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentPhone.getText()));
+        CreateInitiativeInput(student.getId(), student.getName(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentPhone.getText()));
     }
 
     @FXML

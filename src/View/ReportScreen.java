@@ -6,6 +6,7 @@
 package View;
 
 import Controller.ReportManager;
+import Model.Institutions;
 import Model.Report;
 import Model.Student;
 import javafx.event.ActionEvent;
@@ -33,22 +34,25 @@ public class ReportScreen implements Initializable {
     private Report reportModel;
     private Student studentModel;
     private ReportManager controller;
-    private LoginPage loginPage;
+    private StartPagePanes startPagePanes;
+    static Institutions institutions;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new ReportManager(reportModel);
         this.reportModel = new Report();
         this.studentModel = new Student();
-        this.loginPage = new LoginPage();
+        this.startPagePanes = new StartPagePanes();
+//        institutions = startPagePanes.getInstitutions();
         TableColStudentId.setCellValueFactory(new PropertyValueFactory("id"));
         TableColStudentAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColStudentEmail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColStudentPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColStudentName.setCellValueFactory(new PropertyValueFactory("name"));
+        fillFields();
         tableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectStudent());
         try {
-            showStudent(loginPage.getInstitutionId()/*institutionId*/);
+            showStudent(institutions.getId()/*institutionId*/);
         } catch (SQLException ex) {
             Logger.getLogger(ReportScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -84,6 +88,18 @@ public class ReportScreen implements Initializable {
         TextFieldStudentName.setText(student.getName());
     }
 
+    public static Institutions getInstitutions() {
+        return institutions;
+    }
+
+    public static void setInstitutions(Institutions institutions) {
+        ReportScreen.institutions = institutions;
+    }
+
+    public void fillFields() {
+        TextFieldInstitutionName.setText(institutions.getName());
+
+    }
     @FXML
     private TableView<Student> tableView;
 

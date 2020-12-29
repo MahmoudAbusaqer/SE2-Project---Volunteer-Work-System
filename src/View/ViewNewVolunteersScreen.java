@@ -6,6 +6,7 @@
 package View;
 
 import Controller.ViewNewVolunteersManager;
+import Model.Institutions;
 import Model.ViewNewVolunteers;
 import java.io.IOException;
 import java.net.URL;
@@ -33,17 +34,20 @@ public class ViewNewVolunteersScreen implements Initializable {
 
     private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
+    private StartPagePanes startPagePanes;
+    static Institutions institutions;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new ViewNewVolunteersManager(model);
+//        institutions = startPagePanes.getInstitutions();
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
         TableColMail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColStudent.setCellValueFactory(new PropertyValueFactory("name"));
         try {
-            showNewVolunteers(1/*model.getInstitutionId()*//*Institution id from login*/);
+            showNewVolunteers(institutions.getId());
         } catch (SQLException ex) {
             Logger.getLogger(ViewNewVolunteersScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -67,6 +71,14 @@ public class ViewNewVolunteersScreen implements Initializable {
 //            newVolunteerses.remove(index);
 //            index++;
 //        }
+    }
+
+    public static Institutions getInstitutions() {
+        return institutions;
+    }
+
+    public static void setInstitutions(Institutions institutions) {
+        ViewNewVolunteersScreen.institutions = institutions;
     }
 
     @FXML
