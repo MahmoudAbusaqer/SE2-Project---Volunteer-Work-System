@@ -93,7 +93,7 @@
                   </Pane>
                   <Pane prefHeight="406.0" prefWidth="721.0" style="-fx-background-color: red;">
                      <children>
-                        <TextArea fx:id="mailboxTextArea" editable="false" layoutY="-1.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="408.0" prefWidth="689.0" />
+                        <TextArea fx:id="mailboxTextArea" editable="false" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="408.0" prefWidth="689.0" wrapText="true" />
                      </children></Pane>
                </children>
             </StackPane>
