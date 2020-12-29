@@ -6,12 +6,12 @@
 package View;
 
 import Controller.StudentMailboxManager;
+import Model.Student;
 import Model.StudentMailbox;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -22,7 +22,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -34,15 +33,16 @@ public class StudentMailboxScreen implements Initializable {
 
     private StudentMailbox model;
     private StudentMailboxManager controller;
+    static Student student;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new StudentMailboxManager(model);
         this.model = new StudentMailbox();
         MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
-      //MailboxPane.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+        //MailboxPane.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
         try {
-            showMailbox();
+            showMailbox(student.getId());
         } catch (SQLException ex) {
             Logger.getLogger(StudentMailboxScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -54,16 +54,16 @@ public class StudentMailboxScreen implements Initializable {
 //    public void setController(StudentMailboxManager controller) {
 //        this.controller = controller;
 //    }
-    public void showMailbox() throws SQLException {
+    public void showMailbox(int id) throws SQLException {
         List<StudentMailbox> studentMailboxs = new ArrayList<>();
-        studentMailboxs = controller.showMailbox();
+        studentMailboxs = controller.showMailbox(id);
         for (int i = 0; i < studentMailboxs.size(); i++) {
             StudentMailbox mailbox = new StudentMailbox();
             mailbox = studentMailboxs.get(i);
             final String body = mailbox.getBody();
             Button mailButton = new Button(mailbox.getTitle());
             MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
-    //        mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
+            //        mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
             mailButton.setStyle("-fx-background-color: #2A4166;");
             mailButton.setOnAction((e) -> {
                 mailboxTextArea.setText(body);
@@ -82,6 +82,14 @@ public class StudentMailboxScreen implements Initializable {
 //            studentMailboxs.remove(index);
 //            index--;
 //        }
+    }
+
+    public static Student getStudent() {
+        return student;
+    }
+
+    public static void setStudent(Student student) {
+        StudentMailboxScreen.student = student;
     }
 
     @FXML

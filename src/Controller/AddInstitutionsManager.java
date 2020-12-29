@@ -29,20 +29,22 @@ public class AddInstitutionsManager {
         connection = DBConnection.getConnection();
     }
 
-    public void AddInstitutionInput(String name, String address, String email, int phone, String district) {
-        addInstitutionsModel.setName(name);
-        addInstitutionsModel.setAddress(address);
-        addInstitutionsModel.setEmail(email);
-        addInstitutionsModel.setPhone(phone);
-        addInstitutionsModel.setDistrict(district);
-        add(addInstitutionsModel);
-        dOVMailboxModel.setSenderId(0000000/*need edit we shoulg get this when the studen log in*/);
-        dOVMailboxModel.setSenderName("studentName"/*need edit we shoulg get this when the studen log in*/);
-        dOVMailboxModel.setTitle("A new institution suggest from a student.");
-        dOVMailboxModel.setBody("The student: " + /*need edit we shoulg get this when the studen log in*/ "" + " with the id: " + ""/*need edit we shoulg get this when the studen log in*/ + " has suggested a  institution with the name: " + name + " in the distict: " + district + " with phone number: " + phone + " and email: " + email);
-        dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dOVMailboxModel.setTypeOfMail("suggest institution");
-        sendToDOV(dOVMailboxModel);
+    public void AddInstitutionInput(String name, String address, String email, int phone, String district, int studentId, String studentName) {
+        AddInstitutions addInstitutions = new AddInstitutions();
+        addInstitutions.setName(name);
+        addInstitutions.setAddress(address);
+        addInstitutions.setEmail(email);
+        addInstitutions.setPhone(phone);
+        addInstitutions.setDistrict(district);
+        add(addInstitutions);
+        DOVMailbox dOVMailbox = new DOVMailbox();
+        dOVMailbox.setSenderId(studentId);
+        dOVMailbox.setSenderName(studentName);
+        dOVMailbox.setTitle("A new institution suggest from a student.");
+        dOVMailbox.setBody("The student: " + studentName + " with the id: " + studentId + " has suggested a  institution with the name: " + name + " in the distict: " + district + " with phone number: " + phone + " and email: " + email);
+        dOVMailbox.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dOVMailbox.setTypeOfMail("suggest institution");
+        sendToDOV(dOVMailbox);
     }
 
     public void add(AddInstitutions newObject) {

@@ -30,9 +30,10 @@ public class StudentMailboxManager {
         connection = DBConnection.getConnection();
     }
 
-    public List<StudentMailbox> showMailbox() throws SQLException {
+    public List<StudentMailbox> showMailbox(int id) throws SQLException {
         List<StudentMailbox> studentMailboxs = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.studentmailbox;");
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.studentmailbox where sendfor=? or sendfor=0;");
+        preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             StudentMailbox mailbox = new StudentMailbox();

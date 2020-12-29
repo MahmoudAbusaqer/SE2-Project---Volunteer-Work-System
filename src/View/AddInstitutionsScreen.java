@@ -7,6 +7,7 @@ package View;
 
 import Controller.AddInstitutionsManager;
 import Model.AddInstitutions;
+import Model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class AddInstitutionsScreen implements Initializable {
 
     private AddInstitutions model;
     private AddInstitutionsManager controller;
+    static Student student;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -39,8 +41,16 @@ public class AddInstitutionsScreen implements Initializable {
 //    public void setController(AddInstitutionsManager controller) {
 //        this.controller = controller;
 //    }
-    public void AddInstitutionInput(String name, String email, String address, int phone, String district) {
-        controller.AddInstitutionInput(name, address, email, phone, district);
+    public void AddInstitutionInput(String name, String email, String address, int phone, String district, int studentId, String studentName) {
+        controller.AddInstitutionInput(name, address, email, phone, district, studentId, studentName);
+    }
+
+    public static Student getStudent() {
+        return student;
+    }
+
+    public static void setStudent(Student student) {
+        AddInstitutionsScreen.student = student;
     }
 
     @FXML
@@ -81,7 +91,7 @@ public class AddInstitutionsScreen implements Initializable {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText());
+        AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText(), student.getId(), student.getName());
     }
 
     @FXML

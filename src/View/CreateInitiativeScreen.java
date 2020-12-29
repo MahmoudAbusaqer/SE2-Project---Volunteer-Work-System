@@ -43,25 +43,25 @@ public class CreateInitiativeScreen implements Initializable {
 //    public void setController(CreateInitiativeManager controller) {
 //        this.controller = controller;
 //    }
-    public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers) {
-        controller.CreateInitiativeInput(studentId, name, location, description, phone, numberOfVolunteers);
+    public void CreateInitiativeInput(int studentId, String name, String location, String description, int phone, int numberOfVolunteers, String studentName) {
+        controller.CreateInitiativeInput(studentId, name, location, description, phone, numberOfVolunteers, studentName);
     }
 
-    public Student getStudent() {
+    public static Student getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public static void setStudent(Student student) {
         CreateInitiativeScreen.student = student;
     }
 
     public void fillFields() {
         TextFieldStudentId.setText(String.valueOf(student.getId()));
-        TextFieldStudentName.setText(student.getName());
+//        TextFieldStudentName.setText(student.getName());
         TextFieldStudentPhone.setText(String.valueOf(student.getPhone()));
 //        System.out.println(Integer.parseInt(TextFieldStudentId.getText()));
     }
-    
+
     @FXML
     private Pane rootpane;
 
@@ -84,7 +84,7 @@ public class CreateInitiativeScreen implements Initializable {
     private TextField TextFieldStudentId;
 
     @FXML
-    private TextField TextFieldStudentName;
+    private TextField TextFieldInitiativeName;
 
     @FXML
     private TextField TextFieldStudentPhone;
@@ -103,7 +103,7 @@ public class CreateInitiativeScreen implements Initializable {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        CreateInitiativeInput(student.getId(), student.getName(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentPhone.getText()));
+        CreateInitiativeInput(student.getId(), TextFieldInitiativeName.getText(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentPhone.getText()), student.getName());
     }
 
     @FXML

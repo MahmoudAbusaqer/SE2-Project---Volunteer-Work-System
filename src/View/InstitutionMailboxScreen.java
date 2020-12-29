@@ -7,6 +7,7 @@ package View;
 
 import Controller.InstitutionMailboxManager;
 import Model.InstitutionMailbox;
+import Model.Institutions;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -33,13 +34,14 @@ public class InstitutionMailboxScreen implements Initializable {
 
     private InstitutionMailbox model;
     private InstitutionMailboxManager controller;
+    static Institutions institutions;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new InstitutionMailboxManager(model);
         this.model = new InstitutionMailbox();
         try {
-            showMailbox();
+            showMailbox(institutions.getId());
         } catch (SQLException ex) {
             Logger.getLogger(InstitutionMailboxScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,9 +53,9 @@ public class InstitutionMailboxScreen implements Initializable {
 //    public void setController(InstitutionMailboxManager controller) {
 //        this.controller = controller;
 //    }
-    public void showMailbox() throws SQLException {
+    public void showMailbox(int id) throws SQLException {
         List<InstitutionMailbox> institutionMailboxs = new ArrayList<>();
-        institutionMailboxs = controller.showMailbox();
+        institutionMailboxs = controller.showMailbox(id);
         for (int i = 0; i < institutionMailboxs.size(); i++) {
             InstitutionMailbox mailbox = new InstitutionMailbox();
             mailbox = institutionMailboxs.get(i);
@@ -74,6 +76,14 @@ public class InstitutionMailboxScreen implements Initializable {
 //            institutionMailboxs.remove(index);
 //            index++;
 //        }
+    }
+
+    public static Institutions getInstitutions() {
+        return institutions;
+    }
+
+    public static void setInstitutions(Institutions institutions) {
+        InstitutionMailboxScreen.institutions = institutions;
     }
 
     @FXML

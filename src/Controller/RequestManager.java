@@ -63,12 +63,8 @@ public class RequestManager {
         PreparedStatement preparedStatement = connection.prepareStatement("select name from vws.district;");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-//            District district = new District();
             String districtName = new String();
-//            district.setId(resultSet.getInt(1));
-//            district.setName(resultSet.getString(2));
             districtName = resultSet.getString(1);
-//            district.setInstitutionsNumbers(resultSet.getInt(3));
             districts.add(districtName);
         }
         return districts;
@@ -81,6 +77,7 @@ public class RequestManager {
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             Institutions institutions = new Institutions();
+            institutions.setId(resultSet.getInt(1));
             institutions.setName(resultSet.getString(2));
             institutions.setAddress(resultSet.getString(3));
             institutions.setEmail(resultSet.getString(4));
@@ -92,20 +89,22 @@ public class RequestManager {
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {
-        requestVolunteerModel.setStudentId(studentId);
-        requestVolunteerModel.setStudentName(studentName);
-        requestVolunteerModel.setInstitutionId(institutionId);
-        requestVolunteerModel.setInstitutionName(institutionName);
-        requestVolunteerModel.setDistrict(district);
-        requestVolunteerModel.setAddress(address);
-        add(requestVolunteerModel);
-        dOVMailboxModel.setSenderId(studentId);
-        dOVMailboxModel.setSenderName(studentName);
-        dOVMailboxModel.setTitle("A new student request to volunteer.");
-        dOVMailboxModel.setBody("The student: " + studentName + " with the id: " + studentId + " wants to volunteer in: " + institutionName);
-        dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dOVMailboxModel.setTypeOfMail("vlounteer");
-        sendToDOV(dOVMailboxModel);
+        RequestVolunteer requestVolunteer = new RequestVolunteer();
+        requestVolunteer.setStudentId(studentId);
+        requestVolunteer.setStudentName(studentName);
+        requestVolunteer.setInstitutionId(institutionId);
+        requestVolunteer.setInstitutionName(institutionName);
+        requestVolunteer.setDistrict(district);
+        requestVolunteer.setAddress(address);
+        add(requestVolunteer);
+        DOVMailbox mailbox = new DOVMailbox();
+        mailbox.setSenderId(studentId);
+        mailbox.setSenderName(studentName);
+        mailbox.setTitle("A new student request to volunteer.");
+        mailbox.setBody("The student: " + studentName + " with the id: " + studentId + " wants to volunteer in: " + institutionName);
+        mailbox.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        mailbox.setTypeOfMail("vlounteer");
+        sendToDOV(mailbox);
     }
 
     public void add(RequestVolunteer newObject) {

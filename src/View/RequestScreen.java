@@ -61,6 +61,7 @@ public class RequestScreen implements Initializable {
 //        System.out.println(student.getName());
 //        student = startPagePanes.getStudent();
 //        System.out.println(student.getName());
+        TableColInstitutionId.setCellValueFactory(new PropertyValueFactory("id"));
         TableColName.setCellValueFactory(new PropertyValueFactory("name"));
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColEmail.setCellValueFactory(new PropertyValueFactory("email"));
@@ -134,11 +135,11 @@ public class RequestScreen implements Initializable {
 //        }
     }
 
-    public Student getStudent() {
+    public static Student getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public static void setStudent(Student student) {
         RequestScreen.student = student;
     }
 
@@ -147,7 +148,6 @@ public class RequestScreen implements Initializable {
 //        setStudent(newstudent);
 //        System.out.println(newstudent.getName());
 //    }
-
     public void fillFields() {
         TextFieldStudentId.setText(String.valueOf(student.getId()));
         TextFieldStudentName.setText(student.getName());
@@ -199,6 +199,9 @@ public class RequestScreen implements Initializable {
 
     @FXML
     private TableView<Institutions> TableView;
+
+    @FXML
+    private TableColumn<Institutions, Integer> TableColInstitutionId;
 
     @FXML
     private TableColumn<Institutions, String> TableColName;

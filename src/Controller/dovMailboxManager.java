@@ -68,31 +68,33 @@ public class dovMailboxManager {
     }
 
     public void mailResponseInstitution(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny, String typeOfMail) {
-        modelInstitution.setSenderId(senderId);
-        modelInstitution.setSenderName(senderName);
-        modelInstitution.setTitle(title);
+        InstitutionMailbox mailbox = new InstitutionMailbox();
+        mailbox.setSenderId(senderId);
+        mailbox.setSenderName(senderName);
+        mailbox.setTitle(title);
         if (approveOrDeny) {
-            modelInstitution.setBody("Your request to " + typeOfMail + " was approved ☺ you can now continue.");
+            mailbox.setBody("Your request to " + typeOfMail + " was approved ☺ you can now continue.");
         } else {
-            modelInstitution.setBody("Your request to " + typeOfMail + " was denied 😢 try again and make sure you complete all the processes.");
+            mailbox.setBody("Your request to " + typeOfMail + " was denied 😢 try again and make sure you complete all the processes.");
         }
-        modelInstitution.setDate(date);
-        modelInstitution.setApproveOrDeny(approveOrDeny);
-        addToInstitutions(modelInstitution);//to send the email to institution
+        mailbox.setDate(date);
+        mailbox.setApproveOrDeny(approveOrDeny);
+        addToInstitutions(mailbox);//to send the email to institution
     }
 
     public void mailResponseStudent(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny, String typeOfMail) {
-        modelStudent.setSenderId(senderId);
-        modelStudent.setSenderName(senderName);
-        modelStudent.setTitle(title);
+        StudentMailbox mailbox = new StudentMailbox();
+        mailbox.setSenderId(senderId);
+        mailbox.setSenderName(senderName);
+        mailbox.setTitle(title);
         if (approveOrDeny) {
-            modelStudent.setBody("Your request to " + typeOfMail + " was approved ☺ you can now continue.");
+            mailbox.setBody("Your request to " + typeOfMail + " was approved ☺ you can now continue.");
         } else {
-            modelStudent.setBody("Your request to " + typeOfMail + " was denied 😢 try again.");
+            mailbox.setBody("Your request to " + typeOfMail + " was denied 😢 try again.");
         }
-        modelStudent.setDate(date);
-        modelStudent.setApproveOrDeny(approveOrDeny);
-        addToStudent(modelStudent);//to send the email to student
+        mailbox.setDate(date);
+        mailbox.setApproveOrDeny(approveOrDeny);
+        addToStudent(mailbox);//to send the email to student
     }
 
     public void addToStudent(StudentMailbox newObject) {

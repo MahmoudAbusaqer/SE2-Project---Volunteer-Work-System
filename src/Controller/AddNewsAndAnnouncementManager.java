@@ -31,32 +31,35 @@ public class AddNewsAndAnnouncementManager {
         connection = DBConnection.getConnection();
     }
 
-    public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
-        addNewsAndAnnouncementModel.setnOrA(nOr);
-        addNewsAndAnnouncementModel.setTitle(title);
-        addNewsAndAnnouncementModel.setBody(body);
-        addNewsAndAnnouncementModel.setDate(date);
-        add(addNewsAndAnnouncementModel);
-        studentMailboxModel.setSenderId(nOr/*need to be the dov id or I can let it be a number like 123*/);
-        studentMailboxModel.setSenderName("DOV");
-        studentMailboxModel.setTitle(title);
-        studentMailboxModel.setBody(body);
-        studentMailboxModel.setDate(date);
-        studentMailboxModel.setApproveOrDeny(true);
-        addToStudent(studentMailboxModel);
-        institutionMailboxModel.setSenderId(nOr/*need to be the dov id or I can let it be a number like 123*/);
-        institutionMailboxModel.setSenderName("DOV");
-        institutionMailboxModel.setTitle(title);
-        institutionMailboxModel.setBody(body);
-        institutionMailboxModel.setDate(date);
-        institutionMailboxModel.setApproveOrDeny(true);
-        addToInstitution(institutionMailboxModel);
+    public void AddNewsAndAnnouncement(String nOr, String title, String body, Date date) {
+        AddNewsAndAnnouncement addNewsAndAnnouncement = new AddNewsAndAnnouncement();
+        addNewsAndAnnouncement.setnOrA(nOr);
+        addNewsAndAnnouncement.setTitle(title);
+        addNewsAndAnnouncement.setBody(body);
+        addNewsAndAnnouncement.setDate(date);
+        add(addNewsAndAnnouncement);
+        StudentMailbox studentMailbox = new StudentMailbox();
+        studentMailbox.setSenderId(111/*need to be the dov id or I can let it be a number like 123*/);
+        studentMailbox.setSenderName("DOV");
+        studentMailbox.setTitle(title);
+        studentMailbox.setBody(body);
+        studentMailbox.setDate(date);
+        studentMailbox.setApproveOrDeny(true);
+        addToStudent(studentMailbox);
+        InstitutionMailbox institutionMailbox = new InstitutionMailbox();
+        institutionMailbox.setSenderId(111/*need to be the dov id or I can let it be a number like 123*/);
+        institutionMailbox.setSenderName("DOV");
+        institutionMailbox.setTitle(title);
+        institutionMailbox.setBody(body);
+        institutionMailbox.setDate(date);
+        institutionMailbox.setApproveOrDeny(true);
+        addToInstitution(institutionMailbox);
     }
 
     public void add(AddNewsAndAnnouncement newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("insert into vws.newsandannounment(NOrA, title, body, date) values (?, ?, ?, ?)");
-            statement.setInt(1, newObject.getnOrA());
+            statement.setString(1, newObject.getnOrA());
             statement.setString(2, newObject.getTitle());
             statement.setString(3, newObject.getBody());
             statement.setDate(4, new java.sql.Date(newObject.getDate().getTime()));
@@ -68,13 +71,14 @@ public class AddNewsAndAnnouncementManager {
 
     public void addToStudent(StudentMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into vws.studentmailbox(senderId, senderName, title, body, date, typeOfMail) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.studentmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
             statement.setString(4, newObject.getBody());
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
-            statement.setString(6, "NewsAndAnnouncement");
+            statement.setBoolean(6, newObject.isApproveOrDeny());
+            statement.setString(7, "NewsAndAnnouncement");
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,13 +87,14 @@ public class AddNewsAndAnnouncementManager {
 
     public void addToInstitution(InstitutionMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into vws.institutionmailbox(senderId, senderName, title, body, date, typeOfMail) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.institutionmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
             statement.setString(4, newObject.getBody());
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
-            statement.setString(6, "NewsAndAnnouncement");
+            statement.setBoolean(6, newObject.isApproveOrDeny());
+            statement.setString(7, "NewsAndAnnouncement");
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

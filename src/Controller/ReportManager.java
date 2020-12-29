@@ -41,30 +41,33 @@ public class ReportManager {
         preparedStatement.setInt(1, institutionId);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            studentModel.setId(resultSet.getInt(2));
-            studentModel.setName(resultSet.getString(3));
-            studentModel.setFaculty(resultSet.getString(4));
-            studentModel.setAddress(resultSet.getString(5));
-            studentModel.setEmail(resultSet.getString(6));
-            studentModel.setPhone(resultSet.getInt(7));
-            students.add(studentModel);
+            Student Student = new Student();
+            Student.setId(resultSet.getInt(2));
+            Student.setName(resultSet.getString(3));
+            Student.setFaculty(resultSet.getString(4));
+            Student.setAddress(resultSet.getString(5));
+            Student.setEmail(resultSet.getString(6));
+            Student.setPhone(resultSet.getInt(7));
+            students.add(Student);
         }
         return students;
     }
 
     public void reportInput(int studentId, String studentName, String institutionName, String report) {
-        reportModel.setStudentId(studentId);
-        reportModel.setStudentName(studentName);
-        reportModel.setInstitutionName(institutionName);
-        reportModel.setReport(report);
-        add(reportModel);
-        dOVMailboxModel.setSenderId(studentId);
-        dOVMailboxModel.setSenderName(studentName);
-        dOVMailboxModel.setTitle("A new institution report to a student who finished the volunteer work.");
-        dOVMailboxModel.setBody("The student: " + studentName + " with the id: " + studentId + " who volunteered in: " + institutionName + " has successfully finished all the hours required.");
-        dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dOVMailboxModel.setTypeOfMail("finish vlounteer");
-        sendToDOV(dOVMailboxModel);
+        Report report1 = new Report();
+        report1.setStudentId(studentId);
+        report1.setStudentName(studentName);
+        report1.setInstitutionName(institutionName);
+        report1.setReport(report);
+        add(report1);
+        DOVMailbox dOVMailbox = new DOVMailbox();
+        dOVMailbox.setSenderId(studentId);
+        dOVMailbox.setSenderName(studentName);
+        dOVMailbox.setTitle("A new finish report from an institution ");
+        dOVMailbox.setBody("The student: " + studentName + " with the id: " + studentId + " who volunteered in: " + institutionName + " and here is the institution report: " + report + ".");
+        dOVMailbox.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dOVMailbox.setTypeOfMail("finish vlounteer");
+        sendToDOV(dOVMailbox);
     }
 
     public void add(Report newObject) {

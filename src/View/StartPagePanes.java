@@ -27,11 +27,14 @@ public class StartPagePanes implements Initializable {
     private Student student = null;
     private Institutions institutions = null;
     private LoginPageManager controller;
-    private RequestScreen requestScreen;
-    private CreateInitiativeScreen initiativeScreen;
-    private StatisticsScreenInstitution statisticsScreenInstitution;
-    private ReportScreen reportScreen;
-    private ViewNewVolunteersScreen volunteersScreen;
+//    private RequestScreen requestScreen;
+//    private CreateInitiativeScreen initiativeScreen;
+//    private StatisticsScreenInstitution statisticsScreenInstitution;
+//    private ReportScreen reportScreen;
+//    private ViewNewVolunteersScreen volunteersScreen;
+//    private AddInstitutionsScreen addInstitutionsScreen;
+//    private StudentMailboxScreen studentMailboxScreen;
+//    private InstitutionMailboxScreen institutionMailboxScreen;
 
     @FXML
     private Button buttonLogin;
@@ -65,11 +68,14 @@ public class StartPagePanes implements Initializable {
         startPagePane.setVisible(true);
         loginPagePane.setVisible(false);
         this.controller = new LoginPageManager();
-        requestScreen = new RequestScreen();
-        initiativeScreen = new CreateInitiativeScreen();
-        statisticsScreenInstitution = new StatisticsScreenInstitution();
-        reportScreen = new ReportScreen();
-        volunteersScreen = new ViewNewVolunteersScreen();
+//        requestScreen = new RequestScreen();
+//        initiativeScreen = new CreateInitiativeScreen();
+//        statisticsScreenInstitution = new StatisticsScreenInstitution();
+//        reportScreen = new ReportScreen();
+//        volunteersScreen = new ViewNewVolunteersScreen();
+//        addInstitutionsScreen = new AddInstitutionsScreen();
+//        studentMailboxScreen = new StudentMailboxScreen();
+//        institutionMailboxScreen = new InstitutionMailboxScreen();
     }
 
     @FXML
@@ -106,9 +112,10 @@ public class StartPagePanes implements Initializable {
                 if (student != null) {
                     student = controller.checkStudent(Integer.parseInt(TextFieldID.getText()), TextFieldPass.getText());
                     if (student != null) {
-                        requestScreen.setStudent(student);
-                        initiativeScreen.setStudent(student);
-//                        requestScreen.showStudent(student);
+                        RequestScreen.setStudent(student);
+                        CreateInitiativeScreen.setStudent(student);
+                        AddInstitutionsScreen.setStudent(student);
+                        StudentMailboxScreen.setStudent(student);
                         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/StudentGUI/MainPage.fxml"));
                         rootpane.getChildren().setAll(pane);
                     }
@@ -116,9 +123,10 @@ public class StartPagePanes implements Initializable {
                     institutions = controller.checkInstitution(Integer.parseInt(TextFieldID.getText()), TextFieldPass.getText());
                     if (institutions != null) {
 //                        setInstitutions(institutions);
-                        statisticsScreenInstitution.setInstitutions(institutions);
-                        reportScreen.setInstitutions(institutions);
-                        volunteersScreen.setInstitutions(institutions);
+                        StatisticsScreenInstitution.setInstitutions(institutions);
+                        ReportScreen.setInstitutions(institutions);
+                        ViewNewVolunteersScreen.setInstitutions(institutions);
+                        InstitutionMailboxScreen.setInstitutions(institutions);
                         Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/StatisticsScreenInstitution.fxml"));
                         rootpane.getChildren().setAll(pane);
 //                        System.out.println("worked");

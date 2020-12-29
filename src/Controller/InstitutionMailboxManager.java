@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,9 +29,10 @@ public class InstitutionMailboxManager {
         connection = DBConnection.getConnection();
     }
 
-    public List<InstitutionMailbox> showMailbox() throws SQLException {
+    public List<InstitutionMailbox> showMailbox(int id) throws SQLException {
         List<InstitutionMailbox> institutionMailboxs = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.institutionmailbox;");
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.institutionmailbox where sendfor=? or sendfor=0;;");
+        preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             InstitutionMailbox institutionMailbox = new InstitutionMailbox();

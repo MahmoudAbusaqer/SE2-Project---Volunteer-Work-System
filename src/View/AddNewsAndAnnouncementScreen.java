@@ -46,7 +46,7 @@ public class AddNewsAndAnnouncementScreen implements Initializable {
 //    public void setController(AddNewsAndAnnouncementManager controller) {
 //        this.controller = controller;
 //    }
-    public void AddNewsAndAnnouncement(int nOr, String title, String body, Date date) {
+    public void AddNewsAndAnnouncement(String nOr, String title, String body, Date date) {
         controller.AddNewsAndAnnouncement(nOr, title, body, date);
 
     }
@@ -83,7 +83,7 @@ public class AddNewsAndAnnouncementScreen implements Initializable {
 
     @FXML
     void buttonSubmit(ActionEvent event) {
-        AddNewsAndAnnouncement(Integer.parseInt(ChoiceBoxNOrA.getValue()), TextFieldNewsTitle.getText(), TextAreaDescription.getText(), new java.sql.Timestamp(System.currentTimeMillis()));
+        AddNewsAndAnnouncement(ChoiceBoxNOrA.getValue(), TextFieldNewsTitle.getText(), TextAreaDescription.getText(), new java.sql.Timestamp(System.currentTimeMillis()));
     }
 
     @FXML

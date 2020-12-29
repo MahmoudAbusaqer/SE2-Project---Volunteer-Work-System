@@ -29,22 +29,24 @@ public class CreateInitiativeManager {
         connection = DBConnection.getConnection();
     }
 
-    public void CreateInitiativeInput(int studentId, String name, String location, String description, int numberOfVolunteers, int phone) {
-        createInitiativeModel.setStudentId(studentId);
-        createInitiativeModel.setName(name);
-        createInitiativeModel.setLocation(location);
-        createInitiativeModel.setDescription(description);
-        createInitiativeModel.setPhone(phone);
-        createInitiativeModel.setNumberOfVolunteers(numberOfVolunteers);
-        add(createInitiativeModel);
-        dOVMailboxModel.setSenderId(0000000/*need edit we shoulg get this when the studen log in*/);
-        dOVMailboxModel.setSenderName("studentName"/*need edit we shoulg get this when the studen log in*/);
-        dOVMailboxModel.setTitle("A new institution suggest from a student.");
-        dOVMailboxModel.setBody("The student: " + /*need edit we shoulg get this when the studen log in*/ "" + " with the id: " + studentId
-                + " has suggested to create a new Initiative with the name: " + name + " in the location: " + location + " with student phone number: " + phone + " and the initiative description: " + description);
-        dOVMailboxModel.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dOVMailboxModel.setTypeOfMail("create initiative");
-        sendToDOV(dOVMailboxModel);
+    public void CreateInitiativeInput(int studentId, String name, String location, String description, int numberOfVolunteers, int phone, String studentName) {
+        CreateInitiative createInitiative = new CreateInitiative();
+        createInitiative.setStudentId(studentId);
+        createInitiative.setName(name);
+        createInitiative.setLocation(location);
+        createInitiative.setDescription(description);
+        createInitiative.setPhone(phone);
+        createInitiative.setNumberOfVolunteers(numberOfVolunteers);
+        add(createInitiative);
+        DOVMailbox dOVMailbox = new DOVMailbox();
+        dOVMailbox.setSenderId(studentId);
+        dOVMailbox.setSenderName(studentName);
+        dOVMailbox.setTitle("A new institution suggest from a student.");
+        dOVMailbox.setBody("The student: " + studentName + " with the id: " + studentId + " has suggested to create a new Initiative with the "
+                + "name: " + name + " in the location: " + location + " with student phone number: " + phone + " and the initiative description: " + description);
+        dOVMailbox.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dOVMailbox.setTypeOfMail("create initiative");
+        sendToDOV(dOVMailbox);
     }
 
     public void add(CreateInitiative newObject) {
