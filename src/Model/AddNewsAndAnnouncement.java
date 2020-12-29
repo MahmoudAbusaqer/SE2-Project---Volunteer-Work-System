@@ -14,7 +14,7 @@ import java.util.Date;
 public class AddNewsAndAnnouncement {
 
     private int id;
-    private int nOrA;
+    private String nOrA;
     private String title;
     private String body;
     private Date date;
@@ -27,11 +27,11 @@ public class AddNewsAndAnnouncement {
         this.id = id;
     }
 
-    public int getnOrA() {
+    public String getnOrA() {
         return nOrA;
     }
 
-    public void setnOrA(int nOrA) {
+    public void setnOrA(String nOrA) {
         this.nOrA = nOrA;
     }
 
