@@ -32,7 +32,7 @@ public class LoginPageManager {
         connection = DBConnection.getConnection();
     }
 
-    public List<DOV> checkDOV(int dovId, String password) throws SQLException {
+    public DOV checkDOV(int dovId, String password) throws SQLException {
         String checkPassword = null;
         DOV dov = null;
         List<DOV> dovs = new ArrayList<>();
@@ -48,13 +48,13 @@ public class LoginPageManager {
             dovs.add(dov);
         }
         if (dovId == dov.getId() && password.equals(checkPassword)) {
-            return dovs;
+            return dov;
         } else {
             return null;
         }
     }
 
-    public List<Student> checkStudent(int studentId, String password) throws SQLException {
+    public Student checkStudent(int studentId, String password) throws SQLException {
         String checkPassword = null;
         Student student = null;
         List<Student> students = new ArrayList<>();
@@ -74,13 +74,13 @@ public class LoginPageManager {
             students.add(student);
         }
         if (studentId == student.getId() && password.equals(checkPassword)) {
-            return students;
+            return student;
         } else {
             return null;
         }
     }
 
-    public List<Institutions> checkInstitution(int institutionId, String password) throws SQLException {
+    public Institutions checkInstitution(int institutionId, String password) throws SQLException {
         String checkPassword = null;
         Institutions institution = null;
         List<Institutions> institutionses = new ArrayList<>();
@@ -100,7 +100,7 @@ public class LoginPageManager {
             institutionses.add(institution);
         }
         if (institutionId == institution.getId() && password.equals(checkPassword)) {
-            return institutionses;
+            return institution;
         } else {
             return null;
         }
