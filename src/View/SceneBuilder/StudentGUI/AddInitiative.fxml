@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -18,7 +27,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateInitiativeScreen">
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1324.0" styleClass="grad" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateInitiativeScreen">
    <children>
       <TilePane layoutX="206.0" layoutY="-1.0" prefHeight="88.0" prefWidth="1107.0" style="-fx-background-color: gray;">
          <children>
@@ -100,7 +109,7 @@
               </rowConstraints>
                <children>
                   <Label alignment="CENTER" prefHeight="27.0" prefWidth="169.0" style="-fx-font-size: 18;" text="رقم الطالب" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" />
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="171.0" style="-fx-font-size: 18;" text="الاسم" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="171.0" style="-fx-font-size: 18;" text="اسم المبادرة" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label alignment="CENTER" prefHeight="27.0" prefWidth="170.0" style="-fx-font-size: 18;" text="رقم الهاتف" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label alignment="CENTER" prefHeight="27.0" prefWidth="173.0" style="-fx-font-size: 18;" text="عنوان المبادرة" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label alignment="CENTER" layoutX="145.0" layoutY="134.0" prefHeight="27.0" prefWidth="173.0" style="-fx-font-size: 18;" text="عدد المتطوعين" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -110,7 +119,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="TextFieldStudentName" editable="false" prefHeight="2.0" prefWidth="145.0" GridPane.rowIndex="1">
+                  <TextField fx:id="TextFieldInitiativeName" prefHeight="2.0" prefWidth="145.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
