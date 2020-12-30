@@ -28,7 +28,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class StatisticsScreenInstitution implements Initializable {
+public class StatisticsScreenInstitution implements Initializable, Statistics {
 
     private StatisticsInstitution model;
     private StatisticManagerInstitution controller;
@@ -51,6 +51,7 @@ public class StatisticsScreenInstitution implements Initializable {
         }
     }
 
+    @Override
     public void showStatistics(int institutionId) throws SQLException {
         List<StatisticsInstitution> statisticsInstitutions = new ArrayList<>();
         statisticsInstitutions = controller.showStatistics(institutionId);

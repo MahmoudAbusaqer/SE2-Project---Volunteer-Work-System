@@ -27,7 +27,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class StatisticsScreenDoV implements Initializable {
+public class StatisticsScreenDoV implements Initializable, Statistics {
 
     private StatisticsDoV model;
     private StatisticManagerDoV controller;
@@ -36,13 +36,14 @@ public class StatisticsScreenDoV implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new StatisticManagerDoV(model);
         try {
-            showStatistics();
+            showStatistics(111);
         } catch (SQLException ex) {
             Logger.getLogger(StatisticsScreenDoV.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void showStatistics() throws SQLException {
+    @Override
+    public void showStatistics(int id) throws SQLException {
         List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
         statisticsDoVs = controller.showStatistics();
         for (int i = 0; i < statisticsDoVs.size(); i++) {

@@ -18,6 +18,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+/**
+ *
+ * @author Mahmoud_Abusaqer
+ */
 public class StartPagePanes implements Initializable {
 
     private DOV dov = null;

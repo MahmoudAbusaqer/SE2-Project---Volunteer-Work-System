@@ -5,10 +5,13 @@
  */
 package View;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class OptionsScreenInstitution {
-    
+public interface Statistics {
+
+    void showStatistics(int id) throws SQLException;
 }

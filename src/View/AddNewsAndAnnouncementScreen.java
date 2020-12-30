@@ -24,7 +24,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddNewsAndAnnouncementScreen implements Initializable {
+public class AddNewsAndAnnouncementScreen implements Initializable, Create {
 
     private AddNewsAndAnnouncement addNewsAndAnnouncementModel;
     private AddNewsAndAnnouncementManager controller;
@@ -87,7 +87,8 @@ public class AddNewsAndAnnouncementScreen implements Initializable {
     private Button ButtonSubmit;
 
     @FXML
-    void buttonSubmit(ActionEvent event) {
+    @Override
+    public void buttonSubmit(ActionEvent event) {
         AddNewsAndAnnouncement(ChoiceBoxNOrA.getValue(), TextFieldNewsTitle.getText(), TextAreaDescription.getText(), new java.sql.Timestamp(System.currentTimeMillis()));
     }
 

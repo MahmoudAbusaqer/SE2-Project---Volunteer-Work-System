@@ -24,7 +24,7 @@ import javafx.scene.control.Alert;
  *
  * @author Mahmoud_Abusaqer
  */
-public class AddInstitutionsScreen implements Initializable {
+public class AddInstitutionsScreen implements Initializable, Create {
 
     private AddInstitutions model;
     private AddInstitutionsManager controller;
@@ -85,7 +85,8 @@ public class AddInstitutionsScreen implements Initializable {
     private Button ButtonSubmit;
 
     @FXML
-    void buttonSubmit(ActionEvent event) {
+    @Override
+    public void buttonSubmit(ActionEvent event) {
         AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText(), student.getId(), student.getName());
         try {
             TextFieldInstitutionName.setText("");

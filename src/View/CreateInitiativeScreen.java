@@ -25,7 +25,7 @@ import javafx.scene.control.Alert;
  *
  * @author Mahmoud_Abusaqer
  */
-public class CreateInitiativeScreen implements Initializable {
+public class CreateInitiativeScreen implements Initializable, Create {
     
     private CreateInitiative model;
     private CreateInitiativeManager controller;
@@ -112,7 +112,8 @@ public class CreateInitiativeScreen implements Initializable {
     private Button ButtonSubmit;
     
     @FXML
-    void buttonSubmit(ActionEvent event) {
+    @Override
+    public void buttonSubmit(ActionEvent event) {
         CreateInitiativeInput(student.getId(), TextFieldInitiativeName.getText(), TextFieldInitiativeAddress.getText(), TextAreaIntitativeDescription.getText(), Integer.parseInt(TextFieldaNumbersOfVolunteers.getText()), Integer.parseInt(TextFieldStudentPhone.getText()), student.getName());
     }
     

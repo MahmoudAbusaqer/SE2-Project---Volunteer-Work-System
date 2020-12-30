@@ -29,7 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author Mahmoud_Abusaqer
  */
-public class ReportScreen implements Initializable {
+public class ReportScreen implements Initializable, Create {
 
     private Report reportModel;
     private ReportManager controller;
@@ -145,7 +145,8 @@ public class ReportScreen implements Initializable {
     private Button ButtonSubmit;
 
     @FXML
-    void buttonSubmit(ActionEvent event) {
+    @Override
+    public void buttonSubmit(ActionEvent event) {
         reportInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), TextFieldInstitutionName.getText(), TextFieldReport.getText());
     }
 

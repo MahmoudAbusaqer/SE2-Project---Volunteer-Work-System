@@ -29,7 +29,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Mahmoud_Abusaqer
  */
-public class InstitutionMailboxScreen implements Initializable {
+public class InstitutionMailboxScreen implements Initializable, Shows {
 
     private InstitutionMailbox model;
     private InstitutionMailboxManager controller;
@@ -46,6 +46,7 @@ public class InstitutionMailboxScreen implements Initializable {
         }
     }
 
+    @Override
     public void showMailbox(int id) throws SQLException {
         List<InstitutionMailbox> institutionMailboxs = new ArrayList<>();
         institutionMailboxs = controller.showMailbox(id);
@@ -116,4 +117,7 @@ public class InstitutionMailboxScreen implements Initializable {
         rootpane.getChildren().setAll(pane);
     }
 
+    @Override
+    public void showNewVolunteers(int institutionId) throws SQLException {
+    }
 }

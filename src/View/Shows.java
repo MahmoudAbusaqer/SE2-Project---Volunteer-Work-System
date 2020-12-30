@@ -5,10 +5,15 @@
  */
 package View;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class OptionsScreenDoVFactory {
-    
+public interface Shows {
+
+    void showMailbox(int id) throws SQLException;
+
+    void showNewVolunteers(int institutionId) throws SQLException;
 }

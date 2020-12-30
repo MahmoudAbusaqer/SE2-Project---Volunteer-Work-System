@@ -5,10 +5,13 @@
  */
 package View;
 
+import javafx.event.ActionEvent;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public interface OptionsScreen {
-    
+public interface Create {
+
+    void buttonSubmit(ActionEvent event);
 }

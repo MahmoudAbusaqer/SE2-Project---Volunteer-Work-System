@@ -30,7 +30,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Mahmoud_Abusaqer
  */
-public class DoVMailbox implements Initializable {
+public class DoVMailbox implements Initializable, Shows {
 
     private DOVMailbox model;
     private dovMailboxManager controller;
@@ -40,13 +40,14 @@ public class DoVMailbox implements Initializable {
         this.controller = new dovMailboxManager(model);
         this.model = new DOVMailbox();
         try {
-            showMailbox();
+            showMailbox(111);
         } catch (SQLException ex) {
             Logger.getLogger(DoVMailbox.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void showMailbox() throws SQLException {
+    @Override
+    public void showMailbox(int id) throws SQLException {
         List<DOVMailbox> dOVMailboxs = new ArrayList<>();
         try {
             dOVMailboxs = controller.showMailbox();
@@ -146,4 +147,7 @@ public class DoVMailbox implements Initializable {
         rootpane.getChildren().setAll(pane);
     }
 
+    @Override
+    public void showNewVolunteers(int institutionId) throws SQLException {
+    }
 }

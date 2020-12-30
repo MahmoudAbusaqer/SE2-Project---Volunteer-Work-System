@@ -30,7 +30,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Mahmoud_Abusaqer
  */
-public class ViewNewVolunteersScreen implements Initializable {
+public class ViewNewVolunteersScreen implements Initializable, Shows {
 
     private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
@@ -51,6 +51,7 @@ public class ViewNewVolunteersScreen implements Initializable {
         }
     }
 
+    @Override
     public void showNewVolunteers(int institutionId) throws SQLException {
         List<ViewNewVolunteers> newVolunteerses = new ArrayList<>();
         newVolunteerses = controller.showNewVolunteers(institutionId);
@@ -122,4 +123,7 @@ public class ViewNewVolunteersScreen implements Initializable {
         rootpane.getChildren().setAll(pane);
     }
 
+    @Override
+    public void showMailbox(int id) throws SQLException {
+    }
 }
