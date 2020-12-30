@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,31 +55,42 @@ public class DoVMailbox implements Initializable {
 //    }
     public void showMailbox() throws SQLException {
         List<DOVMailbox> dOVMailboxs = new ArrayList<>();
-        dOVMailboxs = controller.showMailbox();
-        for (int i = 0; i < dOVMailboxs.size(); i++) {
-            DOVMailbox mailbox = new DOVMailbox();
-            mailbox = dOVMailboxs.get(i);
-            final String body = mailbox.getBody();
-            Button mailButton = new Button(mailbox.getTitle());
-            MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
-//            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
-            mailButton.setStyle("-fx-background-color: #2A4166;");
-            mailButton.setOnAction((e) -> {
-                mailboxTextArea.setText(body);
-            });
-            MailboxPane.getChildren().add(mailButton);
+        try {
+            dOVMailboxs = controller.showMailbox();
+            for (int i = 0; i < dOVMailboxs.size(); i++) {
+                DOVMailbox mailbox = new DOVMailbox();
+                mailbox = dOVMailboxs.get(i);
+                final int sendfor = mailbox.getSendFor();
+                final int mailId = mailbox.getId();
+//                System.out.println("send for: " + sendfor);
+                final String body = mailbox.getBody();
+                final String typeOfMail = mailbox.getTypeOfMail();
+                Button mailButton = new Button(mailbox.getTitle());
+                MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
+                mailButton.setStyle("-fx-background-color: #2A4166;");
+                mailButton.setOnAction((e) -> {
+                    mailboxTextArea.setText(body);
+                    MailboxPane2.getChildren().clear();
+                    Button approve = new Button("Approve");
+                    Button deny = new Button("Deny");
+                    approve.setOnAction(((event) -> {
+                        mailResponse(sendfor, 111, "DOV", "Respond to your email", body, new java.sql.Timestamp(System.currentTimeMillis()), true, typeOfMail, mailId);
+                    }));
+                    deny.setOnAction(((event) -> {
+                        mailResponse(sendfor, 111, "DOV", "Respond to your email", body, new java.sql.Timestamp(System.currentTimeMillis()), false, typeOfMail, mailId);
+                    }));
+                    MailboxPane2.getChildren().addAll(approve, deny);
+                });
+                MailboxPane.getChildren().add(mailButton);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Exception");
         }
-//        int index = 0;
-//        while (!dOVMailboxs.isEmpty()) {
-//            model = dOVMailboxs.get(index);
-//            //here need to match every GUI field with the model.get
-//            dOVMailboxs.remove(index);
-//            index++;
-//        }
     }
 
-    public void mailResponse(int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny, String dovmailbox) {
-        controller.mailResponse(senderId/*need to be the dov id or I can let it be a number like 123*/, "DOV", "Respond to your email", body, new java.sql.Timestamp(System.currentTimeMillis()), approveOrDeny, dovmailbox);//need to be edit
+    public void mailResponse(int sendfor, int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny, String dovmailbox, int mailId) {
+        controller.mailResponse(sendfor, senderId, senderName, title, body, new java.sql.Timestamp(System.currentTimeMillis()), approveOrDeny, dovmailbox, mailId);
     }
 
     @FXML
@@ -97,6 +110,9 @@ public class DoVMailbox implements Initializable {
 
     @FXML
     private VBox MailboxPane;
+
+    @FXML
+    private VBox MailboxPane2;
 
     @FXML
     private TextArea mailboxTextArea;
