@@ -13,10 +13,10 @@ public class volunteers {
 
     private int id;
     private String name;
-    private String faculty;
     private String address;
     private String email;
     private int phone;
+    private int institutionId;
 
     public int getId() {
         return id;
@@ -32,14 +32,6 @@ public class volunteers {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getFaculty() {
-        return faculty;
-    }
-
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
     }
 
     public String getAddress() {
@@ -66,4 +58,11 @@ public class volunteers {
         this.phone = phone;
     }
 
+    public int getInstitutionId() {
+        return institutionId;
+    }
+
+    public void setInstitutionId(int institutionId) {
+        this.institutionId = institutionId;
+    }
 }

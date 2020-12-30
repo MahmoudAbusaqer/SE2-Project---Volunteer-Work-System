@@ -21,6 +21,7 @@ public class DOVMailbox {
     private Date date;
     private boolean approveOrDeny;
     private String typeOfMail;
+    private int sendFor;
 
     public int getId() {
         return id;
@@ -86,4 +87,11 @@ public class DOVMailbox {
         this.typeOfMail = typeOfMail;
     }
 
+    public int getSendFor() {
+        return sendFor;
+    }
+
+    public void setSendFor(int sendFor) {
+        this.sendFor = sendFor;
+    }
 }
