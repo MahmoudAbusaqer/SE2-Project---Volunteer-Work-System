@@ -22,7 +22,7 @@ public class MainClass extends Application {
     public void start(Stage primaryStage) throws IOException {
         Pane paneStudentTableView = FXMLLoader.load(getClass().getResource("SceneBuilder/MainPage/StartPage.fxml"));
         Scene scene = new Scene(paneStudentTableView);
-        primaryStage.setTitle("test");
+        primaryStage.setTitle("VWS: Volunteer Work System");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
