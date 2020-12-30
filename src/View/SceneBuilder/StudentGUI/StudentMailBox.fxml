@@ -79,11 +79,11 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane layoutX="290.0" layoutY="132.0" prefHeight="422.0" prefWidth="1025.0" style="-fx-background-color: #2A4166; -fx-border-color: #2969B0;" stylesheets="@../DOVGUI/css.css">
+      <AnchorPane layoutX="294.0" layoutY="102.0" prefHeight="422.0" prefWidth="932.0" style="-fx-background-color: #2A4166; -fx-border-color: #2969B0;" stylesheets="@../DOVGUI/css.css">
          <children>
-            <StackPane layoutX="1.0" layoutY="2.0" prefHeight="418.0" prefWidth="294.0">
+            <StackPane layoutX="1.0" layoutY="2.0" prefHeight="422.0" prefWidth="294.0">
                <children>
-                  <VBox fx:id="MailboxPane" prefHeight="418.0" prefWidth="285.0" spacing="10.0" styleClass="grad">
+                  <VBox fx:id="MailboxPane" prefHeight="406.0" prefWidth="294.0" spacing="10.0" styleClass="grad">
                      <StackPane.margin>
                         <Insets />
                      </StackPane.margin>
@@ -93,24 +93,9 @@
                   </VBox>
                </children>
             </StackPane>
-            <TextArea fx:id="mailboxTextArea" editable="false" layoutX="473.0" layoutY="5.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="412.0" prefWidth="538.0" wrapText="true" />
-            <Line endX="-208.0" endY="313.0" layoutX="208.0" layoutY="103.0" startX="-208.0" startY="-103.0" strokeWidth="2.0" />
-            <StackPane layoutX="291.0" layoutY="-3.0" prefHeight="418.0" prefWidth="169.0">
-               <children>
-                  <VBox fx:id="MailboxPane2" prefHeight="418.0" prefWidth="169.0" spacing="10.0" styleClass="grad">
-                     <StackPane.margin>
-                        <Insets />
-                     </StackPane.margin>
-                     <padding>
-                        <Insets left="13.0" top="10.0" />
-                     </padding>
-                  </VBox>
-               </children>
-               <padding>
-                  <Insets top="4.0" />
-               </padding>
-            </StackPane>
-            <Line endX="293.0" startX="293.0" startY="418.0" strokeWidth="2.0" />
+            <TextArea fx:id="mailboxTextArea" editable="false" layoutX="360.0" layoutY="17.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="389.0" prefWidth="538.0" styleClass="textArea" stylesheets="@css.css" wrapText="true" />
+            <Line endX="-208.0" endY="321.0" layoutX="208.0" layoutY="103.0" startX="-208.0" startY="-103.0" strokeWidth="2.0" />
+            <Line endX="293.0" startX="293.0" startY="423.0" strokeWidth="2.0" />
          </children>
       </AnchorPane>
    </children>

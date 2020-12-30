@@ -5,8 +5,10 @@
 .textArea {
 -fx-control-inner-background: #2969B0;
 -fx-border-radius: 50%;
--fx-text-fill: white;
+-fx-font-family: "Arial";
+-fx-text-fill: linear-gradient(white, #d0d0d0);
 }
+
 
 .button {
 -fx-background-color: 

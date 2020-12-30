@@ -1,6 +1,5 @@
 .grad {
 -fx-background-color: linear-gradient(#413A50, #2A4166);
-/*-fx-max-width: 500px;*/
 }
 
 
@@ -23,7 +22,7 @@
 
 
 .button1 {
--fx-border-radius: 50px;
+//-fx-border-radius: 50px;
 -fx-background-color: 
         #090a0c,
         linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
