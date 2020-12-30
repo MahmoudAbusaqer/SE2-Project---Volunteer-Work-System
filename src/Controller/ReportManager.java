@@ -37,7 +37,7 @@ public class ReportManager implements SendToDOV {
 
     public List<Student> showStudent(int institutionId) throws SQLException {
         List<Student> students = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.volunteers where institutionId=?;");
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.viewnewvolunteers where institutionId=?;");
         preparedStatement.setInt(1, institutionId);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {

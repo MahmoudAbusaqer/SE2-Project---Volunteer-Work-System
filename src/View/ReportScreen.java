@@ -93,7 +93,7 @@ public class ReportScreen implements Initializable, Create {
     }
 
     public void fillFields() {
-        TextFieldInstitutionName.setText(institutions.getName());
+        TextFieldInstitutionName.setText(String.valueOf(institutions.getId()));
 
     }
     @FXML
