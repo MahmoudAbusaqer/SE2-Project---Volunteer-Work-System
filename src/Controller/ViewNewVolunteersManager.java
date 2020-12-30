@@ -46,34 +46,4 @@ public class ViewNewVolunteersManager {
         }
         return newVolunteerses;
     }
-
-//    public void add(ViewNewVolunteers newObject) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("insert into vws.viewnewvolunteers(studentId, name, faculty, address, email, phone, institutionId) values (?, ?, ?, ?, ?, ?, ?)");
-//            statement.setInt(1, newObject.getId());
-//            statement.setString(2, newObject.getName());
-//            statement.setString(3, newObject.getFaculty());
-//            statement.setString(4, newObject.getAddress());
-//            statement.setString(5, newObject.getEmail());
-//            statement.setInt(6, newObject.getPhone());
-//            statement.setInt(7, newObject.getInstitutionId());
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.viewnewvolunteers where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-//    public void edit(int objectId) {
-//
-//    }
 }

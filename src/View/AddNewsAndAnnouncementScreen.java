@@ -7,8 +7,6 @@ package View;
 
 import Controller.AddNewsAndAnnouncementManager;
 import Model.AddNewsAndAnnouncement;
-import Model.InstitutionMailbox;
-import Model.StudentMailbox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -39,16 +37,23 @@ public class AddNewsAndAnnouncementScreen implements Initializable {
         ChoiceBoxNOrA.setItems(ChoiceBoxItems);
     }
 
-//    public AddNewsAndAnnouncementScreen(AddNewsAndAnnouncement model) {
-//        this.addNewsAndAnnouncementModel = model;
-//        this.controller = new AddNewsAndAnnouncementManager(model);
-//    }
-//    public void setController(AddNewsAndAnnouncementManager controller) {
-//        this.controller = controller;
-//    }
     public void AddNewsAndAnnouncement(String nOr, String title, String body, Date date) {
         controller.AddNewsAndAnnouncement(nOr, title, body, date);
-
+        try {
+            TextFieldNewsTitle.setText("");
+            DatePickerDate.setValue(null);;
+            TextAreaDescription.setText("");
+            ChoiceBoxNOrA.setValue("");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("process succeeded");
+            alert.setContentText("You can continue now 😄");
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Try again later");
+            alert.showAndWait();
+        }
     }
 
     @FXML

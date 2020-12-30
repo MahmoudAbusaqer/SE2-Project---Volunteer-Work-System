@@ -9,7 +9,6 @@ import Model.DBConnection;
 import Model.DOV;
 import Model.Institutions;
 import Model.Student;
-import View.LoginPage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,5 +104,4 @@ public class LoginPageManager {
             return null;
         }
     }
-
 }

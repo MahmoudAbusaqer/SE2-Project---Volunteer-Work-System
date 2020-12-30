@@ -36,6 +36,7 @@ public class AddInstitutionsManager {
         addInstitutions.setEmail(email);
         addInstitutions.setPhone(phone);
         addInstitutions.setDistrict(district);
+        addInstitutions.setStudentId(studentId);
         add(addInstitutions);
         DOVMailbox dOVMailbox = new DOVMailbox();
         dOVMailbox.setSenderId(studentId);
@@ -49,12 +50,13 @@ public class AddInstitutionsManager {
 
     public void add(AddInstitutions newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into vws.proposedinstitutions(name, address, email, phone, district) values (?,?,?,?,?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.proposedinstitutions(name, address, email, phone, district, studentId) values (?,?,?,?,?,?)");
             statement.setString(1, newObject.getName());
             statement.setString(2, newObject.getAddress());
             statement.setString(3, newObject.getEmail());
             statement.setInt(4, newObject.getPhone());
             statement.setString(5, newObject.getDistrict());
+            statement.setInt(6, newObject.getStudentId());
             statement.executeUpdate();
             PreparedStatement statement2 = connection.prepareStatement("insert into vws.institutions(name, address, email, phone, district) values (?,?,?,?,?)");
             statement2.setString(1, newObject.getName());
@@ -84,17 +86,4 @@ public class AddInstitutionsManager {
             e.printStackTrace();
         }
     }
-//    public void delete(int objectId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("delete from vws.proposedinstitutions where id=?");
-//            statement.setInt(1, objectId);
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void edit(int objectId) {
-//
-//    }
 }

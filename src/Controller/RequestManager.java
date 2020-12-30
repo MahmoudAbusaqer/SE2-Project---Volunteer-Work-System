@@ -10,12 +10,10 @@ import Model.DOVMailbox;
 import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
-import Model.volunteers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +30,6 @@ public class RequestManager {
     private DOVMailbox dOVMailboxModel;
     private Connection connection;
 
-//    public RequestManager() {
-//        connection = DBConnection.getConnection();
-//        this.districtModel = new District();
-//        this.institutionsModel = new Institutions();
-//        this.dOVMailboxModel = new DOVMailbox();
-//    }
     public RequestManager(RequestVolunteer requestVolunteerModel) {
         this.requestVolunteerModel = requestVolunteerModel;
         connection = DBConnection.getConnection();
@@ -46,19 +38,6 @@ public class RequestManager {
         this.dOVMailboxModel = new DOVMailbox();
     }
 
-//    public List<District> showDistrict() throws SQLException {
-//        List<District> districts = new ArrayList<>();
-//        PreparedStatement preparedStatement = connection.prepareStatement("select name from vws.district;");
-//        ResultSet resultSet = preparedStatement.executeQuery();
-//        while (resultSet.next()) {
-//            District district = new District();
-////            district.setId(resultSet.getInt(1));
-//            district.setName(resultSet.getString(2));
-////            district.setInstitutionsNumbers(resultSet.getInt(3));
-//            districts.add(district);
-//        }
-//        return districts;
-//    }
     public List<String> showDistrict() throws SQLException {
         List<String> districts = new ArrayList<>();
         PreparedStatement preparedStatement = connection.prepareStatement("select name from vws.district;");
@@ -147,18 +126,4 @@ public class RequestManager {
             e.printStackTrace();
         }
     }
-
-//    public void delete(int objectId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("delete from vws.volunteerrequests where id=?");
-//            statement.setInt(1, objectId);
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void edit(int objectId) {
-//
-//    }
 }

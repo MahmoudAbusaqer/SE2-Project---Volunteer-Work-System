@@ -40,7 +40,6 @@ public class StudentMailboxScreen implements Initializable {
         this.controller = new StudentMailboxManager(model);
         this.model = new StudentMailbox();
         MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
-        //MailboxPane.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
         try {
             showMailbox(student.getId());
         } catch (SQLException ex) {
@@ -48,12 +47,6 @@ public class StudentMailboxScreen implements Initializable {
         }
     }
 
-//    public StudentMailboxScreen(StudentMailbox model) {
-//        this.model = model;
-//    }
-//    public void setController(StudentMailboxManager controller) {
-//        this.controller = controller;
-//    }
     public void showMailbox(int id) throws SQLException {
         List<StudentMailbox> studentMailboxs = new ArrayList<>();
         studentMailboxs = controller.showMailbox(id);
@@ -63,25 +56,12 @@ public class StudentMailboxScreen implements Initializable {
             final String body = mailbox.getBody();
             Button mailButton = new Button(mailbox.getTitle());
             MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
-            //        mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
             mailButton.setStyle("-fx-background-color: #2A4166;");
             mailButton.setOnAction((e) -> {
                 mailboxTextArea.setText(body);
             });
             MailboxPane.getChildren().add(mailButton);
         }
-//        int index = studentMailboxs.size();
-//        while (!studentMailboxs.isEmpty()) {
-//            StudentMailbox mailbox = new StudentMailbox();
-//            mailbox = studentMailboxs.get(index);
-//            Button mailButton = new Button(mailbox.getTitle());
-//            mailButton.setStyle("-fx-background-color: #2A4166;");
-//            mailboxTextArea.setText(mailbox.getBody());
-//            MailboxPane.getChildren().add(mailButton);
-//            //here need to match every GUI field with the model.get
-//            studentMailboxs.remove(index);
-//            index--;
-//        }
     }
 
     public static Student getStudent() {

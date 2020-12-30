@@ -81,17 +81,4 @@ public class CreateInitiativeManager {
             e.printStackTrace();
         }
     }
-//    public void delete(int objectId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("delete from vws.initiativesreqests where id=?");
-//            statement.setInt(1, objectId);
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void edit(int objectId) {
-//
-//    }
 }

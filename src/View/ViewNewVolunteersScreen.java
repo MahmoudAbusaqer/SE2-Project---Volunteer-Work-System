@@ -34,13 +34,11 @@ public class ViewNewVolunteersScreen implements Initializable {
 
     private ViewNewVolunteers model;
     private ViewNewVolunteersManager controller;
-    private StartPagePanes startPagePanes;
     static Institutions institutions;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new ViewNewVolunteersManager(model);
-//        institutions = startPagePanes.getInstitutions();
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
         TableColMail.setCellValueFactory(new PropertyValueFactory("email"));
@@ -53,24 +51,10 @@ public class ViewNewVolunteersScreen implements Initializable {
         }
     }
 
-//    public ViewNewVolunteersScreen(ViewNewVolunteers model) {
-//        this.model = model;
-//    }
-//
-//    public void setController(ViewNewVolunteersManager controller) {
-//        this.controller = controller;
-//    }
     public void showNewVolunteers(int institutionId) throws SQLException {
         List<ViewNewVolunteers> newVolunteerses = new ArrayList<>();
         newVolunteerses = controller.showNewVolunteers(institutionId);
         TableView.getItems().setAll(newVolunteerses);
-//        int index = 0;
-//        while (!newVolunteerses.isEmpty()) {
-//            model = newVolunteerses.get(index);
-//            TableView.getItems().setAll(newVolunteerses);
-//            newVolunteerses.remove(index);
-//            index++;
-//        }
     }
 
     public static Institutions getInstitutions() {

@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -35,12 +36,6 @@ public class AddInstitutionsScreen implements Initializable {
         this.model = new AddInstitutions();
     }
 
-//    public AddInstitutionsScreen(AddInstitutions model) {
-//        this.model = model;
-//    }
-//    public void setController(AddInstitutionsManager controller) {
-//        this.controller = controller;
-//    }
     public void AddInstitutionInput(String name, String email, String address, int phone, String district, int studentId, String studentName) {
         controller.AddInstitutionInput(name, address, email, phone, district, studentId, studentName);
     }
@@ -92,6 +87,22 @@ public class AddInstitutionsScreen implements Initializable {
     @FXML
     void buttonSubmit(ActionEvent event) {
         AddInstitutionInput(TextFieldInstitutionName.getText(), TextFieldInstitutionMail.getText(), TextFieldInstitutionAddress.getText(), Integer.parseInt(TextFieldInstitutionPhone.getText()), TextFieldInstitutionDistrict.getText(), student.getId(), student.getName());
+        try {
+            TextFieldInstitutionName.setText("");
+            TextFieldInstitutionMail.setText("");
+            TextFieldInstitutionDistrict.setText("");
+            TextFieldInstitutionAddress.setText("");
+            TextFieldInstitutionPhone.setText("");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("process succeeded");
+            alert.setContentText("You can continue now, you will be notified when the DOV respond 😄");
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Try again later");
+            alert.showAndWait();
+        }
     }
 
     @FXML

@@ -42,13 +42,6 @@ public class StatisticsScreenDoV implements Initializable {
         }
     }
 
-//    public StatisticsScreenDoV(StatisticsDoV model) {
-//        this.model = model;
-//    }
-//
-//    public void setController(StatisticManagerDoV controller) {
-//        this.controller = controller;
-//    }
     public void showStatistics() throws SQLException {
         List<StatisticsDoV> statisticsDoVs = new ArrayList<>();
         statisticsDoVs = controller.showStatistics();
@@ -62,19 +55,6 @@ public class StatisticsScreenDoV implements Initializable {
             labelInstitutionsNumbers.setText(String.valueOf(statisticsDoV.getInstitutionsNumbers()));
             labelNumbersOfVolunteers.setText(String.valueOf(statisticsDoV.getVolunteersNumbers()));
         }
-
-//        int index = 0;
-//        while (!statisticsDoVs.isEmpty()) {//I think this does not need while
-//            model = statisticsDoVs.get(index);
-//            labelActiveInitiatives.setText(String.valueOf(model.getActiveInitiatives()));
-//            labelActiveVolunteers.setText(String.valueOf(model.getActiveVolunteers()));
-//            labelFinishedVolunteers.setText(String.valueOf(model.getFinishedVolunteersNumbers()));
-//            labelInitiativesNumber.setText(String.valueOf(model.getInitiatives()));
-//            labelInstitutionsNumbers.setText(String.valueOf(model.getInstitutionsNumbers()));
-//            labelNumbersOfVolunteers.setText(String.valueOf(model.getVolunteersNumbers()));
-//            statisticsDoVs.remove(index);
-//            index++;
-//        }
     }
 
     @FXML

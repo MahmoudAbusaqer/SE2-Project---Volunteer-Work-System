@@ -99,18 +99,4 @@ public class ReportManager {
             e.printStackTrace();
         }
     }
-
-//    public void delete(int objectId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("delete from vws.institutionreport where id=?");
-//            statement.setInt(1, objectId);
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void edit(int objectId) {
-//
-//    }
 }

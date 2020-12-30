@@ -59,28 +59,4 @@ public class StatisticManagerInstitution {
             e.printStackTrace();
         }
     }
-
-//    public void delete(int objectId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("delete from vws.statisticsinstitution where id=?");
-//            statement.setInt(1, objectId);
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    public void edit(StatisticsInstitution newObject) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("update vws.statisticsinstitution set institutionId=?, institutionName=?, numberOfAllStudents=?, studentsFinishedNumbers=?, activeVolunteers=? where id=?");
-            statement.setInt(1, newObject.getInstitutionId());
-            statement.setString(2, newObject.getInstitutionName());
-            statement.setInt(3, newObject.getNumberOfAllStudents());
-            statement.setInt(4, newObject.getStudentsFinishedNumbers());
-            statement.setInt(5, newObject.getActiveVolunteers());
-            statement.setInt(6, newObject.getId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

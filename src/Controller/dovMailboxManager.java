@@ -78,22 +78,13 @@ public class dovMailboxManager {
         mailbox.setSenderId(senderId);
         mailbox.setSenderName(senderName);
         mailbox.setTitle(title);
-
         mailbox.setTypeOfMail(typeOfMail);
         mailbox.setDate(date);
         mailbox.setApproveOrDeny(approveOrDeny);
         if (approveOrDeny) {
             mailbox.setBody("Your request to " + typeOfMail + " was approved ☺ you can now continue.");
-//                case "finish vlounteer"://need db trigger
         } else {
             mailbox.setBody("Your request to " + typeOfMail + " was denied 😢 try again and make sure you complete all the processes.");
-            switch (typeOfMail) {
-                case "finish vlounteer":
-//                    deleteInstitutionReport();//need db trigger
-                    break;
-                default:
-
-            }
         }
         addToInstitutions(mailbox);//to send the email to institution
     }
@@ -106,22 +97,8 @@ public class dovMailboxManager {
         mailbox.setTitle(title);
         if (approveOrDeny) {
             mailbox.setBody("Your request to " + typeOfMail + " was approved ☺ you can now continue.");
-            //for all need a db triggers
         } else {
             mailbox.setBody("Your request to " + typeOfMail + " was denied 😢 try again.");
-            switch (typeOfMail) {
-                case "vlounteer":
-//                    deleteVolunteer(sendfor);
-                    break;
-                case "suggest institution":
-//                    deleteInstitution();//need db trigger
-                    break;
-                case "create initiative":
-                    deleteInitiativ(senderId);
-                    break;
-                default:
-                //alert
-            }
         }
         mailbox.setTypeOfMail(typeOfMail);
         mailbox.setDate(date);
@@ -178,63 +155,12 @@ public class dovMailboxManager {
         }
     }
 
-    public void delete(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.dovmailbox where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteVolunteer(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.volunteers where studentId=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteInstitution(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.institutions where id=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteInitiativ(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.initiativesreqests where studentId=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void deleteInstitutionReport(int objectId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("delete from vws.institutionreport where studentId=?");
-            statement.setInt(1, objectId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void edit(int objectId, boolean approveOrDeny) {
         try {
             PreparedStatement statement = connection.prepareStatement("update vws.dovmailbox set approveOrDeny=? where id=?");
             statement.setBoolean(1, approveOrDeny);
             statement.setInt(2, objectId);
             statement.executeUpdate();
-//            System.out.println(statement.executeUpdate());
         } catch (SQLException e) {
             e.printStackTrace();
         }

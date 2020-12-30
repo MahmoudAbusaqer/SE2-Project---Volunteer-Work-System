@@ -32,7 +32,6 @@ public class StatisticsScreenInstitution implements Initializable {
 
     private StatisticsInstitution model;
     private StatisticManagerInstitution controller;
-    private StartPagePanes startPagePanes;
     static Institutions institutions;
 
     @FXML
@@ -45,7 +44,6 @@ public class StatisticsScreenInstitution implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new StatisticManagerInstitution(model);
-//        institutions = startPagePanes.getInstitutions();
         try {
             showStatistics(institutions.getId());
         } catch (SQLException ex) {
@@ -53,22 +51,11 @@ public class StatisticsScreenInstitution implements Initializable {
         }
     }
 
-//    public StatisticsScreenInstitution(StatisticsInstitution model) {
-//        this.model = model;
-//    }
-//
-//    public void setController(StatisticManagerInstitution controller) {
-//        this.controller = controller;
-//    }
     public void showStatistics(int institutionId) throws SQLException {
         List<StatisticsInstitution> statisticsInstitutions = new ArrayList<>();
         statisticsInstitutions = controller.showStatistics(institutionId);
-//        for (int i = 0; i < statisticsInstitutions.size(); i++) {
-//
-//        }
-
         int index = 0;
-        while (!statisticsInstitutions.isEmpty()) {//I think this does not need while
+        while (!statisticsInstitutions.isEmpty()) {
             model = statisticsInstitutions.get(index);
             labelFinishedVolunteers.setText(String.valueOf(model.getStudentsFinishedNumbers()));
             labelNumbersOfVolunteers.setText(String.valueOf(model.getNumberOfAllStudents()));
@@ -86,10 +73,6 @@ public class StatisticsScreenInstitution implements Initializable {
         StatisticsScreenInstitution.institutions = institutions;
     }
 
-    public void fillLabels() {
-        
-    }
-    
     @FXML
     private Pane rootpane;
 

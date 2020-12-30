@@ -16,12 +16,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
@@ -46,13 +45,7 @@ public class DoVMailbox implements Initializable {
             Logger.getLogger(DoVMailbox.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-//    public DoVMailbox(DOVMailbox model) {
-//        this.model = model;
-//    }
 
-//    public void setController(dovMailboxManager controller) {
-//        this.controller = controller;
-//    }
     public void showMailbox() throws SQLException {
         List<DOVMailbox> dOVMailboxs = new ArrayList<>();
         try {
@@ -62,7 +55,6 @@ public class DoVMailbox implements Initializable {
                 mailbox = dOVMailboxs.get(i);
                 final int sendfor = mailbox.getSendFor();
                 final int mailId = mailbox.getId();
-//                System.out.println("send for: " + sendfor);
                 final String body = mailbox.getBody();
                 final String typeOfMail = mailbox.getTypeOfMail();
                 Button mailButton = new Button(mailbox.getTitle());
@@ -91,6 +83,17 @@ public class DoVMailbox implements Initializable {
 
     public void mailResponse(int sendfor, int senderId, String senderName, String title, String body, Date date, boolean approveOrDeny, String dovmailbox, int mailId) {
         controller.mailResponse(sendfor, senderId, senderName, title, body, new java.sql.Timestamp(System.currentTimeMillis()), approveOrDeny, dovmailbox, mailId);
+        try {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("process succeeded");
+            alert.setContentText("You can continue now 😄");
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Try again later");
+            alert.showAndWait();
+        }
     }
 
     @FXML

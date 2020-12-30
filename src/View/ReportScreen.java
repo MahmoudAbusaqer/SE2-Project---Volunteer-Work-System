@@ -32,18 +32,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ReportScreen implements Initializable {
 
     private Report reportModel;
-    private Student studentModel;
     private ReportManager controller;
-    private StartPagePanes startPagePanes;
     static Institutions institutions;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new ReportManager(reportModel);
         this.reportModel = new Report();
-        this.studentModel = new Student();
-        this.startPagePanes = new StartPagePanes();
-//        institutions = startPagePanes.getInstitutions();
         TableColStudentId.setCellValueFactory(new PropertyValueFactory("id"));
         TableColStudentAddress.setCellValueFactory(new PropertyValueFactory("address"));
         TableColStudentEmail.setCellValueFactory(new PropertyValueFactory("email"));
@@ -52,34 +47,35 @@ public class ReportScreen implements Initializable {
         fillFields();
         tableView.getSelectionModel().selectedItemProperty().addListener(listener -> selectStudent());
         try {
-            showStudent(institutions.getId()/*institutionId*/);
+            showStudent(institutions.getId());
         } catch (SQLException ex) {
             Logger.getLogger(ReportScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-//    public ReportScreen(Report reportModel) {
-//        this.reportModel = reportModel;
-//        this.studentModel = new Student();
-//    }
-//    public void setController(ReportManager controller) {
-//        this.controller = controller;
-//    }
     public void reportInput(int studentId, String studentName, String institutionName, String report) {
         controller.reportInput(studentId, studentName, institutionName, report);
+        try {
+            TextFieldInstitutionName.setText("");
+            TextFieldReport.setText("");
+            TextFieldInstitutionName.setText("");
+            TextFieldStudentId.setText("");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("process succeeded");
+            alert.setContentText("You can continue now, you will be notified when the DOV respond 😄");
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Try again later");
+            alert.showAndWait();
+        }
     }
 
     public void showStudent(int institutionId) throws SQLException {
         List<Student> students = new ArrayList<>();
         students = controller.showStudent(institutionId);
         tableView.getItems().setAll(students);
-//        int index = 0;
-//        while (!students.isEmpty()) {
-//            students.get(index);
-//            tableView.getItems().setAll(students);
-//            students.remove(index);
-//            index++;
-//        }
     }
 
     public void selectStudent() {

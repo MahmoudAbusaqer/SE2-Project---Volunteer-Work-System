@@ -39,7 +39,7 @@ public class AddNewsAndAnnouncementManager {
         addNewsAndAnnouncement.setDate(date);
         add(addNewsAndAnnouncement);
         StudentMailbox studentMailbox = new StudentMailbox();
-        studentMailbox.setSenderId(111/*need to be the dov id or I can let it be a number like 123*/);
+        studentMailbox.setSenderId(111);
         studentMailbox.setSenderName("DOV");
         studentMailbox.setTitle(title);
         studentMailbox.setBody(body);
@@ -47,7 +47,7 @@ public class AddNewsAndAnnouncementManager {
         studentMailbox.setApproveOrDeny(true);
         addToStudent(studentMailbox);
         InstitutionMailbox institutionMailbox = new InstitutionMailbox();
-        institutionMailbox.setSenderId(111/*need to be the dov id or I can let it be a number like 123*/);
+        institutionMailbox.setSenderId(111);
         institutionMailbox.setSenderName("DOV");
         institutionMailbox.setTitle(title);
         institutionMailbox.setBody(body);
@@ -100,18 +100,4 @@ public class AddNewsAndAnnouncementManager {
             e.printStackTrace();
         }
     }
-
-//    public void delete(int objectId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("delete from vws.newsandannounment where id=?");
-//            statement.setInt(1, objectId);
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void edit(int objectId) {
-//
-//    }
 }

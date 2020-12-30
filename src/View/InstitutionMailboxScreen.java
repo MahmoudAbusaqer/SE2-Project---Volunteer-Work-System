@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -47,12 +46,6 @@ public class InstitutionMailboxScreen implements Initializable {
         }
     }
 
-//    public InstitutionMailboxScreen(InstitutionMailbox model) {
-//        this.model = model;
-//    }
-//    public void setController(InstitutionMailboxManager controller) {
-//        this.controller = controller;
-//    }
     public void showMailbox(int id) throws SQLException {
         List<InstitutionMailbox> institutionMailboxs = new ArrayList<>();
         institutionMailboxs = controller.showMailbox(id);
@@ -62,20 +55,12 @@ public class InstitutionMailboxScreen implements Initializable {
             final String body = mailbox.getBody();
             Button mailButton = new Button(mailbox.getTitle());
             MailboxPane.getStylesheets().add("View/SceneBuilder/StudentGUI/mailstyle.css");
-//            mailButton.setStyle("View/SceneBuilder/StudentGUI/mailstyle.css");
             mailButton.setStyle("-fx-background-color: #2A4166;");
             mailButton.setOnAction((e) -> {
                 mailboxTextArea.setText(body);
             });
             MailboxPane.getChildren().add(mailButton);
         }
-//        int index = 0;
-//        while (!institutionMailboxs.isEmpty()) {
-//            model = institutionMailboxs.get(index);
-//            //here need to match every GUI field with the model.get
-//            institutionMailboxs.remove(index);
-//            index++;
-//        }
     }
 
     public static Institutions getInstitutions() {
