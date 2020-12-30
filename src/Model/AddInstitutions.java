@@ -17,6 +17,7 @@ public class AddInstitutions {
     private String email;
     private int phone;
     private String district;
+    private int studentId;
 
     public int getId() {
         return id;
@@ -66,4 +67,11 @@ public class AddInstitutions {
         this.district = district;
     }
 
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 }
