@@ -20,22 +20,6 @@ public class DBConnection {
     private DBConnection() {
     }
 
-//    public DBConnection getConnection() {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            connection
-//                    = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vws?serverTimezone=UTC",
-//                            "root", "123456");
-//            this.statement = connection.createStatement();
-////            connection.close();
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            ex.printStackTrace();
-//        }
-////        if (connection == null) {
-////            connection = new DBConnection();
-////        }
-//        return connection;
-//    }
     public static Connection getConnection() {
         if (connection != null) {
             return connection;

@@ -14,7 +14,7 @@ public class Report {
     private int id;
     private int studentId;
     private String studentName;
-    private String institutionName;
+    private int institutionId;
     private String report;
 
     public int getId() {
@@ -41,12 +41,12 @@ public class Report {
         this.studentName = studentName;
     }
 
-    public String getInstitutionName() {
-        return institutionName;
+    public int getInstitutionId() {
+        return institutionId;
     }
 
-    public void setInstitutionName(String institutionName) {
-        this.institutionName = institutionName;
+    public void setInstitutionId(int institutionId) {
+        this.institutionId = institutionId;
     }
 
     public String getReport() {

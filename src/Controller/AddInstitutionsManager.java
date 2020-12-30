@@ -58,13 +58,6 @@ public class AddInstitutionsManager implements SendToDOV {
             statement.setString(5, newObject.getDistrict());
             statement.setInt(6, newObject.getStudentId());
             statement.executeUpdate();
-            PreparedStatement statement2 = connection.prepareStatement("insert into vws.institutions(name, address, email, phone, district) values (?,?,?,?,?)");
-            statement2.setString(1, newObject.getName());
-            statement2.setString(2, newObject.getAddress());
-            statement2.setString(3, newObject.getEmail());
-            statement2.setInt(4, newObject.getPhone());
-            statement2.setString(5, newObject.getDistrict());
-            statement2.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

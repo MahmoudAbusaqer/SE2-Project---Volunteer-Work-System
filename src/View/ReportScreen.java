@@ -53,8 +53,8 @@ public class ReportScreen implements Initializable, Create {
         }
     }
 
-    public void reportInput(int studentId, String studentName, String institutionName, String report) {
-        controller.reportInput(studentId, studentName, institutionName, report);
+    public void reportInput(int studentId, String studentName, int institutionId, String report) {
+        controller.reportInput(studentId, studentName, institutionId, report);
         try {
             TextFieldInstitutionName.setText("");
             TextFieldReport.setText("");
@@ -147,7 +147,7 @@ public class ReportScreen implements Initializable, Create {
     @FXML
     @Override
     public void buttonSubmit(ActionEvent event) {
-        reportInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), TextFieldInstitutionName.getText(), TextFieldReport.getText());
+        reportInput(Integer.parseInt(TextFieldStudentId.getText()), TextFieldStudentName.getText(), Integer.parseInt(TextFieldInstitutionName.getText()), TextFieldReport.getText());
     }
 
     @FXML
@@ -159,7 +159,7 @@ public class ReportScreen implements Initializable, Create {
 
     @FXML
     void buttonNewVolunteers(ActionEvent event) throws IOException {
-        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewNewVolunteers.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("SceneBuilder/InstitutionGUI/ViewsNewVolunteers.fxml"));
         rootpane.getChildren().setAll(pane);
     }
 

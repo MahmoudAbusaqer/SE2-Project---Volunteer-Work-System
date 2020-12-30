@@ -76,7 +76,6 @@ public class RequestScreen implements Initializable, Create {
     public void showInstitutions(String district) throws SQLException {
         List<Institutions> institutionses = new ArrayList<>();
         institutionses = controller.showInstitutions(district);
-        System.out.println(institutionses.size());
         TableView.getItems().setAll(institutionses);
     }
 

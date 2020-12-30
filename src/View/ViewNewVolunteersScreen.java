@@ -40,7 +40,7 @@ public class ViewNewVolunteersScreen implements Initializable, Shows {
     public void initialize(URL url, ResourceBundle rb) {
         this.controller = new ViewNewVolunteersManager(model);
         TableColAddress.setCellValueFactory(new PropertyValueFactory("address"));
-        TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
+//        TableColFaculty.setCellValueFactory(new PropertyValueFactory("faculty"));
         TableColMail.setCellValueFactory(new PropertyValueFactory("email"));
         TableColPhone.setCellValueFactory(new PropertyValueFactory("phone"));
         TableColStudent.setCellValueFactory(new PropertyValueFactory("name"));
@@ -92,9 +92,6 @@ public class ViewNewVolunteersScreen implements Initializable, Shows {
 
     @FXML
     private TableColumn<ViewNewVolunteers, String> TableColAddress;
-
-    @FXML
-    private TableColumn<ViewNewVolunteers, String> TableColFaculty;
 
     @FXML
     private TableColumn<ViewNewVolunteers, String> TableColStudent;

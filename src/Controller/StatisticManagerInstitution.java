@@ -31,7 +31,7 @@ public class StatisticManagerInstitution {
 
     public List<StatisticsInstitution> showStatistics(int institutionId) throws SQLException {
         List<StatisticsInstitution> statisticsInstitutions = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.statisticsinstitution where id=?;");
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from vws.statisticsinstitution where institutionId=?;");
         preparedStatement.setInt(1, institutionId);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {

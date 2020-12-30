@@ -53,18 +53,18 @@ public class ReportManager implements SendToDOV {
         return students;
     }
 
-    public void reportInput(int studentId, String studentName, String institutionName, String report) {
+    public void reportInput(int studentId, String studentName, int institutionId, String report) {
         Report report1 = new Report();
         report1.setStudentId(studentId);
         report1.setStudentName(studentName);
-        report1.setInstitutionName(institutionName);
+        report1.setInstitutionId(institutionId);
         report1.setReport(report);
         add(report1);
         DOVMailbox dOVMailbox = new DOVMailbox();
         dOVMailbox.setSenderId(studentId);
         dOVMailbox.setSenderName(studentName);
         dOVMailbox.setTitle("A new finish report from an institution ");
-        dOVMailbox.setBody("The student: " + studentName + " with the id: " + studentId + " who volunteered in: " + institutionName + " and here is the institution report: " + report + ".");
+        dOVMailbox.setBody("The student: " + studentName + " with the id: " + studentId + " who volunteered in institution: " + institutionId + " and here is the institution report: " + report + ".");
         dOVMailbox.setDate(new java.sql.Timestamp(System.currentTimeMillis()));
         dOVMailbox.setTypeOfMail("finish vlounteer");
         sendToDOV(dOVMailbox);
@@ -72,10 +72,10 @@ public class ReportManager implements SendToDOV {
 
     public void add(Report newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into vws.institutionreport(studentId, studentName, institutionName, report) values (?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into vws.institutionreport(studentId, studentName, institutionId, report) values (?, ?, ?, ?)");
             statement.setInt(1, newObject.getStudentId());
             statement.setString(2, newObject.getStudentName());
-            statement.setString(3, newObject.getInstitutionName());
+            statement.setInt(3, newObject.getInstitutionId());
             statement.setString(4, newObject.getReport());
             statement.executeUpdate();
         } catch (SQLException e) {

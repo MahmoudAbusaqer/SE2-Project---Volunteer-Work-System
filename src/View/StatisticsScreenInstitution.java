@@ -57,10 +57,11 @@ public class StatisticsScreenInstitution implements Initializable, Statistics {
         statisticsInstitutions = controller.showStatistics(institutionId);
         int index = 0;
         while (!statisticsInstitutions.isEmpty()) {
-            model = statisticsInstitutions.get(index);
-            labelFinishedVolunteers.setText(String.valueOf(model.getStudentsFinishedNumbers()));
-            labelNumbersOfVolunteers.setText(String.valueOf(model.getNumberOfAllStudents()));
-            labelActiveVolunteers.setText(String.valueOf(model.getActiveVolunteers()));
+            StatisticsInstitution institution = new StatisticsInstitution();
+            institution = statisticsInstitutions.get(index);
+            labelFinishedVolunteers.setText(String.valueOf(institution.getStudentsFinishedNumbers()));
+            labelNumbersOfVolunteers.setText(String.valueOf(institution.getNumberOfAllStudents()));
+            labelActiveVolunteers.setText(String.valueOf(institution.getActiveVolunteers()));
             statisticsInstitutions.remove(index);
             index++;
         }
