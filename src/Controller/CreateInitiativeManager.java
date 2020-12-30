@@ -67,7 +67,7 @@ public class CreateInitiativeManager {
 
     public void sendToDOV(DOVMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
@@ -75,6 +75,7 @@ public class CreateInitiativeManager {
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
             statement.setBoolean(6, newObject.isApproveOrDeny());
             statement.setString(7, newObject.getTypeOfMail());
+            statement.setInt(8, newObject.getSenderId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

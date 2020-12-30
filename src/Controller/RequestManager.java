@@ -10,6 +10,7 @@ import Model.DOVMailbox;
 import Model.District;
 import Model.Institutions;
 import Model.RequestVolunteer;
+import Model.volunteers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -117,6 +118,14 @@ public class RequestManager {
             statement.setString(5, newObject.getDistrict());
             statement.setString(6, newObject.getAddress());
             statement.executeUpdate();
+            PreparedStatement statement2 = connection.prepareStatement("insert into vws.volunteers(studentId, studentName, institutionId, institutionName, district, address) values (?, ?, ?, ?, ?, ?)");
+            statement2.setInt(1, newObject.getStudentId());
+            statement2.setString(2, newObject.getStudentName());
+            statement2.setInt(3, newObject.getInstitutionId());
+            statement2.setString(4, newObject.getStudentName());
+            statement2.setString(5, newObject.getDistrict());
+            statement2.setString(6, newObject.getAddress());
+            statement2.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -124,7 +133,7 @@ public class RequestManager {
 
     public void sendToDOV(DOVMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
@@ -132,6 +141,7 @@ public class RequestManager {
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
             statement.setBoolean(6, newObject.isApproveOrDeny());
             statement.setString(7, newObject.getTypeOfMail());
+            statement.setInt(8, newObject.getSenderId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

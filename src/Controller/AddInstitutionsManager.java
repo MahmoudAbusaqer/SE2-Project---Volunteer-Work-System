@@ -56,6 +56,13 @@ public class AddInstitutionsManager {
             statement.setInt(4, newObject.getPhone());
             statement.setString(5, newObject.getDistrict());
             statement.executeUpdate();
+            PreparedStatement statement2 = connection.prepareStatement("insert into vws.institutions(name, address, email, phone, district) values (?,?,?,?,?)");
+            statement2.setString(1, newObject.getName());
+            statement2.setString(2, newObject.getAddress());
+            statement2.setString(3, newObject.getEmail());
+            statement2.setInt(4, newObject.getPhone());
+            statement2.setString(5, newObject.getDistrict());
+            statement2.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,7 +70,7 @@ public class AddInstitutionsManager {
 
     public void sendToDOV(DOVMailbox newObject) {
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail) values (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, newObject.getSenderId());
             statement.setString(2, newObject.getSenderName());
             statement.setString(3, newObject.getTitle());
@@ -71,6 +78,7 @@ public class AddInstitutionsManager {
             statement.setDate(5, new java.sql.Date(newObject.getDate().getTime()));
             statement.setBoolean(6, newObject.isApproveOrDeny());
             statement.setString(7, newObject.getTypeOfMail());
+            statement.setInt(8, newObject.getSenderId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
