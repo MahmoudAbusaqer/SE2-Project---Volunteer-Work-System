@@ -91,7 +91,6 @@ public class RequestScreen implements Initializable, Create {
     public void fillFields() {
         TextFieldStudentId.setText(String.valueOf(student.getId()));
         TextFieldStudentName.setText(student.getName());
-        System.out.println(Integer.parseInt(TextFieldStudentId.getText()));
     }
 
     public void requestVlounteer(int studentId, String studentName, int institutionId, String institutionName, String district, String address) {

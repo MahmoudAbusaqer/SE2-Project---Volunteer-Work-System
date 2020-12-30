@@ -123,7 +123,7 @@ public class StartPagePanes implements Initializable {
                 }
             }
         } catch (NullPointerException e) {
-            System.out.println("wrong infromation");
+
         }
     }
 
