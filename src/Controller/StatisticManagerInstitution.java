@@ -46,17 +46,4 @@ public class StatisticManagerInstitution {
         return statisticsInstitutions;
     }
 
-    public void add(StatisticsInstitution newObject) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("insert into vws.statisticsinstitution(institutionId, institutionName, numberOfAllStudents, studentsFinishedNumbers, activeVolunteers) values (?, ?, ?, ?, ?)");
-            statement.setInt(1, newObject.getInstitutionId());
-            statement.setString(2, newObject.getInstitutionName());
-            statement.setInt(3, newObject.getNumberOfAllStudents());
-            statement.setInt(4, newObject.getStudentsFinishedNumbers());
-            statement.setInt(5, newObject.getActiveVolunteers());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

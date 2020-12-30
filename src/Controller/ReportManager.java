@@ -21,7 +21,7 @@ import java.util.List;
  * @author Mahmoud_Abusaqer
  */
 //This class is only for the Institutions to send a report to the DOVMailbox when a student completes all the hours required to pass the volunteer course.
-public class ReportManager {
+public class ReportManager implements SendToDOV {
 
     private Report reportModel;
     private Student studentModel;
@@ -83,6 +83,7 @@ public class ReportManager {
         }
     }
 
+    @Override
     public void sendToDOV(DOVMailbox newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");

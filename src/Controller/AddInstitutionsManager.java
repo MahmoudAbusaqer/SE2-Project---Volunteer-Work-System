@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author Mahmoud_Abusaqer
  */
 //This class is only for the student to only suggest a new Institution to the system.
-public class AddInstitutionsManager {
+public class AddInstitutionsManager implements SendToDOV {
 
     private AddInstitutions addInstitutionsModel;
     private DOVMailbox dOVMailboxModel;
@@ -70,6 +70,7 @@ public class AddInstitutionsManager {
         }
     }
 
+    @Override
     public void sendToDOV(DOVMailbox newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");

@@ -22,7 +22,7 @@ import java.util.List;
  * @author Mahmoud_Abusaqer
  */
 //This class is only for the student to only request to volunteer, when the student chooses the institution and send the request, the request will go to the DOVMailbox.
-public class RequestManager {
+public class RequestManager implements SendToDOV{
 
     private District districtModel;
     private Institutions institutionsModel;
@@ -110,6 +110,7 @@ public class RequestManager {
         }
     }
 
+    @Override
     public void sendToDOV(DOVMailbox newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");

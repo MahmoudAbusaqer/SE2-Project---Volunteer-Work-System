@@ -45,19 +45,4 @@ public class StatisticManagerDoV {
         }
         return statisticsDoVs;
     }
-
-    public void add(StatisticsDoV newObject) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("insert into vws.statisticsdov(volunteersNumbers, institutionNumbers, finishedVolunteersNumbers, initiatives, activeVolunteers, activeInitiatives) values (?, ?, ?, ?, ?, ?)");
-            statement.setInt(1, newObject.getVolunteersNumbers());
-            statement.setInt(2, newObject.getInstitutionsNumbers());
-            statement.setInt(3, newObject.getFinishedVolunteersNumbers());
-            statement.setInt(4, newObject.getInitiatives());
-            statement.setInt(5, newObject.getActiveVolunteers());
-            statement.setInt(6, newObject.getActiveInitiatives());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

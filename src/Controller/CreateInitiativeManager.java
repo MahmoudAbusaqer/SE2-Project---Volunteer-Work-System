@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author Mahmoud_Abusaqer
  */
 //This class is only for the student to only suggest a new Initiative to the system.
-public class CreateInitiativeManager {
+public class CreateInitiativeManager implements SendToDOV {
 
     private CreateInitiative createInitiativeModel;
     private DOVMailbox dOVMailboxModel;
@@ -65,6 +65,7 @@ public class CreateInitiativeManager {
         }
     }
 
+    @Override
     public void sendToDOV(DOVMailbox newObject) {
         try {
             PreparedStatement statement = connection.prepareStatement("insert into dovmailbox(senderId, senderName, title, body, date, approveOrDeny, typeOfMail, sendfor) values (?, ?, ?, ?, ?, ?, ?, ?)");

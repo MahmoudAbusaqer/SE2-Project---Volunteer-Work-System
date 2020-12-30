@@ -5,10 +5,12 @@
  */
 package Controller;
 
+import Model.DOVMailbox;
+
 /**
  *
  * @author Mahmoud_Abusaqer
  */
-public class Context {
-    
+public interface SendToDOV {
+    public void sendToDOV(DOVMailbox newObject);
 }

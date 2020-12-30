@@ -19,7 +19,7 @@ import java.util.Date;
  * @author Mahmoud_Abusaqer
  */
 //This class is only for the DOV to only add a new News and Announcement and send them to the students & Institutions Mailboxes.
-public class AddNewsAndAnnouncementManager {
+public class AddNewsAndAnnouncementManager{
 
     private AddNewsAndAnnouncement addNewsAndAnnouncementModel;
     private StudentMailbox studentMailboxModel;
