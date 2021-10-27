@@ -10,7 +10,7 @@ What was implemented in this project:
 - An MVC Architecture system in Java.
 - All the functionality described above.
 - Different design patterns like MVC, Singleton, Factory, Façade, and Strategy.
-- - Appropriate collections and functional programming to process data.
+- Appropriate collections and functional programming to process data.
 - Apply object-oriented concepts.
 - A look-and-feel GUI using JavaFX.
 - Connect to MySQL database throw JDBC and by using MySQL Workbench.
