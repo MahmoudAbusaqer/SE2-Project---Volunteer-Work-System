@@ -9,8 +9,8 @@ The University will keep tracking of all the operation that happens in the syste
 What was implemented in this project:
 - An MVC Architecture system in Java.
 - All the functionality described above.
-- Diffrent design pattrens.
-- Appropriate collections and functional programming to process data.
+- Different design patterns like MVC, Singleton, Factory, Façade, and Strategy.
+- - Appropriate collections and functional programming to process data.
 - Apply object-oriented concepts.
 - A look-and-feel GUI using JavaFX.
 - Connect to MySQL database throw JDBC and by using MySQL Workbench.
